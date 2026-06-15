@@ -8,14 +8,15 @@ import Services from '../components/Services.astro';
 import About from '../components/About.astro';
 import Reviews from '../components/Reviews.astro';
 import Gallery from '../components/Gallery.astro';
+import FAQ from '../components/FAQ.astro';
 import CTA from '../components/CTA.astro';
 import { brand } from '../config/brand';
 import { client } from '../data/client';
 ---
 
 <BaseLayout
-  title={brand.name}
-  description={brand.description}
+  title="Torby Reklamowe z Nadrukiem i Logo | Producent — MER Plus"
+  description="Producent toreb papierowych reklamowych i prezentowych. Torby z nadrukiem logo, torby ozdobne, pudełka prezentowe. Ponad 30 lat doświadczenia. Realizacja od 3 dni. Bezpłatna wycena."
   schema={{
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
@@ -35,12 +36,13 @@ import { client } from '../data/client';
 >
   <Header slot="header" />
 
-  <Hero />
+  <Hero heading="Producent toreb reklamowych i ozdobnych z papieru" />
   <TrustBar />
   <Services />
   <About />
   <Reviews />
   <Gallery />
+  <FAQ />
   <CTA />
 
   <Footer slot="footer" />

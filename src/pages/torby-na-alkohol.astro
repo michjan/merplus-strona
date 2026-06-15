@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Banner from '../components/Banner.astro';
+import CTA from '../components/CTA.astro';
+import RelatedProducts from '../components/RelatedProducts.astro';
+import { Image } from 'astro:assets';
+import img1 from '../assets/images/gallery/torba-na-wino-gautier.jpg';
+import img2 from '../assets/images/gallery/torba-na-wino-gautier-detal.jpg';
+import img3 from '../assets/images/gallery/torba-na-wino-gautier-zblizenie.jpg';
+---
+
+<BaseLayout
+  title="Torby na Alkohol z Nadrukiem | MER Plus"
+  description="Papierowe torby na wino i alkohol z nadrukiem — eleganckie opakowania na butelki dla sklepów, winiarni i firm. Produkcja własna. Bezpłatna wycena."
+>
+  <Header slot="header" />
+
+  <Banner title="Torby na alkohol i wino z nadrukiem" parent={{ label: 'Oferta', href: '/services' }} />
+
+  <section class="py-section">
+    <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
+      <div class="space-y-5 lg:order-1">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Torby na alkohol</span>
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">Eleganckie opakowanie do butelek wina i alkoholi</h2>
+        <p class="text-text-muted leading-relaxed">
+          Torba na wino lub inny alkohol musi spełniać kilka warunków jednocześnie: dobrze trzymać kształt, stabilnie utrzymywać ciężar szklanej butelki, a przy tym wyglądać estetycznie — w końcu często towarzyszy prezentom firmowym, degustacjom czy zakupom w sklepach specjalistycznych. W MER Plus projektujemy i produkujemy papierowe torby na butelki, które łączą wytrzymałość z atrakcyjnym wzornictwem.
+        </p>
+        <p class="text-text-muted leading-relaxed">
+          Torby na alkohol możemy wykonać z usztywnionym dnem, wzmocnionymi uchwytami oraz nadrukiem logo winiarni, sklepu lub marki — np. na potrzeby degustacji, prezentów firmowych czy promocji sezonowych.
+        </p>
+      </div>
+      <div class="grid grid-cols-2 gap-4 lg:order-2">
+        <div class="overflow-hidden rounded-lg shadow-lg">
+          <Image src={img1} alt="Torba papierowa na wino z nadrukiem" width={500} height={500} loading="eager" class="size-full object-cover" />
+        </div>
+        <div class="overflow-hidden rounded-lg shadow-lg">
+          <Image src={img2} alt="Detal torby na wino Gautier" width={500} height={500} loading="lazy" class="size-full object-cover" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-surface py-section">
+    <div class="mx-auto max-w-site px-4 sm:px-6">
+      <div class="mx-auto mb-10 max-w-2xl text-center">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Zastosowanie</span>
+        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">Gdzie wykorzystać torby na alkohol</h2>
+      </div>
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-3">
+        <div class="rounded-lg bg-background p-6 shadow-sm">
+          <h3 class="font-heading text-lg font-semibold text-text">Sklepy i winiarnie</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">Torby z logo wręczane klientom przy zakupie wina, whisky czy innych alkoholi.</p>
+        </div>
+        <div class="rounded-lg bg-background p-6 shadow-sm">
+          <h3 class="font-heading text-lg font-semibold text-text">Degustacje i eventy</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">Eleganckie opakowania na butelki wręczane podczas degustacji i imprez branżowych.</p>
+        </div>
+        <div class="rounded-lg bg-background p-6 shadow-sm">
+          <h3 class="font-heading text-lg font-semibold text-text">Prezenty firmowe</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">Torby na alkohol jako część zestawów upominkowych dla klientów i partnerów biznesowych.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section">
+    <div class="mx-auto max-w-site px-4 text-center sm:px-6">
+      <span class="text-topper font-bold uppercase tracking-widest text-accent">Wykonanie</span>
+      <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">Solidna konstrukcja i estetyczny wygląd</h2>
+      <p class="mx-auto mt-4 max-w-2xl text-text-muted leading-relaxed">
+        Każda torba na alkohol projektowana jest tak, aby pomieścić jedną lub kilka butelek i bezpiecznie je transportować. Stosujemy odpowiednio dobraną gramaturę papieru, wzmocnione dno oraz solidne uchwyty, a wykończenie — w tym nadruk i kolorystyka — dopasowujemy do marki klienta. Realizujemy zarówno małe partie testowe, jak i większe nakłady na sezon.
+      </p>
+      <div class="mx-auto mt-8 max-w-xs overflow-hidden rounded-lg shadow-lg">
+        <Image src={img3} alt="Zbliżenie na torbę papierową na wino" width={500} height={500} loading="lazy" class="size-full object-cover" />
+      </div>
+    </div>
+  </section>
+
+  <CTA
+    title="Zamów torby na alkohol z nadrukiem"
+    description="Napisz, jakie butelki chcesz pakować, a zaproponujemy odpowiedni format torby i przygotujemy bezpłatną wycenę."
+  />
+
+  <RelatedProducts current="/torby-na-alkohol" />
+
+  <Footer slot="footer" />
+</BaseLayout>

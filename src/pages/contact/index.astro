@@ -7,19 +7,19 @@ import { brand } from '../../config/brand';
 import { client } from '../../data/client';
 ---
 
-<BaseLayout title="Contact" description={`Get in touch with ${brand.name}. Request a free quote or ask us a question.`}>
+<BaseLayout title="Kontakt" description={`Skontaktuj się z ${brand.name}. Poproś o bezpłatną wycenę lub zadaj pytanie.`}>
   <Header slot="header" />
 
-  <Banner title="Contact Us" />
+  <Banner title="Kontakt" />
 
   <section class="py-section">
     <div class="mx-auto grid max-w-site grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-5 lg:gap-14">
 
       <!-- Form -->
       <div class="lg:col-span-3">
-        <h2 class="font-heading text-h2 font-bold uppercase text-text">Send us a message</h2>
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">Wyślij wiadomość</h2>
         <p class="mt-2 mb-8 text-text-muted">
-          Fill out the form below and we'll get back to you within one business day.
+          Wypełnij poniższy formularz, a odpowiemy najszybciej jak to możliwe.
         </p>
 
         <form
@@ -32,11 +32,11 @@ import { client } from '../../data/client';
         >
           <input type="hidden" name="form-name" value="contact" />
           <p class="hidden" aria-hidden="true">
-            <label>Leave this empty: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+            <label>Pozostaw puste: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
           </p>
 
           <label class="flex flex-col gap-1.5">
-            <span class="text-sm font-medium text-text">Name <span class="text-accent" aria-hidden="true">*</span></span>
+            <span class="text-sm font-medium text-text">Imię i nazwisko <span class="text-accent" aria-hidden="true">*</span></span>
             <input
               type="text"
               name="name"
@@ -58,7 +58,7 @@ import { client } from '../../data/client';
           </label>
 
           <label class="flex flex-col gap-1.5">
-            <span class="text-sm font-medium text-text">Phone</span>
+            <span class="text-sm font-medium text-text">Telefon</span>
             <input
               type="tel"
               name="phone"
@@ -69,7 +69,7 @@ import { client } from '../../data/client';
           </label>
 
           <label class="flex flex-col gap-1.5">
-            <span class="text-sm font-medium text-text">Message <span class="text-accent" aria-hidden="true">*</span></span>
+            <span class="text-sm font-medium text-text">Wiadomość <span class="text-accent" aria-hidden="true">*</span></span>
             <textarea
               name="message"
               rows="5"
@@ -82,7 +82,7 @@ import { client } from '../../data/client';
             type="submit"
             class="mt-2 inline-flex min-h-[44px] cursor-pointer items-center justify-center self-start rounded-md bg-accent px-8 py-3 text-base font-bold text-accent-fg shadow-sm transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
-            Send Message
+            Wyślij wiadomość
           </button>
         </form>
       </div>
@@ -90,21 +90,21 @@ import { client } from '../../data/client';
       <!-- Contact info sidebar -->
       <aside class="space-y-8 lg:col-span-2">
         <div>
-          <h3 class="font-heading text-lg font-semibold text-text">Call Us</h3>
+          <h3 class="font-heading text-lg font-semibold text-text">Zadzwoń do nas</h3>
           <a href={`tel:${client.phoneForTel}`} class="mt-1 block text-primary-light font-medium transition-colors hover:text-primary">
             {client.phoneFormatted}
           </a>
         </div>
 
         <div>
-          <h3 class="font-heading text-lg font-semibold text-text">Email Us</h3>
+          <h3 class="font-heading text-lg font-semibold text-text">Napisz do nas</h3>
           <a href={`mailto:${client.email}`} class="mt-1 block text-primary-light font-medium transition-colors hover:text-primary">
             {client.email}
           </a>
         </div>
 
         <div>
-          <h3 class="font-heading text-lg font-semibold text-text">Visit Us</h3>
+          <h3 class="font-heading text-lg font-semibold text-text">Odwiedź nas</h3>
           <a
             href={client.address.mapLink}
             target="_blank"
@@ -118,12 +118,10 @@ import { client } from '../../data/client';
         </div>
 
         <div>
-          <h3 class="font-heading text-lg font-semibold text-text">Hours</h3>
+          <h3 class="font-heading text-lg font-semibold text-text">Godziny pracy</h3>
           <p class="mt-1 text-text-muted">
-            Mon – Fri: 7:00 AM – 6:00 PM<br />
-            Sat: 8:00 AM – 2:00 PM<br />
-            Sun: Closed<br />
-            <span class="font-medium text-accent">24/7 Emergency Service Available</span>
+            Pon. – Pt.: 8:00 – 16:00<br />
+            Sob. – Niedz.: zamknięte
           </p>
         </div>
       </aside>

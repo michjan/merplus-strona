@@ -6,26 +6,27 @@ import Banner from '../components/Banner.astro';
 import CTA from '../components/CTA.astro';
 import { Image } from 'astro:assets';
 import { brand } from '../config/brand';
+import storyImage from '../assets/images/gallery/torba-optyczna-new-optica.jpg';
 
-const team = [
-  { name: 'John Smith',   role: 'Founder & Lead Technician', image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80' },
-  { name: 'Maria Garcia', role: 'Operations Manager',        image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80' },
-  { name: 'David Chen',   role: 'Senior Technician',         image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80' },
+const values = [
+  { title: 'Doświadczenie', description: 'Ponad 30 lat na rynku produkcji opakowań papierowych — wiedza i technologia sprawdzona przez lata.' },
+  { title: 'Własna produkcja', description: 'Wszystkie torby i opakowania powstają w naszym zakładzie, dzięki czemu mamy pełną kontrolę nad jakością i terminami.' },
+  { title: 'Elastyczność', description: 'Realizujemy zarówno małe, indywidualne zamówienia, jak i duże nakłady produkcyjne dla firm.' },
 ];
 ---
 
-<BaseLayout title="About Us" description={`Learn about ${brand.name} — our story, team, and commitment to quality service.`}>
+<BaseLayout title="O nas" description={`Poznaj ${brand.name} — naszą historię, doświadczenie i podejście do jakości.`}>
   <Header slot="header" />
 
-  <Banner title="About Us" />
+  <Banner title="O nas" />
 
   <!-- Story -->
   <section class="py-section">
     <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
       <div class="overflow-hidden rounded-lg shadow-lg">
         <Image
-          src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&q=80"
-          alt="Our team planning a project together"
+          src={storyImage}
+          alt="Torba papierowa wykonana przez MER Plus"
           width={800}
           height={600}
           loading="lazy"
@@ -33,41 +34,31 @@ const team = [
         />
       </div>
       <div class="space-y-5">
-        <span class="text-topper font-bold uppercase tracking-widest text-accent">Our Story</span>
-        <h2 class="font-heading text-h2 font-bold uppercase text-text">Built on trust, driven by quality</h2>
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Nasza historia</span>
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">Tradycja, jakość i pasja do rzemiosła</h2>
         <p class="text-text-muted leading-relaxed">
-          What started as a one-person operation has grown into a trusted local team. For over 15 years, we've served homeowners and businesses with reliable, high-quality work — and we plan to keep doing just that for decades to come.
+          MER Plus działa na rynku od ponad 30 lat. To, co zaczęło się jako niewielka pracownia, rozwinęło się w sprawnie działający zakład produkcyjny, który dziś dostarcza torby papierowe i opakowania reklamowe firmom i klientom indywidualnym w całej Polsce.
         </p>
         <p class="text-text-muted leading-relaxed">
-          Every member of our crew is licensed, insured, and background-checked. We treat your property with the same care we'd give our own, and we stand behind every job with a satisfaction guarantee.
+          Łączymy doświadczenie i nowoczesną produkcję z ręcznym wykończeniem — szczególnie w przypadku toreb ozdobnych i prezentowych. Dzięki własnemu zakładowi możemy elastycznie podejść do każdego zamówienia, niezależnie od jego wielkości.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Team -->
+  <!-- Values -->
   <section class="bg-surface py-section">
     <div class="mx-auto max-w-site px-4 sm:px-6">
       <div class="mx-auto mb-10 max-w-2xl text-center">
-        <span class="text-topper font-bold uppercase tracking-widest text-accent">Our Team</span>
-        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">Meet the crew</h2>
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Dlaczego my</span>
+        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">Co nas wyróżnia</h2>
       </div>
 
-      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {team.map(({ name, role, image }) => (
-          <div class="overflow-hidden rounded-lg bg-background shadow-sm">
-            <Image
-              src={image}
-              alt={name}
-              width={400}
-              height={400}
-              loading="lazy"
-              class="aspect-square w-full object-cover"
-            />
-            <div class="p-5">
-              <h3 class="font-heading text-lg font-semibold text-text">{name}</h3>
-              <p class="text-sm text-text-muted">{role}</p>
-            </div>
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-3">
+        {values.map(({ title, description }) => (
+          <div class="rounded-lg bg-background p-6 shadow-sm">
+            <h3 class="font-heading text-lg font-semibold text-text">{title}</h3>
+            <p class="mt-2 text-sm text-text-muted leading-relaxed">{description}</p>
           </div>
         ))}
       </div>

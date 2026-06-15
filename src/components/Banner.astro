@@ -1,28 +1,53 @@
 ---
+import { Image } from 'astro:assets';
+import bannerBg from '../assets/images/banner-bg.jpg';
+
 interface Props {
   title: string;
+  parent?: { label: string; href: string };
 }
 
-const { title } = Astro.props;
+const { title, parent } = Astro.props;
+
+const labelOverrides: Record<string, string> = {
+  services: 'Oferta',
+};
 
 const segments = Astro.url.pathname
   .split('/')
   .filter(Boolean)
   .map((seg, i, arr) => ({
-    label: seg.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()),
+    label: labelOverrides[seg] ?? seg.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()),
     href: '/' + arr.slice(0, i + 1).join('/'),
     isLast: i === arr.length - 1,
   }));
 ---
 
-<section class="bg-primary py-14 sm:py-16 lg:py-20">
-  <div class="mx-auto max-w-site px-4 sm:px-6">
+<section class="relative overflow-hidden bg-primary py-14 sm:py-16 lg:py-20">
+  <Image
+    src={bannerBg}
+    alt=""
+    class="absolute inset-0 size-full object-cover"
+    widths={[640, 1280, 1920]}
+    sizes="100vw"
+    loading="eager"
+  />
+  <div class="absolute inset-0 bg-gradient-to-r from-primary via-primary/70 to-primary/30"></div>
+  <div class="relative mx-auto max-w-site px-4 sm:px-6">
     <!-- Breadcrumb -->
     <nav aria-label="Breadcrumb" class="mb-4">
       <ol class="flex flex-wrap items-center gap-1.5 text-sm text-primary-fg/60">
         <li>
-          <a href="/" class="transition-colors hover:text-primary-fg">Home</a>
+          <a href="/" class="transition-colors hover:text-primary-fg">Strona główna</a>
         </li>
+        {parent && (
+          <li class="flex items-center gap-1.5">
+            <svg class="size-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+            <a href={parent.href} class="transition-colors hover:text-primary-fg">{parent.label}</a>
+          </li>
+        )}
         {segments.map(({ label, href, isLast }) => (
           <li class="flex items-center gap-1.5">
             <svg class="size-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">

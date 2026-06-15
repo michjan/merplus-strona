@@ -1,0 +1,160 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Banner from '../components/Banner.astro';
+import CTA from '../components/CTA.astro';
+import RelatedProducts from '../components/RelatedProducts.astro';
+import { Image } from 'astro:assets';
+import img1 from '../assets/images/gallery/torba-ozdobna-prouve.jpg';
+import img2 from '../assets/images/gallery/torby-prezentowe-krowki.jpg';
+---
+
+<BaseLayout
+  title="Torby Ozdobne Prezentowe Papierowe | MER Plus"
+  description="Ozdobne torby papierowe i prezentowe z ręcznym wykończeniem — idealne na prezenty, okazje świąteczne i ekskluzywne opakowania. Bezpłatna wycena."
+>
+  <Header slot="header" />
+
+  <Banner title="Torby ozdobne i prezentowe z papieru" parent={{ label: 'Oferta', href: '/services' }} />
+
+  <section class="py-section">
+    <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
+      <div class="space-y-5 lg:order-1">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Torby ozdobne</span>
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">Opakowanie, które jest częścią prezentu</h2>
+        <p class="text-text-muted leading-relaxed">
+          Torba ozdobna to nie tylko opakowanie — to pierwsze wrażenie, jakie wywołuje prezent jeszcze przed jego otwarciem. W naszej ofercie znajdziesz papierowe torby prezentowe w różnych rozmiarach, kolorach i wzorach, wykończone ręcznie z dużą starannością o detal: wstążkami, sznurkami, tasiemkami czy ozdobnymi wzmocnieniami.
+        </p>
+        <p class="text-text-muted leading-relaxed">
+          Torby ozdobne MER Plus produkujemy z myślą o klientach indywidualnych, sklepach, cukierniach, kwiaciarniach oraz firmach przygotowujących prezenty świąteczne lub okolicznościowe dla pracowników i partnerów biznesowych. Każda torba może zostać dopasowana kolorystycznie do okazji — od urodzin i ślubów, przez święta, po eleganckie wydania korporacyjne.
+        </p>
+      </div>
+      <div class="grid grid-cols-2 gap-4 lg:order-2">
+        <div class="overflow-hidden rounded-lg shadow-lg">
+          <Image src={img1} alt="Ozdobna torba papierowa prezentowa" width={500} height={500} loading="eager" class="size-full object-cover" />
+        </div>
+        <div class="overflow-hidden rounded-lg shadow-lg">
+          <Image src={img2} alt="Torby prezentowe z ręcznym wykończeniem" width={500} height={500} loading="lazy" class="size-full object-cover" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-surface py-section">
+    <div class="mx-auto max-w-site px-4 sm:px-6">
+      <div class="mx-auto mb-10 max-w-2xl text-center">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Okazje</span>
+        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">Na jakie okazje sprawdzą się torby ozdobne</h2>
+      </div>
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-3">
+        <div class="rounded-lg bg-background p-6 shadow-sm">
+          <h3 class="font-heading text-lg font-semibold text-text">Święta i okazje rodzinne</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">Torby świąteczne, urodzinowe i ślubne w eleganckiej, ozdobnej formie.</p>
+        </div>
+        <div class="rounded-lg bg-background p-6 shadow-sm">
+          <h3 class="font-heading text-lg font-semibold text-text">Sklepy i butiki</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">Estetyczne opakowanie zakupów, podnoszące postrzeganą wartość produktu.</p>
+        </div>
+        <div class="rounded-lg bg-background p-6 shadow-sm">
+          <h3 class="font-heading text-lg font-semibold text-text">Prezenty firmowe</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">Eleganckie opakowania na prezenty dla pracowników, klientów i partnerów biznesowych.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section">
+    <div class="mx-auto max-w-site px-4 sm:px-6">
+      <div class="mx-auto mb-10 max-w-2xl text-center">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Ręczne wykończenie</span>
+        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">Detale, które robią różnicę</h2>
+        <p class="mt-3 text-text-muted leading-relaxed">
+          Wiele toreb ozdobnych wykańczamy ręcznie — dotyczy to m.in. wiązania uchwytów, mocowania wstążek, naklejania dodatkowych elementów dekoracyjnych czy łączenia różnych struktur papieru. To podejście pozwala nam tworzyć opakowania, które trudno znaleźć w masowej produkcji, a jednocześnie zachować realizację dostępną dla klientów B2C i B2B — zarówno przy zamówieniach jednostkowych, jak i większych nakładach.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6">
+      <div class="mx-auto mb-10 max-w-2xl text-center">
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">Najczęściej zadawane pytania</h2>
+      </div>
+      <div class="space-y-3">
+        {[
+          {
+            question: 'Na jakie okazje najlepiej sprawdzą się torby ozdobne?',
+            answer: 'Torby ozdobne są idealne na prezenty świąteczne, urodzinowe, ślubne, a także jako elegancki dodatek do zakupów w butikach, cukierniach i kwiaciarniach. Sprawdzają się również jako prezenty firmowe dla pracowników i partnerów biznesowych.',
+          },
+          {
+            question: 'Czy torby ozdobne można zamówić w małej ilości?',
+            answer: 'Tak, realizujemy zarówno małe partie na potrzeby indywidualne (np. jeden komplet na konkretną okazję), jak i większe nakłady dla firm i sklepów.',
+          },
+          {
+            question: 'Czym różnią się torby ozdobne od toreb reklamowych?',
+            answer: 'Torby reklamowe (czasem nazywane też torebkami reklamowymi) projektowane są głównie pod kątem nadruku logo i celów marketingowych. Torby ozdobne kładą nacisk na estetykę i ręczne wykończenie — wstążki, sznurki, tasiemki — i służą głównie jako opakowanie prezentowe.',
+          },
+          {
+            question: 'Czy na torbie ozdobnej można umieścić własny nadruk lub logo?',
+            answer: 'Tak, torby ozdobne mogą zostać wzbogacone o nadruk z logo lub motywem okazjonalnym — np. świątecznym — co sprawdza się szczególnie w przypadku prezentów firmowych.',
+          },
+          {
+            question: 'Jakie wykończenia toreb ozdobnych są dostępne?',
+            answer: 'Oferujemy ręczne wykończenia, takie jak wiązane uchwyty, wstążki, sznurki, ozdobne wzmocnienia oraz łączenie różnych struktur i kolorów papieru — dopasowane do charakteru okazji.',
+          },
+        ].map(({ question, answer }) => (
+          <details class="group rounded-lg border border-border bg-background p-5 [&_summary::-webkit-details-marker]:hidden">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-heading text-h3 font-semibold text-text">
+              {question}
+              <svg class="size-5 shrink-0 text-primary transition-transform group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+              </svg>
+            </summary>
+            <p class="mt-3 text-text-muted leading-relaxed">{answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          question: 'Na jakie okazje najlepiej sprawdzą się torby ozdobne?',
+          answer: 'Torby ozdobne są idealne na prezenty świąteczne, urodzinowe, ślubne, a także jako elegancki dodatek do zakupów w butikach, cukierniach i kwiaciarniach. Sprawdzają się również jako prezenty firmowe dla pracowników i partnerów biznesowych.',
+        },
+        {
+          question: 'Czy torby ozdobne można zamówić w małej ilości?',
+          answer: 'Tak, realizujemy zarówno małe partie na potrzeby indywidualne (np. jeden komplet na konkretną okazję), jak i większe nakłady dla firm i sklepów.',
+        },
+        {
+          question: 'Czym różnią się torby ozdobne od toreb reklamowych?',
+          answer: 'Torby reklamowe (czasem nazywane też torebkami reklamowymi) projektowane są głównie pod kątem nadruku logo i celów marketingowych. Torby ozdobne kładą nacisk na estetykę i ręczne wykończenie — wstążki, sznurki, tasiemki — i służą głównie jako opakowanie prezentowe.',
+        },
+        {
+          question: 'Czy na torbie ozdobnej można umieścić własny nadruk lub logo?',
+          answer: 'Tak, torby ozdobne mogą zostać wzbogacone o nadruk z logo lub motywem okazjonalnym — np. świątecznym — co sprawdza się szczególnie w przypadku prezentów firmowych.',
+        },
+        {
+          question: 'Jakie wykończenia toreb ozdobnych są dostępne?',
+          answer: 'Oferujemy ręczne wykończenia, takie jak wiązane uchwyty, wstążki, sznurki, ozdobne wzmocnienia oraz łączenie różnych struktur i kolorów papieru — dopasowane do charakteru okazji.',
+        },
+      ].map(({ question, answer }) => ({
+        '@type': 'Question',
+        name: question,
+        acceptedAnswer: { '@type': 'Answer', text: answer },
+      })),
+    })} />
+  </section>
+
+  <CTA
+    title="Zamów ozdobne torby prezentowe"
+    description="Napisz, na jaką okazję potrzebujesz toreb, a przygotujemy bezpłatną wycenę i propozycję wykończenia."
+  />
+
+  <RelatedProducts current="/torby-ozdobne" />
+
+  <Footer slot="footer" />
+</BaseLayout>

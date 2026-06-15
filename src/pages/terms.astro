@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Banner from '../components/Banner.astro';
+import { client } from '../data/client';
+---
+
+<BaseLayout title="Regulamin" description="Regulamin korzystania ze strony internetowej MER Plus.">
+  <Header slot="header" />
+
+  <Banner title="Regulamin" />
+
+  <section class="py-section">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6">
+      <article class="prose prose-lg max-w-none prose-headings:font-heading prose-headings:uppercase prose-a:text-primary-light hover:prose-a:text-primary">
+        <h2>Postanowienia ogólne</h2>
+        <p>
+          Niniejszy regulamin określa zasady korzystania ze strony internetowej {client.domain},
+          prowadzonej przez {client.name}, {client.address.lineOne},
+          {client.address.zip} {client.address.city}{client.license ? ` (${client.license})` : ''}.
+        </p>
+
+        <h2>Zakres usług</h2>
+        <p>
+          Strona ma charakter informacyjny i prezentuje ofertę produktową firmy {client.name}
+          — producenta toreb papierowych i opakowań reklamowych. Zapytania ofertowe można
+          składać za pośrednictwem formularza kontaktowego, telefonicznie lub mailowo.
+        </p>
+
+        <h2>Własność intelektualna</h2>
+        <p>
+          Wszelkie treści zamieszczone na stronie, w tym teksty, grafiki, zdjęcia i logotypy,
+          stanowią własność {client.name} lub są wykorzystywane za zgodą uprawnionych podmiotów
+          i podlegają ochronie na podstawie przepisów prawa autorskiego. Kopiowanie i
+          rozpowszechnianie tych treści bez zgody właściciela jest zabronione.
+        </p>
+
+        <h2>Odpowiedzialność</h2>
+        <p>
+          {client.name} dokłada starań, aby informacje prezentowane na stronie były aktualne
+          i rzetelne, jednak nie ponosi odpowiedzialności za ewentualne błędy lub nieścisłości
+          oraz za przerwy w dostępności strony wynikające z przyczyn technicznych.
+        </p>
+
+        <h2>Kontakt</h2>
+        <p>
+          W sprawach związanych z niniejszym regulaminem prosimy o kontakt:
+          {client.phoneFormatted}, <a href={`mailto:${client.email}`}>{client.email}</a>.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</BaseLayout>

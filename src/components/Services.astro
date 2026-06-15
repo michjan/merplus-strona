@@ -22,16 +22,16 @@ const icons = [
 ];
 
 const {
-  topper = 'What We Do',
-  heading = 'Our Services',
-  description = 'From routine maintenance to complex projects, we deliver quality workmanship with honest pricing.',
+  topper = 'Co robimy',
+  heading = 'Nasza oferta',
+  description = 'Od prostych toreb papierowych po ręcznie zdobione opakowania premium — produkujemy na zamówienie, w dowolnej ilości.',
   services = [
-    { title: 'General Repairs',      description: 'Reliable fixes for plumbing, electrical, drywall, and more — done right the first time.', href: '/services' },
-    { title: 'Installations',        description: 'Professional installation of fixtures, appliances, and systems with clean, code-compliant results.', href: '/services' },
-    { title: 'Inspections',          description: 'Thorough property inspections to catch issues before they become costly problems.', href: '/services' },
-    { title: 'Remodeling',           description: 'Transform kitchens, bathrooms, and living spaces with expert craftsmanship and attention to detail.', href: '/services' },
-    { title: 'Emergency Service',    description: '24/7 emergency response when you need help fast — we\'re just a phone call away.', href: '/services' },
-    { title: 'Maintenance Plans',    description: 'Scheduled preventive maintenance to protect your property and avoid surprise repair bills.', href: '/services' },
+    { title: 'Torby reklamowe',         description: 'Torby papierowe z nadrukiem Twojego logo — idealne na potrzeby marketingowe, eventy i sklepy.', href: '/torby-reklamowe' },
+    { title: 'Torby ozdobne',           description: 'Ręcznie zdobione torby prezentowe, wykończone z dbałością o detale — na każdą okazję.', href: '/torby-ozdobne' },
+    { title: 'Torby na alkohol',        description: 'Eleganckie torby na butelki wina i alkoholu, idealne dla sklepów i firm jako prezent dla klientów.', href: '/torby-na-alkohol' },
+    { title: 'Torby eko',               description: 'Opakowania z materiałów przyjaznych środowisku — odpowiedzialny wybór bez kompromisów na jakości.', href: '/torby-eko' },
+    { title: 'Pudełka prezentowe',      description: 'Pudełka i opakowania prezentowe dopasowane do Twojej marki, dostępne w wielu rozmiarach i wykończeniach.', href: '/pudelka-prezentowe' },
+    { title: 'Indywidualne zamówienia', description: 'Ponad 30 lat doświadczenia w produkcji — pomożemy zaprojektować opakowanie dopasowane do Twoich potrzeb.', href: '/contact' },
   ],
 } = Astro.props;
 ---
@@ -49,7 +49,7 @@ const {
         <li>
           <a
             href={service.href || '/services'}
-            aria-label={`Learn more about ${service.title}`}
+            aria-label={`Dowiedz się więcej: ${service.title}`}
             class="group flex h-full cursor-pointer flex-col rounded-lg border border-border bg-background p-6 shadow-sm transition-shadow duration-200 hover:shadow-md"
           >
             <div class="mb-4 flex size-12 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-fg">
@@ -58,8 +58,8 @@ const {
             <h3 class="font-heading text-h3 font-semibold text-text">{service.title}</h3>
             <p class="mt-2 flex-1 text-sm leading-relaxed text-text-muted">{service.description}</p>
             <span class="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary transition-colors group-hover:text-accent">
-              Learn more
-              <span class="sr-only"> about {service.title}</span>
+              Dowiedz się więcej
+              <span class="sr-only"> o ofercie: {service.title}</span>
               <svg class="size-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
               </svg>

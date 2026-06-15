@@ -1,0 +1,33 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/images/logo_wb merplus.png';
+---
+
+<div class="fixed bottom-4 right-4 z-50 flex flex-col items-end gap-3 sm:bottom-6 sm:right-6" transition:persist>
+  <a
+    href="https://www.google.com/maps/place/Mer+Plus+%E2%80%93+Producent+toreb+papierowych+i+reklamowych/@52.2281027,21.2619156,15z/data=!4m6!3m5!1s0x471ed41b6edff303:0x59592c2794346fc6!8m2!3d52.2279844!4d21.2707241!16s%2Fg%2F1tq8h9l7?entry=ttu&g_ep=EgoyMDI2MDYwOS4wIKXMDSoASAFQAw%3D%3D"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Zobacz nas na mapie Google"
+    title="Zobacz nas na mapie Google"
+    class="flex size-20 flex-col items-center justify-center gap-1 rounded-full bg-white text-text shadow-lg shadow-black/10 ring-1 ring-border transition-transform hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+  >
+    <!-- Google Maps pin -->
+    <svg class="size-7" viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="#EA4335" d="M12 2C7.6 2 4 5.6 4 10c0 5.2 6.4 11 7.3 11.8.4.4 1 .4 1.4 0C13.6 21 20 15.2 20 10c0-4.4-3.6-8-8-8z"/>
+      <circle cx="12" cy="10" r="3.2" fill="#fff"/>
+    </svg>
+    <span class="text-xs font-bold">Dojazd</span>
+  </a>
+
+  <a
+    href="/contact"
+    aria-label="Zapytaj o wycenę"
+    class="group flex items-center gap-2 rounded-full bg-accent pl-2 pr-4 py-2 text-sm font-bold text-accent-fg shadow-lg shadow-accent/30 transition-transform hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:pr-5"
+  >
+    <span class="flex size-9 shrink-0 items-center justify-center rounded-full bg-white p-1.5">
+      <Image src={logo} alt="" class="h-auto w-full" widths={[60]} />
+    </span>
+    <span class="whitespace-nowrap">Zapytaj o wycenę</span>
+  </a>
+</div>

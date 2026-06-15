@@ -1,0 +1,197 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Banner from '../components/Banner.astro';
+import CTA from '../components/CTA.astro';
+import RelatedProducts from '../components/RelatedProducts.astro';
+import { Image } from 'astro:assets';
+import img1 from '../assets/images/gallery/torba-reklamowa-knauf.jpg';
+import img2 from '../assets/images/gallery/torba-reklamowa-muuv.jpg';
+---
+
+<BaseLayout
+  title="Torby Reklamowe Papierowe z Nadrukiem | MER Plus"
+  description="Torby reklamowe papierowe z nadrukiem dla firm — własna produkcja, realizacja od 3 dni, dowolny nakład. Sprawdź ofertę i zamów bezpłatną wycenę."
+>
+  <Header slot="header" />
+
+  <Banner title="Torby reklamowe papierowe z nadrukiem" parent={{ label: 'Oferta', href: '/services' }} />
+
+  <section class="py-section">
+    <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
+      <div class="space-y-5 lg:order-1">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Torby reklamowe</span>
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">Papierowa torba reklamowa — skuteczny nośnik Twojej marki</h2>
+        <p class="text-text-muted leading-relaxed">
+          Torba papierowa z nadrukiem to jeden z najbardziej skutecznych i najtrwalszych nośników reklamowych, jakie może wykorzystać firma. W przeciwieństwie do ulotki czy wizytówki, torba reklamowa towarzyszy klientowi w drodze do domu, jest widoczna w sklepie, na ulicy, w biurze i często wykorzystywana wielokrotnie — co oznacza, że logo Twojej firmy trafia do znacznie szerszego grona odbiorców niż tylko do pierwszego właściciela.
+        </p>
+        <p class="text-text-muted leading-relaxed">
+          W MER Plus produkujemy torby reklamowe papierowe od ponad 30 lat. Dzięki własnemu zakładowi produkcyjnemu w Sulejówku mamy pełną kontrolę nad jakością materiału, precyzją nadruku i terminem realizacji. Oferujemy torby w różnych formatach, gramaturach papieru i kolorach, z uchwytami skręcanymi, płaskimi, bawełnianymi lub sznurkowymi — w zależności od charakteru Twojej marki i przeznaczenia opakowania.
+        </p>
+      </div>
+      <div class="grid grid-cols-2 gap-4 lg:order-2">
+        <div class="overflow-hidden rounded-lg shadow-lg">
+          <Image src={img1} alt="Torba reklamowa papierowa z nadrukiem logo Knauf" width={500} height={500} loading="eager" class="size-full object-cover" />
+        </div>
+        <div class="overflow-hidden rounded-lg shadow-lg">
+          <Image src={img2} alt="Torba reklamowa papierowa z nadrukiem logo Muuv" width={500} height={500} loading="lazy" class="size-full object-cover" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-surface py-section">
+    <div class="mx-auto max-w-site px-4 sm:px-6">
+      <div class="mx-auto mb-10 max-w-2xl text-center">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Zastosowanie B2B</span>
+        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">Dla jakich firm sprawdzą się torby reklamowe?</h2>
+      </div>
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-3">
+        <div class="rounded-lg bg-background p-6 shadow-sm">
+          <h3 class="font-heading text-lg font-semibold text-text">Sklepy i salony</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">Torby z logo jako element identyfikacji wizualnej, wręczane klientom przy każdej transakcji.</p>
+        </div>
+        <div class="rounded-lg bg-background p-6 shadow-sm">
+          <h3 class="font-heading text-lg font-semibold text-text">Eventy i targi</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">Torby reklamowe jako materiał konferencyjny lub upominek dla uczestników wydarzeń branżowych.</p>
+        </div>
+        <div class="rounded-lg bg-background p-6 shadow-sm">
+          <h3 class="font-heading text-lg font-semibold text-text">Firmy produkcyjne i usługowe</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">Opakowania zbiorcze i transportowe z nadrukiem, wzmacniające rozpoznawalność marki u kontrahentów.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section">
+    <div class="mx-auto max-w-site px-4 sm:px-6">
+      <div class="mx-auto mb-10 max-w-2xl text-center">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Proces zamówienia</span>
+        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">Jak zamówić torby reklamowe z nadrukiem</h2>
+      </div>
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="rounded-lg border border-border bg-background p-6 shadow-sm">
+          <span class="font-heading text-h3 font-bold text-accent">1</span>
+          <h3 class="mt-2 font-heading text-lg font-semibold text-text">Zapytanie</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">Przesyłasz informacje o formacie, nakładzie i materiale — telefonicznie, mailowo lub przez formularz kontaktowy.</p>
+        </div>
+        <div class="rounded-lg border border-border bg-background p-6 shadow-sm">
+          <span class="font-heading text-h3 font-bold text-accent">2</span>
+          <h3 class="mt-2 font-heading text-lg font-semibold text-text">Wycena i projekt</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">Przygotowujemy bezpłatną wycenę oraz pomagamy dopasować projekt graficzny i technikę nadruku do Twojego logo.</p>
+        </div>
+        <div class="rounded-lg border border-border bg-background p-6 shadow-sm">
+          <span class="font-heading text-h3 font-bold text-accent">3</span>
+          <h3 class="mt-2 font-heading text-lg font-semibold text-text">Produkcja</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">Realizujemy zamówienie we własnym zakładzie — standardowy czas to od 3 dni roboczych, w zależności od nakładu.</p>
+        </div>
+        <div class="rounded-lg border border-border bg-background p-6 shadow-sm">
+          <span class="font-heading text-h3 font-bold text-accent">4</span>
+          <h3 class="mt-2 font-heading text-lg font-semibold text-text">Dostawa</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">Wysyłamy gotowe torby reklamowe na terenie całej Polski, prosto do Twojej firmy.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-surface py-section">
+    <div class="mx-auto max-w-site px-4 sm:px-6">
+      <div class="mx-auto mb-10 max-w-2xl text-center">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Rozmiary i kolory</span>
+        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">19 rozmiarów w 24 kolorach</h2>
+        <p class="mt-3 text-text-muted leading-relaxed">
+          W standardowej ofercie znajdziesz <strong>19 rozmiarów</strong> toreb papierowych dostępnych w <strong>24 kolorach</strong> — od klasycznego kraftu po pastele i kolory dopasowane do palety Pantone Twojej marki. Jeśli zamawiasz torby dla firmy (B2B) i potrzebujesz sprawdzić dostępne wymiary i wykrojniki, skorzystaj z naszej wyszukiwarki rozmiarów.
+        </p>
+        <a href="/wykrojniki" class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary-light">
+          Sprawdź dostępne rozmiary w wyszukiwarce wykrojników
+          <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6">
+      <div class="mx-auto mb-10 max-w-2xl text-center">
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">Najczęściej zadawane pytania</h2>
+      </div>
+      <div class="space-y-3">
+        {[
+          {
+            question: 'Torebki reklamowe czy torby reklamowe — czym się różnią?',
+            answer: 'Oba terminy są używane zamiennie i opisują to samo opakowanie papierowe z nadrukiem. "Torebki reklamowe" to często stosowana zdrobniała forma, szczególnie w przypadku mniejszych formatów — w naszej ofercie znajdziesz oba rozmiary, od niewielkich torebek po duże torby reklamowe.',
+          },
+          {
+            question: 'Jakie rozmiary toreb reklamowych są dostępne?',
+            answer: 'Standardowo oferujemy 19 rozmiarów toreb papierowych w 24 kolorach. Dokładne wymiary i wykrojniki możesz sprawdzić w naszej wyszukiwarce rozmiarów na stronie /wykrojniki — to szczególnie przydatne dla zamówień B2B.',
+          },
+          {
+            question: 'Czy mogę zamówić małą partię toreb reklamowych?',
+            answer: 'Tak. Dzięki własnej produkcji realizujemy zarówno niewielkie, jednostkowe zamówienia, jak i duże nakłady dla firm — bez sztywnego minimum zamówienia.',
+          },
+          {
+            question: 'Jaki papier jest najlepszy na torby reklamowe?',
+            answer: 'Najczęściej wybierany jest papier kraft ze względu na wytrzymałość i ekologiczny charakter, ale dostępne są też torby z papieru białego i kolorowego o różnej gramaturze — dopasowanej do wagi pakowanego produktu.',
+          },
+          {
+            question: 'Jak długo trwa realizacja zamówienia toreb reklamowych?',
+            answer: 'Standardowy czas realizacji to od 3 dni roboczych, w zależności od nakładu, techniki nadruku i bieżącego obciążenia produkcji.',
+          },
+        ].map(({ question, answer }) => (
+          <details class="group rounded-lg border border-border bg-background p-5 [&_summary::-webkit-details-marker]:hidden">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-heading text-h3 font-semibold text-text">
+              {question}
+              <svg class="size-5 shrink-0 text-primary transition-transform group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+              </svg>
+            </summary>
+            <p class="mt-3 text-text-muted leading-relaxed">{answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          question: 'Torebki reklamowe czy torby reklamowe — czym się różnią?',
+          answer: 'Oba terminy są używane zamiennie i opisują to samo opakowanie papierowe z nadrukiem. "Torebki reklamowe" to często stosowana zdrobniała forma, szczególnie w przypadku mniejszych formatów — w naszej ofercie znajdziesz oba rozmiary, od niewielkich torebek po duże torby reklamowe.',
+        },
+        {
+          question: 'Jakie rozmiary toreb reklamowych są dostępne?',
+          answer: 'Standardowo oferujemy 19 rozmiarów toreb papierowych w 24 kolorach. Dokładne wymiary i wykrojniki możesz sprawdzić w naszej wyszukiwarce rozmiarów na stronie /wykrojniki — to szczególnie przydatne dla zamówień B2B.',
+        },
+        {
+          question: 'Czy mogę zamówić małą partię toreb reklamowych?',
+          answer: 'Tak. Dzięki własnej produkcji realizujemy zarówno niewielkie, jednostkowe zamówienia, jak i duże nakłady dla firm — bez sztywnego minimum zamówienia.',
+        },
+        {
+          question: 'Jaki papier jest najlepszy na torby reklamowe?',
+          answer: 'Najczęściej wybierany jest papier kraft ze względu na wytrzymałość i ekologiczny charakter, ale dostępne są też torby z papieru białego i kolorowego o różnej gramaturze — dopasowanej do wagi pakowanego produktu.',
+        },
+        {
+          question: 'Jak długo trwa realizacja zamówienia toreb reklamowych?',
+          answer: 'Standardowy czas realizacji to od 3 dni roboczych, w zależności od nakładu, techniki nadruku i bieżącego obciążenia produkcji.',
+        },
+      ].map(({ question, answer }) => ({
+        '@type': 'Question',
+        name: question,
+        acceptedAnswer: { '@type': 'Answer', text: answer },
+      })),
+    })} />
+  </section>
+
+  <CTA
+    title="Zamów torby reklamowe z nadrukiem"
+    description="Wyślij zapytanie i otrzymaj bezpłatną wycenę toreb reklamowych dopasowanych do Twojej marki — bez minimalnego nakładu."
+  />
+
+  <RelatedProducts current="/torby-reklamowe" />
+
+  <Footer slot="footer" />
+</BaseLayout>

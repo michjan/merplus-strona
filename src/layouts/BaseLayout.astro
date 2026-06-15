@@ -11,6 +11,7 @@ import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
 import { brand } from '../config/brand';
 import { client } from '../data/client';
+import FloatingContact from '../components/FloatingContact.astro';
 
 interface Props {
   title?: string;
@@ -26,8 +27,25 @@ const {
   schema,
 } = Astro.props;
 
-const pageTitle = title === brand.name ? title : `${title} — ${brand.name}`;
+const pageTitle = title === brand.name || title.includes(brand.name) ? title : `${title} — ${brand.name}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? brand.url);
+
+const defaultSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'MER Plus',
+  description: 'Producent toreb papierowych reklamowych i ozdobnych',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'ul. Macieja Rataja 7B',
+    addressLocality: 'Sulejówek',
+    postalCode: '05-070',
+    addressCountry: 'PL',
+  },
+  telephone: '+48601999402',
+  url: 'https://www.merplus.pl',
+  foundingDate: '1993',
+};
 ---
 
 <html lang={brand.locale.split('_')[0]} class="scroll-smooth">
@@ -55,14 +73,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? brand.url);
     <meta name="twitter:image"       content={image} />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="/favicon-512.png" />
+    <link rel="apple-touch-icon" href="/favicon-512.png" />
 
     <!-- Fonts -->
     <Font cssVariable="--font-display" preload />
     <Font cssVariable="--font-body"    preload />
 
     <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(defaultSchema)} />
     {schema && (
       <script type="application/ld+json" set:html={JSON.stringify(schema)} />
     )}
@@ -86,7 +106,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? brand.url);
       class="sr-only focus:not-sr-only focus:absolute focus:z-[99999] focus:bg-primary focus:text-primary-fg focus:px-4 focus:py-2 focus:rounded-md"
       href="#main"
     >
-      Skip to main content
+      Przejdź do treści głównej
     </a>
 
     <slot name="header" />
@@ -96,5 +116,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? brand.url);
     </main>
 
     <slot name="footer" />
+
+    <FloatingContact />
   </body>
 </html>

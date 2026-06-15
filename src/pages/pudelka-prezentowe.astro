@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Banner from '../components/Banner.astro';
+import CTA from '../components/CTA.astro';
+import RelatedProducts from '../components/RelatedProducts.astro';
+import { Image } from 'astro:assets';
+import img1 from '../assets/images/gallery/torby-krowki-witryna.jpg';
+import img2 from '../assets/images/gallery/torba-premium-siklienka.jpg';
+---
+
+<BaseLayout
+  title="Pudełka Prezentowe na Zamówienie | MER Plus"
+  description="Pudełka prezentowe na zamówienie — papierowe opakowania w dowolnym rozmiarze i kolorze. Produkcja własna, realizacja od 3 dni. Bezpłatna wycena."
+>
+  <Header slot="header" />
+
+  <Banner title="Pudełka prezentowe na zamówienie" parent={{ label: 'Oferta', href: '/services' }} />
+
+  <section class="py-section">
+    <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
+      <div class="overflow-hidden rounded-lg shadow-lg">
+        <Image src={img1} alt="Pudełka prezentowe na zamówienie w witrynie" width={800} height={600} loading="eager" class="size-full object-cover" />
+      </div>
+      <div class="space-y-5">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Pudełka na zamówienie</span>
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">Papierowe pudełka prezentowe dopasowane do Twoich potrzeb</h2>
+        <p class="text-text-muted leading-relaxed">
+          Obok toreb papierowych w naszej ofercie znajdują się również pudełka prezentowe wykonywane na zamówienie. To rozwiązanie szczególnie cenione przez sklepy, cukiernie, firmy kosmetyczne i organizatorów wydarzeń, którzy potrzebują opakowania o konkretnym wymiarze, kolorze i wykończeniu — niedostępnym w standardowej, gotowej ofercie hurtowni.
+        </p>
+        <p class="text-text-muted leading-relaxed">
+          Pudełka produkujemy z trwałego kartonu i papieru, z możliwością dodania nadruku, wstążek, wzmocnień rogów czy wstawek wewnętrznych. Dzięki własnej produkcji jesteśmy w stanie przygotować zarówno niewielkie partie testowe, jak i większe nakłady dla stałych klientów.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-surface py-section">
+    <div class="mx-auto max-w-site px-4 sm:px-6">
+      <div class="mx-auto mb-10 max-w-2xl text-center">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Możliwości</span>
+        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">Co możemy dla Ciebie wykonać</h2>
+      </div>
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-3">
+        <div class="rounded-lg bg-background p-6 shadow-sm">
+          <h3 class="font-heading text-lg font-semibold text-text">Dowolny rozmiar</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">Pudełka projektowane pod konkretny produkt — od biżuterii i kosmetyków, po słodycze i upominki firmowe.</p>
+        </div>
+        <div class="rounded-lg bg-background p-6 shadow-sm">
+          <h3 class="font-heading text-lg font-semibold text-text">Nadruk i kolory</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">Pudełka w kolorystyce marki, z logo lub motywem okazjonalnym, np. świątecznym.</p>
+        </div>
+        <div class="rounded-lg bg-background p-6 shadow-sm">
+          <h3 class="font-heading text-lg font-semibold text-text">Wykończenie</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">Wstążki, wkładki, wzmocnienia oraz inne elementy ozdobne dodawane ręcznie.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section">
+    <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
+      <div class="space-y-5 lg:order-2">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Dla kogo</span>
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">Pudełka prezentowe dla biznesu i klientów indywidualnych</h2>
+        <p class="text-text-muted leading-relaxed">
+          Z pudełek prezentowych MER Plus korzystają zarówno firmy potrzebujące dużych nakładów na sezon świąteczny, jak i klienci indywidualni szukający jednego, eleganckiego opakowania na wyjątkowy prezent. Niezależnie od wielkości zamówienia, podchodzimy do każdego projektu indywidualnie i pomagamy dobrać odpowiedni materiał, kolor i wykończenie.
+        </p>
+        <p class="text-text-muted leading-relaxed">
+          Jeśli potrzebujesz pudełka pasującego do konkretnego produktu lub kampanii — napisz do nas, a przygotujemy propozycję wraz z bezpłatną wyceną.
+        </p>
+      </div>
+      <div class="overflow-hidden rounded-lg shadow-lg lg:order-1">
+        <Image src={img2} alt="Pudełko prezentowe na zamówienie premium" width={800} height={600} loading="lazy" class="size-full object-cover" />
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-surface py-section">
+    <div class="mx-auto max-w-site px-4 sm:px-6">
+      <div class="mx-auto mb-10 max-w-2xl text-center">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Na każdą okazję</span>
+        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">Pudełka prezentowe na różne okazje</h2>
+        <p class="mt-3 text-text-muted leading-relaxed">
+          Niezależnie od wydarzenia, dopasujemy rozmiar, kolor i wykończenie pudełka do charakteru okazji.
+        </p>
+      </div>
+      <ul class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4" role="list">
+        {['Ślub i wesele', 'Komunia', 'Chrzciny', 'Baby shower', 'Urodziny', 'Święta i Boże Narodzenie', 'Walentynki', 'Dzień Matki / Ojca', 'Prezenty firmowe', 'Otwarcie sklepu / event', 'Rocznice', 'Podziękowania dla klientów'].map((occasion) => (
+          <li class="rounded-lg bg-background p-4 text-center text-sm font-semibold text-text shadow-sm">
+            {occasion}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <CTA
+    title="Zamów pudełka prezentowe na wymiar"
+    description="Podaj nam wymiary i ilość — przygotujemy bezpłatną wycenę pudełek dopasowanych do Twojego produktu."
+  />
+
+  <RelatedProducts current="/pudelka-prezentowe" />
+
+  <Footer slot="footer" />
+</BaseLayout>

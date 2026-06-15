@@ -14,12 +14,12 @@
 
 export const brand = {
   // ── Site Identity ──────────────────────────────────────────────────────────
-  name: 'Small Business Starter',
-  tagline: 'Professional service you can trust.',
+  name: 'MER Plus',
+  tagline: 'Producent toreb papierowych i opakowań reklamowych.',
   description:
-    'A fast, mobile-first small-business website template built with Astro 6 and Tailwind v4. Fully customisable for any trade or service business.',
-  url: 'https://example.com',
-  locale: 'en_US',
+    'MER Plus — producent toreb papierowych reklamowych, ozdobnych, na alkohol, toreb eko oraz pudełek prezentowych. Ponad 30 lat doświadczenia.',
+  url: 'https://www.merplus.pl',
+  locale: 'pl_PL',
 
   // ── Fonts ──────────────────────────────────────────────────────────────────
   // To swap fonts: change the `name` values here AND update astro.config.mjs
@@ -33,22 +33,22 @@ export const brand = {
   // These values are written to CSS custom properties in theme.css.
   // Tailwind v4 @theme picks them up automatically.
   colors: {
-    primary:      '#1B3A6B',
-    primaryLight: '#2563EB',
+    primary:      '#A33223',
+    primaryLight: '#D6432B',
     primaryFg:    '#ffffff',
 
-    accent:       '#F97316',
+    accent:       '#D6432B',
     accentFg:     '#ffffff',
 
-    background:   '#ffffff',
-    surface:      '#F8FAFC',
-    border:       '#E2E8F0',
+    background:   '#FDF9F4',
+    surface:      '#F8F1E8',
+    border:       '#EBDFD2',
 
-    text:         '#0F172A',
-    textMuted:    '#475569',
+    text:         '#3A2A22',
+    textMuted:    '#7A6A5F',
 
-    dark:         '#0F172A',
-    darkSurface:  '#1E293B',
+    dark:         '#3A2A22',
+    darkSurface:  '#4A352A',
   },
 
   // ── Border radius ──────────────────────────────────────────────────────────

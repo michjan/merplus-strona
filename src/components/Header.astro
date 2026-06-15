@@ -1,14 +1,25 @@
 ---
+import { Image } from 'astro:assets';
 import { brand } from '../config/brand';
 import { client } from '../data/client';
+import logo from '../assets/images/logo_wb merplus.png';
+
+const offerLinks = [
+  { label: 'Torby reklamowe',    href: '/torby-reklamowe' },
+  { label: 'Torby z logo',       href: '/torby-reklamowe-z-logo' },
+  { label: 'Torby ozdobne',      href: '/torby-ozdobne' },
+  { label: 'Pudełka prezentowe', href: '/pudelka-prezentowe' },
+  { label: 'Torby na alkohol',   href: '/torby-na-alkohol' },
+  { label: 'Torby eko',          href: '/torby-eko' },
+];
 
 const nav = [
-  { label: 'Home',     href: '/' },
-  { label: 'About',    href: '/about' },
-  { label: 'Services', href: '/services' },
-  { label: 'Reviews',  href: '/reviews' },
-  { label: 'Blog',     href: '/blog' },
-  { label: 'Contact',  href: '/contact' },
+  { label: 'Strona główna', href: '/' },
+  { label: 'O nas',         href: '/about' },
+  { label: 'Oferta',        href: '/services', children: offerLinks },
+  { label: 'Wykrojniki',    href: '/wykrojniki' },
+  { label: 'Blog',          href: '/blog' },
+  { label: 'Kontakt',       href: '/contact' },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -22,15 +33,57 @@ const currentPath = Astro.url.pathname;
     <!-- Logo -->
     <a
       href="/"
-      class="font-heading text-xl font-bold uppercase tracking-wide text-primary transition-opacity hover:opacity-80"
+      class="flex items-center transition-opacity hover:opacity-80"
+      aria-label={brand.name}
     >
-      {brand.name}
+      <Image src={logo} alt={brand.name} class="h-9 w-auto sm:h-10" widths={[120, 240]} />
     </a>
 
     <!-- Desktop nav -->
     <nav class="hidden items-center gap-1 lg:flex" aria-label="Primary navigation">
-      {nav.map(({ label, href }) => {
-        const isActive = currentPath === href || (href !== '/' && currentPath.startsWith(href));
+      {nav.map(({ label, href, children }) => {
+        const isActive =
+          currentPath === href ||
+          (href !== '/' && currentPath.startsWith(href)) ||
+          (children?.some((c) => currentPath === c.href || currentPath.startsWith(c.href)) ?? false);
+
+        if (children) {
+          return (
+            <div class="group relative">
+              <a
+                href={href}
+                aria-current={isActive ? 'page' : undefined}
+                class:list={[
+                  'flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors',
+                  isActive
+                    ? 'bg-primary/10 text-primary'
+                    : 'text-text-muted hover:text-text',
+                ]}
+              >
+                {label}
+                <svg class="size-3.5 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </a>
+              <div class="invisible absolute left-0 top-full z-50 w-56 rounded-lg border border-border bg-background p-2 opacity-0 shadow-lg transition-opacity group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                {children.map((child) => (
+                  <a
+                    href={child.href}
+                    class:list={[
+                      'block rounded-md px-3 py-2 text-sm font-medium transition-colors',
+                      currentPath === child.href || currentPath.startsWith(child.href)
+                        ? 'bg-primary/10 text-primary'
+                        : 'text-text-muted hover:bg-surface hover:text-text',
+                    ]}
+                  >
+                    {child.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          );
+        }
+
         return (
           <a
             href={href}
@@ -65,7 +118,7 @@ const currentPath = Astro.url.pathname;
         href="/contact"
         class="inline-flex min-h-[44px] items-center rounded-md bg-accent px-5 py-2.5 text-sm font-bold text-accent-fg shadow-sm transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
       >
-        Free Quote
+        Bezpłatna wycena
       </a>
     </div>
 
@@ -93,8 +146,58 @@ const currentPath = Astro.url.pathname;
     class="hidden border-t border-border bg-background px-4 pb-6 pt-2 lg:hidden"
   >
     <nav class="flex flex-col gap-1" aria-label="Mobile navigation">
-      {nav.map(({ label, href }) => {
-        const isActive = currentPath === href || (href !== '/' && currentPath.startsWith(href));
+      {nav.map(({ label, href, children }) => {
+        const isActive =
+          currentPath === href ||
+          (href !== '/' && currentPath.startsWith(href)) ||
+          (children?.some((c) => currentPath === c.href || currentPath.startsWith(c.href)) ?? false);
+
+        if (children) {
+          return (
+            <div class="mobile-dropdown">
+              <button
+                type="button"
+                aria-expanded="false"
+                class:list={[
+                  'mobile-dropdown-toggle flex w-full items-center justify-between rounded-md px-3 py-3 text-base font-medium transition-colors',
+                  isActive
+                    ? 'bg-primary/10 text-primary'
+                    : 'text-text-muted hover:text-text hover:bg-surface',
+                ]}
+              >
+                {label}
+                <svg class="mobile-dropdown-icon size-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div class="mobile-dropdown-panel hidden flex-col gap-1 pl-4">
+                <a
+                  href={href}
+                  class:list={[
+                    'rounded-md px-3 py-2 text-sm font-medium transition-colors',
+                    currentPath === href ? 'bg-primary/10 text-primary' : 'text-text-muted hover:text-text hover:bg-surface',
+                  ]}
+                >
+                  Cała oferta
+                </a>
+                {children.map((child) => (
+                  <a
+                    href={child.href}
+                    class:list={[
+                      'rounded-md px-3 py-2 text-sm font-medium transition-colors',
+                      currentPath === child.href || currentPath.startsWith(child.href)
+                        ? 'bg-primary/10 text-primary'
+                        : 'text-text-muted hover:text-text hover:bg-surface',
+                    ]}
+                  >
+                    {child.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          );
+        }
+
         return (
           <a
             href={href}
@@ -125,7 +228,7 @@ const currentPath = Astro.url.pathname;
         href="/contact"
         class="flex min-h-[44px] items-center justify-center rounded-md bg-accent px-5 py-3 text-base font-bold text-accent-fg shadow-sm transition-opacity hover:opacity-90"
       >
-        Get a Free Quote
+        Bezpłatna wycena
       </a>
       {client.license && (
         <p class="px-3 pt-1 text-xs text-text-muted">{client.license}</p>
@@ -205,6 +308,17 @@ const currentPath = Astro.url.pathname;
     menu.addEventListener('click', (event) => {
       const target = event.target;
       if (!(target instanceof Element)) return;
+      const toggle = target.closest('.mobile-dropdown-toggle');
+      if (toggle) {
+        const panel = toggle.nextElementSibling;
+        const icon = toggle.querySelector('.mobile-dropdown-icon');
+        const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!isOpen));
+        panel?.classList.toggle('hidden', isOpen);
+        panel?.classList.toggle('flex', !isOpen);
+        icon?.classList.toggle('rotate-180', !isOpen);
+        return;
+      }
       if (target.closest('a[href]')) setMenuOpen(false);
     });
 

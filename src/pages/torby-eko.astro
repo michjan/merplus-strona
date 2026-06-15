@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Banner from '../components/Banner.astro';
+import CTA from '../components/CTA.astro';
+import RelatedProducts from '../components/RelatedProducts.astro';
+import { Image } from 'astro:assets';
+import img1 from '../assets/images/gallery/torba-eko-orska.jpg';
+import img2 from '../assets/images/gallery/torba-reklamowa-knauf.jpg';
+---
+
+<BaseLayout
+  title="Ekologiczne Torby Papierowe Kraft | MER Plus"
+  description="Ekologiczne torby papierowe kraft z nadrukiem — biodegradowalna alternatywa dla plastiku. Idealne dla sklepów i firm dbających o środowisko. Bezpłatna wycena."
+>
+  <Header slot="header" />
+
+  <Banner title="Ekologiczne torby papierowe kraft" parent={{ label: 'Oferta', href: '/services' }} />
+
+  <section class="py-section">
+    <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
+      <div class="overflow-hidden rounded-lg shadow-lg">
+        <Image src={img1} alt="Ekologiczna torba papierowa kraft" width={800} height={600} loading="eager" class="size-full object-cover" />
+      </div>
+      <div class="space-y-5">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Torby eko</span>
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">Naturalny papier kraft jako alternatywa dla plastiku</h2>
+        <p class="text-text-muted leading-relaxed">
+          Torby papierowe kraft to ekologiczna i w pełni biodegradowalna alternatywa dla opakowań plastikowych. Wykonane z naturalnego, niebielonego papieru, charakteryzują się surowym, eleganckim wyglądem, który dobrze komponuje się z marketami spożywczymi, sklepami ekologicznymi, piekarniami, kawiarniami oraz firmami stawiającymi na zrównoważony rozwój i odpowiedzialny wizerunek.
+        </p>
+        <p class="text-text-muted leading-relaxed">
+          W MER Plus produkujemy torby eko z papieru kraft w różnych formatach i gramaturach, z możliwością nadruku logo i grafiki. Dzięki temu torba pełni jednocześnie funkcję opakowania i nośnika reklamowego — przy zachowaniu naturalnego, ekologicznego charakteru materiału.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-surface py-section">
+    <div class="mx-auto max-w-site px-4 sm:px-6">
+      <div class="mx-auto mb-10 max-w-2xl text-center">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Zalety</span>
+        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">Dlaczego warto wybrać torby kraft</h2>
+      </div>
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-3">
+        <div class="rounded-lg bg-background p-6 shadow-sm">
+          <h3 class="font-heading text-lg font-semibold text-text">Biodegradowalność</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">Papier kraft ulega naturalnemu rozkładowi i może być poddany recyklingowi.</p>
+        </div>
+        <div class="rounded-lg bg-background p-6 shadow-sm">
+          <h3 class="font-heading text-lg font-semibold text-text">Wizerunek marki</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">Surowa estetyka kraftu kojarzona jest z naturalnością, świeżością i odpowiedzialnością ekologiczną.</p>
+        </div>
+        <div class="rounded-lg bg-background p-6 shadow-sm">
+          <h3 class="font-heading text-lg font-semibold text-text">Wytrzymałość</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">Pomimo naturalnego wykończenia, torby kraft są wytrzymałe i dobrze sprawdzają się jako opakowania zakupowe.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section">
+    <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
+      <div class="space-y-5 lg:order-2">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Dla kogo</span>
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">Torby eko dla sklepów, gastronomii i firm</h2>
+        <p class="text-text-muted leading-relaxed">
+          Ekologiczne torby papierowe wybierają najczęściej sklepy spożywcze, piekarnie, kawiarnie, sklepy zielarskie i ekologiczne oraz firmy, które chcą komunikować swoim klientom dbałość o środowisko. Torby kraft z nadrukiem logo działają jednocześnie jako opakowanie i element komunikacji marketingowej — bez konieczności sięgania po plastik.
+        </p>
+        <p class="text-text-muted leading-relaxed">
+          Realizujemy zamówienia w różnych nakładach — od mniejszych partii dla lokalnych sklepów, po większe zamówienia dla sieci handlowych i firm produkcyjnych.
+        </p>
+      </div>
+      <div class="overflow-hidden rounded-lg shadow-lg lg:order-1">
+        <Image src={img2} alt="Torba papierowa z nadrukiem logo" width={800} height={600} loading="lazy" class="size-full object-cover" />
+      </div>
+    </div>
+  </section>
+
+  <CTA
+    title="Zamów ekologiczne torby kraft"
+    description="Napisz, ile sztuk i w jakim formacie potrzebujesz — przygotujemy bezpłatną wycenę toreb eko z nadrukiem lub bez."
+  />
+
+  <RelatedProducts current="/torby-eko" />
+
+  <Footer slot="footer" />
+</BaseLayout>
