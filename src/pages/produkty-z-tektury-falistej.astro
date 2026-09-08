@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Banner from '../components/Banner.astro';
+import CTA from '../components/CTA.astro';
+import RelatedProducts from '../components/RelatedProducts.astro';
+import { Image } from 'astro:assets';
+import img1 from '../assets/images/gallery/torby-detale-wykonczenia.jpg';
+---
+
+<BaseLayout
+  title="Torby z Tektury Falistej | MER Plus"
+  description="Ekonomiczne i eleganckie torby wykonane z papieru o falistym wykończeniu — stylowe opakowanie na prezenty i produkty wymagające dodatkowej ochrony."
+  serviceName="Produkcja toreb z tektury falistej"
+>
+  <Header slot="header" />
+
+  <Banner title="Produkty z tektury falistej" parent={{ label: 'Oferta', href: '/services' }} />
+
+  <section class="py-section">
+    <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
+      <div class="overflow-hidden rounded-lg shadow-lg">
+        <Image src={img1} alt="Detal wykończenia torby z tektury falistej" width={800} height={600} loading="eager" class="size-full object-cover" />
+      </div>
+      <div class="space-y-5">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Tektura falista</span>
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">Faktura, która chroni i wyróżnia</h2>
+        <p class="text-text-muted leading-relaxed">
+          Torby wykonane z papieru o falistym wykończeniu łączą estetykę z dodatkową ochroną zawartości. Charakterystyczna, ryflowana struktura materiału dodaje opakowaniu wyrazistości i sprawia, że dobrze eksponuje się na sklepowej półce, a jednocześnie amortyzuje delikatniejsze produkty.
+        </p>
+        <p class="text-text-muted leading-relaxed">
+          To ekonomiczne rozwiązanie dla firm szukających prostego, ale charakterystycznego opakowania — bez konieczności inwestowania w bardziej złożone wykończenia.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-surface py-section">
+    <div class="mx-auto max-w-site px-4 sm:px-6">
+      <div class="mx-auto mb-10 max-w-2xl text-center">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Zastosowanie</span>
+        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">Dla produktów wymagających ochrony</h2>
+      </div>
+      <p class="mx-auto max-w-3xl text-center text-text-muted leading-relaxed">
+        Torby z tektury falistej sprawdzają się przy pakowaniu prezentów, produktów spożywczych i wyrobów rękodzielniczych, gdzie liczy się zarówno wygląd, jak i dodatkowa ochrona zawartości podczas transportu. Możliwy jest nadruk logo oraz dopasowanie rozmiaru do konkretnego produktu.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-8">
+    <div class="mx-auto max-w-site px-4 text-center sm:px-6">
+      <p class="text-sm text-text-muted">
+        Poczytaj więcej na blogu:
+        <a href="/blog/tektura-falista-tez-jest-eko" class="font-semibold text-primary underline-offset-2 hover:underline">Tektura falista też jest Eko</a>
+      </p>
+    </div>
+  </section>
+
+  <CTA
+    title="Zapytaj o torby z tektury falistej"
+    description="Napisz, jaki produkt chcesz zapakować — podpowiemy najlepszy format i przygotujemy bezpłatną wycenę."
+  />
+
+  <RelatedProducts current="/produkty-z-tektury-falistej" />
+
+  <Footer slot="footer" />
+</BaseLayout>

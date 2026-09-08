@@ -4,12 +4,12 @@ test.describe('Homepage', () => {
   test('renders heading and CTA', async ({ page }) => {
     await page.goto('/');
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
-    await expect(page.getByRole('link', { name: /get started/i })).toBeVisible();
+    await expect(page.getByRole('link', { name: /bezpłatna wycena/i }).first()).toBeVisible();
   });
 
   test('has correct page title', async ({ page }) => {
     await page.goto('/');
-    await expect(page).toHaveTitle(/Small Business Starter/i);
+    await expect(page).toHaveTitle(/Torby Reklamowe.*MER Plus/i);
   });
 
   test('has meta description', async ({ page }) => {

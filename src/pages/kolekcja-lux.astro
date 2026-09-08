@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Banner from '../components/Banner.astro';
+import CTA from '../components/CTA.astro';
+import RelatedProducts from '../components/RelatedProducts.astro';
+import { Image } from 'astro:assets';
+import img1 from '../assets/images/gallery/torba-ozdobna-prouve.jpg';
+import img2 from '../assets/images/gallery/torba-premium-siklienka.jpg';
+
+const variants = [
+  {
+    name: 'Elegance Lux',
+    description: 'Klasyczna, elegancka forma z papieru wysokiej jakości — sprawdza się przy prezentach firmowych i okolicznościowych.',
+  },
+  {
+    name: 'Retro Lux',
+    description: 'Nawiązująca do stylu vintage faktura i kolorystyka — dla marek budujących nostalgiczny, kameralny wizerunek.',
+  },
+  {
+    name: 'LUX Eko',
+    description: 'W pełni ekologiczna, ręcznie zdobiona wersja kolekcji — indywidualny projekt zdobień na naturalnym papierze.',
+  },
+];
+---
+
+<BaseLayout
+  title="Kolekcja LUX — Torby Papierowe Premium | MER Plus"
+  description="Kolekcja LUX — eleganckie torby papierowe w wariantach Elegance, Retro i Eko. Wysokiej jakości wykończenie na prezenty firmowe i okolicznościowe."
+  serviceName="Produkcja toreb papierowych z kolekcji LUX"
+>
+  <Header slot="header" />
+
+  <Banner title="Kolekcja LUX" parent={{ label: 'Oferta', href: '/services' }} />
+
+  <section class="py-section">
+    <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
+      <div class="overflow-hidden rounded-lg shadow-lg">
+        <Image src={img1} alt="Torba papierowa z kolekcji LUX" width={800} height={600} loading="eager" class="size-full object-cover" />
+      </div>
+      <div class="space-y-5">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Kolekcja LUX</span>
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">Trzy oblicza eleganckiego opakowania</h2>
+        <p class="text-text-muted leading-relaxed">
+          Kolekcja LUX to nasza linia toreb papierowych o podwyższonym standardzie wykończenia — dla marek i okazji, gdzie opakowanie ma być częścią wrażenia, jakie zostawia prezent. W ramach kolekcji oferujemy trzy warianty stylistyczne, które można dopasować do charakteru marki i okazji.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-surface py-section">
+    <div class="mx-auto max-w-site px-4 sm:px-6">
+      <div class="mx-auto mb-10 max-w-2xl text-center">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Warianty</span>
+        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">Wybierz styl kolekcji</h2>
+      </div>
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-3">
+        {variants.map((v) => (
+          <div class="rounded-lg bg-background p-6 shadow-sm">
+            <h3 class="font-heading text-lg font-semibold text-text">{v.name}</h3>
+            <p class="mt-2 text-text-muted leading-relaxed">{v.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section">
+    <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
+      <div class="space-y-5 lg:order-2">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Dla kogo</span>
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">Prezenty, które zapadają w pamięć</h2>
+        <p class="text-text-muted leading-relaxed">
+          Kolekcja LUX najczęściej trafia do klientów szukających opakowania na prezenty firmowe, upominki świąteczne i okolicznościowe kolekcje limitowane. Każdy wariant można zamówić z nadrukiem logo lub bez, w wybranym przez Ciebie nakładzie.
+        </p>
+      </div>
+      <div class="overflow-hidden rounded-lg shadow-lg lg:order-1">
+        <Image src={img2} alt="Elegancka torba papierowa z kolekcji LUX" width={800} height={600} loading="lazy" class="size-full object-cover" />
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8">
+    <div class="mx-auto max-w-site px-4 text-center sm:px-6">
+      <p class="text-sm text-text-muted">
+        Poczytaj więcej na blogu:
+        <a href="/blog/czym-sie-wyrozniaja-eleganckie-torby-papierowe" class="font-semibold text-primary underline-offset-2 hover:underline">Czym się wyróżniają eleganckie torby papierowe?</a>
+      </p>
+    </div>
+  </section>
+
+  <CTA
+    title="Zapytaj o kolekcję LUX"
+    description="Napisz, który wariant Cię interesuje — przygotujemy bezpłatną wycenę i próbki materiałów."
+  />
+
+  <RelatedProducts current="/kolekcja-lux" />
+
+  <Footer slot="footer" />
+</BaseLayout>

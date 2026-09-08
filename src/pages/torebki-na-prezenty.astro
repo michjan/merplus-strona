@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Banner from '../components/Banner.astro';
+import CTA from '../components/CTA.astro';
+import RelatedProducts from '../components/RelatedProducts.astro';
+import { Image } from 'astro:assets';
+import img1 from '../assets/images/gallery/torby-prezentowe-krowki.jpg';
+import img2 from '../assets/images/gallery/torby-krowki-witryna.jpg';
+---
+
+<BaseLayout
+  title="Torebki Papierowe na Prezenty ze Sznurkiem | MER Plus"
+  description="Torebki papierowe na prezenty w wielu rozmiarach, kolorach i fakturach. Uchwyty ze sznurka lub tasiemki, pełna personalizacja i ręczne zdobienia."
+  serviceName="Produkcja papierowych torebek na prezenty"
+>
+  <Header slot="header" />
+
+  <Banner title="Torebki papierowe na prezenty" parent={{ label: 'Oferta', href: '/services' }} />
+
+  <section class="py-section">
+    <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
+      <div class="overflow-hidden rounded-lg shadow-lg">
+        <Image src={img1} alt="Torebka papierowa na prezent ze sznurkiem" width={800} height={600} loading="eager" class="size-full object-cover" />
+      </div>
+      <div class="space-y-5">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Prezenty</span>
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">Torebka, która dopełnia prezent</h2>
+        <p class="text-text-muted leading-relaxed">
+          Torebka papierowa na prezent to często pierwszy element, który klient widzi — dlatego liczy się w niej każdy detal. Oferujemy duży wybór rozmiarów, kolorów i faktur papieru, z uchwytem w formie sznurka, tasiemki lub wyciętych otworów, tak aby dopasować torebkę do charakteru okazji i marki.
+        </p>
+        <p class="text-text-muted leading-relaxed">
+          Torebki produkujemy z możliwością pełnej personalizacji — od koloru papieru, przez rodzaj uchwytu, po nadruk logo lub okazjonalnej grafiki.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-surface py-section">
+    <div class="mx-auto max-w-site px-4 sm:px-6">
+      <div class="mx-auto mb-10 max-w-2xl text-center">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Wykończenie</span>
+        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">Wersja ręcznie zdobiona</h2>
+      </div>
+      <p class="mx-auto max-w-3xl text-text-muted leading-relaxed">
+        Dla okazji, w których liczy się niepowtarzalny detal, przygotowujemy torebki z ręcznie nanoszonymi zdobieniami i rysunkami — idealne na prezenty firmowe, urodzinowe i świąteczne. Każda torebka w tej wersji wykonywana jest z dbałością o detal, dzięki czemu staje się częścią prezentu, a nie tylko jego opakowaniem.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-section">
+    <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
+      <div class="space-y-5 lg:order-2">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Zastosowanie</span>
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">Dla sklepów, cukierni i firm</h2>
+        <p class="text-text-muted leading-relaxed">
+          Torebki na prezenty wybierają najczęściej sklepy z upominkami, cukiernie, kwiaciarnie oraz firmy przygotowujące podarunki dla klientów i pracowników. Realizujemy zamówienia w różnych nakładach — od niewielkich partii, po większe zamówienia sezonowe.
+        </p>
+      </div>
+      <div class="overflow-hidden rounded-lg shadow-lg lg:order-1">
+        <Image src={img2} alt="Torebki papierowe na prezenty w różnych kolorach" width={800} height={600} loading="lazy" class="size-full object-cover" />
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8">
+    <div class="mx-auto max-w-site px-4 text-center sm:px-6">
+      <p class="text-sm text-text-muted">
+        Poczytaj więcej na blogu:
+        <a href="/blog/jakie-sa-rozmiary-toreb-na-prezent" class="font-semibold text-primary underline-offset-2 hover:underline">Jakie są rozmiary toreb na prezent?</a>
+      </p>
+    </div>
+  </section>
+
+  <CTA
+    title="Zamów torebki na prezenty"
+    description="Napisz, ile sztuk i w jakim formacie potrzebujesz — przygotujemy bezpłatną wycenę torebek papierowych, standardowych lub ręcznie zdobionych."
+  />
+
+  <RelatedProducts current="/torebki-na-prezenty" />
+
+  <Footer slot="footer" />
+</BaseLayout>

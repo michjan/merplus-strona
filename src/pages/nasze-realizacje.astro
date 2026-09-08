@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Banner from '../components/Banner.astro';
+import CTA from '../components/CTA.astro';
+import RelatedProducts from '../components/RelatedProducts.astro';
+import { Image } from 'astro:assets';
+import premiumImg from '../assets/images/gallery/torba-premium-revitalash.jpg';
+import kraftImg from '../assets/images/gallery/torba-eko-orska.jpg';
+import decorImg from '../assets/images/gallery/torba-ozdobna-prouve.jpg';
+import goldImg from '../assets/images/gallery/torba-premium-siklienka.jpg';
+import wineImg from '../assets/images/gallery/torba-na-wino-gautier.jpg';
+import corrugatedImg from '../assets/images/gallery/torby-detale-wykonczenia.jpg';
+
+const categories = [
+  { name: 'Premium', count: '55 realizacji', img: premiumImg, alt: 'Realizacja torby Premium' },
+  { name: 'Kraft', count: '18 realizacji', img: kraftImg, alt: 'Realizacja torby kraft' },
+  { name: 'Dekoracyjne', count: '6 realizacji', img: decorImg, alt: 'Realizacja torby dekoracyjnej' },
+  { name: 'Kolekcja Gold White', count: '6 realizacji', img: goldImg, alt: 'Realizacja z kolekcji Gold White' },
+  { name: 'Hej Zakopane', count: '6 realizacji', img: wineImg, alt: 'Realizacja z kolekcji Hej Zakopane' },
+  { name: 'Tektura falista', count: '1 realizacja', img: corrugatedImg, alt: 'Realizacja pudełka z tektury falistej' },
+];
+---
+
+<BaseLayout
+  title="Nasze Realizacje — Torby Papierowe na Zamówienie | MER Plus"
+  description="Zobacz ponad 90 zrealizowanych projektów toreb papierowych — od eleganckich Premium po ekologiczne Kraft. Sprawdź nasze portfolio i zamów wycenę."
+>
+  <Header slot="header" />
+
+  <Banner title="Nasze realizacje" parent={{ label: 'Oferta', href: '/services' }} />
+
+  <section class="py-section">
+    <div class="mx-auto max-w-site px-4 sm:px-6">
+      <div class="mx-auto mb-10 max-w-2xl text-center">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Portfolio</span>
+        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">Ponad 90 zrealizowanych projektów</h2>
+        <p class="mt-3 text-text-muted leading-relaxed">
+          Od eleganckich toreb Premium, przez ekologiczny Kraft, po dekoracyjne kolekcje sezonowe — zobacz przykłady projektów, które zrealizowaliśmy dla naszych klientów.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {categories.map((cat) => (
+          <div class="overflow-hidden rounded-lg border border-border bg-background shadow-sm">
+            <Image src={cat.img} alt={cat.alt} width={600} height={450} loading="lazy" class="h-48 w-full object-cover" />
+            <div class="p-5">
+              <h3 class="font-heading text-lg font-semibold text-text">{cat.name}</h3>
+              <p class="mt-1 text-sm text-text-muted">{cat.count}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8">
+    <div class="mx-auto max-w-site px-4 text-center sm:px-6">
+      <p class="text-sm text-text-muted">
+        Poczytaj więcej na blogu:
+        <a href="/blog/jak-torby-i-inne-gadzety-reklamowe-poprawiaja-wizerunek-firmy" class="font-semibold text-primary underline-offset-2 hover:underline">Jak torby i inne gadżety reklamowe poprawiają wizerunek firmy?</a>
+      </p>
+    </div>
+  </section>
+
+  <CTA
+    title="Zrealizujmy razem Twój projekt"
+    description="Podziel się swoim pomysłem na opakowanie — na podstawie naszego doświadczenia pomożemy dobrać materiał, kolor i wykończenie oraz przygotujemy bezpłatną wycenę."
+  />
+
+  <RelatedProducts current="/nasze-realizacje" />
+
+  <Footer slot="footer" />
+</BaseLayout>

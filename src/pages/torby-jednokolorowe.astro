@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Banner from '../components/Banner.astro';
+import CTA from '../components/CTA.astro';
+import RelatedProducts from '../components/RelatedProducts.astro';
+import { Image } from 'astro:assets';
+import img1 from '../assets/images/gallery/torba-reklamowa-muuv.jpg';
+import img2 from '../assets/images/gallery/torba-optyczna-new-optica.jpg';
+---
+
+<BaseLayout
+  title="Torby Papierowe Jednokolorowe | MER Plus"
+  description="Ekonomiczne, jednokolorowe torby papierowe — 18 kolorów i 19 rozmiarów, barwione również od wewnątrz. Czysta elegancja i prostota w jednym. Sprawdź ofertę!"
+  serviceName="Produkcja jednokolorowych toreb papierowych"
+>
+  <Header slot="header" />
+
+  <Banner title="Torby papierowe jednokolorowe" parent={{ label: 'Oferta', href: '/services' }} />
+
+  <section class="py-section">
+    <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
+      <div class="overflow-hidden rounded-lg shadow-lg">
+        <Image src={img1} alt="Jednokolorowa torba papierowa" width={800} height={600} loading="eager" class="size-full object-cover" />
+      </div>
+      <div class="space-y-5">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Kolor i prostota</span>
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">Elegancja bez zbędnych detali</h2>
+        <p class="text-text-muted leading-relaxed">
+          Jednokolorowe torby papierowe to ekonomiczne i estetyczne rozwiązanie tam, gdzie liczy się prostota formy. Oferujemy szeroki wybór kolorów i rozmiarów, z papierem barwionym również od wewnątrz — dzięki czemu torba zachowuje jednolity, spójny wygląd niezależnie od kąta, z którego jest widziana.
+        </p>
+        <p class="text-text-muted leading-relaxed">
+          To rozwiązanie często wybierane jako baza pod nadruk logo — jednolity kolor tła dobrze eksponuje grafikę i zapewnia wysoki kontrast.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-surface py-section">
+    <div class="mx-auto max-w-site px-4 sm:px-6">
+      <div class="mx-auto mb-10 max-w-2xl text-center">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Wybór</span>
+        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">Kolory i rozmiary</h2>
+      </div>
+      <p class="mx-auto max-w-3xl text-center text-text-muted leading-relaxed">
+        Torby jednokolorowe dostępne są w kilkunastu kolorach i kilkunastu rozmiarach — od niewielkich torebek na drobne zakupy, po większe formaty na opakowania zbiorcze. Kolorowe warianty świetnie sprawdzają się także jako element identyfikacji wizualnej sklepu lub sezonowej kolekcji, bez konieczności zamawiania nadruku.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-section">
+    <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
+      <div class="space-y-5 lg:order-2">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Zastosowanie</span>
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">Dla sklepów i marek z własną paletą kolorów</h2>
+        <p class="text-text-muted leading-relaxed">
+          Torby jednokolorowe wybierają sklepy odzieżowe, drogerie, kwiaciarnie i marki, które chcą, aby opakowanie współgrało z ich paletą kolorów bez dodatkowego nadruku. Realizujemy zamówienia od mniejszych, jednorazowych partii po regularne dostawy dla sieci sklepów.
+        </p>
+      </div>
+      <div class="overflow-hidden rounded-lg shadow-lg lg:order-1">
+        <Image src={img2} alt="Kolorowa torba papierowa jednokolorowa" width={800} height={600} loading="lazy" class="size-full object-cover" />
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8">
+    <div class="mx-auto max-w-site px-4 text-center sm:px-6">
+      <p class="text-sm text-text-muted">
+        Poczytaj więcej na blogu:
+        <a href="/blog/torby-papierowe-jednokolorowe-gdzie-i-kiedy-sie-sprawdzaja" class="font-semibold text-primary underline-offset-2 hover:underline">Torby papierowe jednokolorowe. Gdzie i kiedy się sprawdzają?</a>
+      </p>
+    </div>
+  </section>
+
+  <CTA
+    title="Zamów torby jednokolorowe"
+    description="Napisz, jaki kolor i rozmiar Cię interesuje — przygotujemy bezpłatną wycenę, z nadrukiem lub bez."
+  />
+
+  <RelatedProducts current="/torby-jednokolorowe" />
+
+  <Footer slot="footer" />
+</BaseLayout>

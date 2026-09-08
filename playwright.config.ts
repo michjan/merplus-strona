@@ -9,7 +9,7 @@ export default defineConfig({
   reporter: [['html', { outputFolder: 'playwright-report', open: 'never' }]],
 
   use: {
-    baseURL: 'http://localhost:4321',
+    baseURL: 'http://127.0.0.1:4455',
     trace: 'on-first-retry',
   },
 
@@ -21,9 +21,9 @@ export default defineConfig({
   ],
 
   webServer: {
-    command: 'pnpm build && pnpm preview',
-    url: 'http://localhost:4321',
-    reuseExistingServer: !process.env.CI,
+    command: 'npm run build && npm run preview -- --host 127.0.0.1 --port 4455',
+    url: 'http://127.0.0.1:4455',
+    reuseExistingServer: false,
     timeout: 120_000,
   },
 });

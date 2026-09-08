@@ -98,17 +98,41 @@ priorytet: albo owinąć ładowanie GTM w Consent Mode / banner zgody, albo opó
 2. Dociągnąć pełną treść ze starej strony WP — treść nie jest w bazie WP, jest w
    szablonach Blade/PHP i polach ACF, więc trzeba ją wyciągnąć przez Royal MCP
    (`wp_get_pages`, `wp_get_posts`, ACF field tools) albo ręcznie, nie prostym exportem
-3. Blog — tylko 3 z ~38 wpisów przeniesione
-4. Zdjęcia — nowe pliki w `src/assets/images/` (m.in. `krówki.jpg` i wersje
+3. ~~Blog — tylko 3 z ~38 wpisów przeniesione~~ ZROBIONE (2026-09-08): wszystkie 43 realne wpisy
+   przeniesione do `src/content/blog/` (pominięto 2 wpisy covidowe o maseczkach/przyłbicach —
+   produkt wycofany, i 1 pusty wpis powitalny). Treść wyciągnięta z `post_content` przez WordPress
+   MCP i skonwertowana na Markdown (nagłówki H2, pogrubienia, listy, linki wewnętrzne zachowane).
+   Przekierowania 301 w `astro.config.mjs` zaktualizowane — każdy stary URL wpisu przekierowuje
+   teraz bezpośrednio na odpowiadający mu nowy adres (`/blog/<slug>`), a nie ogólnie na `/blog`,
+   żeby zachować SEO link equity per-strona. Do zrobienia: dobrać `tags` per wpis (obecnie puste),
+   sprawdzić opisy (auto-wygenerowane z pierwszych ~155 znaków treści, warto przejrzeć pod kątem SEO).
+4. ~~Oferta — z 65 stron WP na nowej stronie było tylko 12~~ ZROBIONE część (2026-09-08):
+   przeanalizowano meta SEO + linkowanie z bloga dla wszystkich 65 stron WP i przygotowano plan
+   konsolidacji: zamiast odtwarzać 28 rozdrobnionych starych podstron 1:1, zbudowano 8 NOWYCH stron
+   (`torebki-na-prezenty`, `torby-reklamowe-premium`, `torby-jednokolorowe`, `produkty-z-tektury-falistej`,
+   `nasze-realizacje`, `kolekcja-lux`, `kosze-prezentowe`, `kolekcje-swiateczne`) + wzbogacono istniejącą
+   `torby-eko.astro` o treść z 6 scalanych starych stron ekologicznych (temat był rozbity na 6 miejsc na
+   WP — teraz skupiony w 1, z 9 linkami z bloga). Reszta starych podstron (Torby firmowe, z nadrukiem,
+   personalizowane, na targi, itd.) przekierowana 301 do najbliższej pasującej nowej/istniejącej strony
+   zamiast tworzenia kolejnych osobnych adresów. Dodano nowy wpis blogowy "Zalety używania toreb
+   papierowych" (treść informacyjna, nie oferta — lepiej pasuje do blogu). `astro.config.mjs` zaktualizowany
+   (dawne przekierowania ogólne → konkretne nowe adresy), `services.astro` i `RelatedProducts.astro`
+   rozszerzone o nowe strony. Wszystkie strony z Tier 3/4 (ranking priorytetowy z analizy meta+linkowania)
+   są już rozwiązane — zbudowane jako nowe strony albo przekierowane/scalone z istniejącymi, nic nie
+   czeka tam na decyzję. Do zrobienia: dodać realne zdjęcia produktowe (na razie część nowych stron używa
+   zdjęć "pożyczonych" z innych produktów w `src/assets/images/gallery/` lub zdjęć hostowanych na starej WP),
+   doprecyzować `Header.astro` nav (obecnie nowe strony widoczne tylko w `/services`, nie w górnym menu —
+   decyzja świadoma, żeby nie zapchać nawigacji).
+5. Zdjęcia — nowe pliki w `src/assets/images/` (m.in. `krówki.jpg` i wersje
    "poprawione") są niezacommitowane, sprawdzić czy to kompletny zestaw
-5. Schema.org (Organization / Product / FAQPage) — sprawdzić co już jest w BaseLayout
+6. Schema.org (Organization / Product / FAQPage) — sprawdzić co już jest w BaseLayout
    (`defaultSchema` — jest jakiś JSON-LD, dociągnąć jeśli niepełny)
-6. `llms.txt` dla widoczności w LLM-ach (ChatGPT, Perplexity, Google AI Overview) —
+7. `llms.txt` dla widoczności w LLM-ach (ChatGPT, Perplexity, Google AI Overview) —
    nieformalny standard, do rozważenia
-7. Potwierdzić docelowy hosting (Netlify wg README vs. Cloudflare Pages wspominane
+8. Potwierdzić docelowy hosting (Netlify wg README vs. Cloudflare Pages wspominane
    gdzie indziej) i podpięcie domeny merplus.pl
-8. Uprzątnąć `package-lock.json` (npm) — projekt ma być tylko na pnpm
-9. Dopracować przekierowania 301 względem pełnej listy z trackera migracji
+9. Uprzątnąć `package-lock.json` (npm) — projekt ma być tylko na pnpm
+10. Dopracować przekierowania 301 względem pełnej listy z trackera migracji
 
 ## Kontekst / powiązane zasoby
 

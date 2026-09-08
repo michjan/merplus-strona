@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Banner from '../components/Banner.astro';
+import CTA from '../components/CTA.astro';
+import RelatedProducts from '../components/RelatedProducts.astro';
+import { Image } from 'astro:assets';
+import img1 from '../assets/images/gallery/torba-premium-revitalash.jpg';
+import img2 from '../assets/images/gallery/torba-premium-siklienka.jpg';
+---
+
+<BaseLayout
+  title="Torby Reklamowe Premium z Papieru Kredowanego | MER Plus"
+  description="Ekskluzywne torby reklamowe Premium z papieru kredowanego — możliwość laminacji i dowolnego zadrukowania. Reprezentacyjny nośnik reklamowy Twojej firmy."
+  serviceName="Produkcja toreb reklamowych Premium"
+>
+  <Header slot="header" />
+
+  <Banner title="Torby reklamowe Premium" parent={{ label: 'Oferta', href: '/services' }} />
+
+  <section class="py-section">
+    <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
+      <div class="overflow-hidden rounded-lg shadow-lg">
+        <Image src={img1} alt="Torba reklamowa Premium z papieru kredowanego" width={800} height={600} loading="eager" class="size-full object-cover" />
+      </div>
+      <div class="space-y-5">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Premium</span>
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">Ekskluzywne opakowanie dla wymagających marek</h2>
+        <p class="text-text-muted leading-relaxed">
+          Torby reklamowe Premium wykonujemy z papieru kredowanego, który daje gładką, elegancką powierzchnię idealną pod precyzyjny nadruk i intensywne kolory. To wybór dla marek, dla których opakowanie jest częścią doświadczenia klienta — od butików i salonów kosmetycznych, po firmy premium i sieci handlowe wyższej klasy.
+        </p>
+        <p class="text-text-muted leading-relaxed">
+          Torby w tej linii można dodatkowo laminować, co zwiększa ich trwałość i podnosi estetykę wykończenia — z zachowaniem możliwości pełnego, dowolnego zadrukowania.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-surface py-section">
+    <div class="mx-auto max-w-site px-4 sm:px-6">
+      <div class="mx-auto mb-10 max-w-2xl text-center">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Wykończenie</span>
+        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">Co wyróżnia linię Premium</h2>
+      </div>
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-3">
+        <div class="rounded-lg bg-background p-6 shadow-sm">
+          <h3 class="font-heading text-lg font-semibold text-text">Papier kredowany</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">Gładka powierzchnia zapewniająca wysoką jakość i kontrast nadruku.</p>
+        </div>
+        <div class="rounded-lg bg-background p-6 shadow-sm">
+          <h3 class="font-heading text-lg font-semibold text-text">Opcjonalna laminacja</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">Dodatkowa trwałość i efekt wizualny — matowy lub błyszczący.</p>
+        </div>
+        <div class="rounded-lg bg-background p-6 shadow-sm">
+          <h3 class="font-heading text-lg font-semibold text-text">Pełna personalizacja</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">Dowolny nadruk logo i grafiki, dopasowany do identyfikacji marki.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section">
+    <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
+      <div class="space-y-5 lg:order-2">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Dla kogo</span>
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">Reprezentacyjny nośnik Twojej marki</h2>
+        <p class="text-text-muted leading-relaxed">
+          Torby Premium sprawdzają się przy prezentach firmowych, eventach, launchach produktów i współpracy z klientami VIP — tam, gdzie pierwsze wrażenie ma znaczenie. Realizujemy zamówienia bez konieczności dużego minimum, z pełnym wsparciem projektowym.
+        </p>
+      </div>
+      <div class="overflow-hidden rounded-lg shadow-lg lg:order-1">
+        <Image src={img2} alt="Torba reklamowa Premium z nadrukiem logo" width={800} height={600} loading="lazy" class="size-full object-cover" />
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8">
+    <div class="mx-auto max-w-site px-4 text-center sm:px-6">
+      <p class="text-sm text-text-muted">
+        Poczytaj więcej na blogu:
+        <a href="/blog/torby-reklamowe-premium-charakterystyka" class="font-semibold text-primary underline-offset-2 hover:underline">Torby reklamowe premium. Charakterystyka</a>
+      </p>
+    </div>
+  </section>
+
+  <CTA
+    title="Zapytaj o torby Premium"
+    description="Prześlij swoje logo i wytyczne marki — przygotujemy propozycję i bezpłatną wycenę toreb reklamowych Premium."
+  />
+
+  <RelatedProducts current="/torby-reklamowe-premium" />
+
+  <Footer slot="footer" />
+</BaseLayout>

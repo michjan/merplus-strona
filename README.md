@@ -109,7 +109,7 @@ export const brand = {
 
 ```
 small-business-starter/
-├── public/                     # Static files served as-is (favicon, og-image.png)
+├── public/                     # Static files served as-is (favicon, og-image.jpg)
 ├── src/
 │   ├── components/             # Reusable UI sections
 │   │   ├── Header.astro        # Sticky nav with mobile hamburger drawer

@@ -26,6 +26,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "test": "playwright test",
+    "test:seo": "node scripts/verify-seo.mjs",
     "test:ui": "playwright test --ui",
     "test:perf": "playwright test tests/performance.spec.ts",
     "test:report": "playwright show-report"
@@ -39,7 +40,8 @@
     "tailwindcss": "^4.2.1"
   },
   "devDependencies": {
-    "@playwright/test": "^1.58.2"
+    "@playwright/test": "^1.58.2",
+    "vite": "7.3.6"
   },
   "pnpm": {
     "onlyBuiltDependencies": [

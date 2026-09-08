@@ -11,28 +11,11 @@ import Gallery from '../components/Gallery.astro';
 import FAQ from '../components/FAQ.astro';
 import CTA from '../components/CTA.astro';
 import { brand } from '../config/brand';
-import { client } from '../data/client';
 ---
 
 <BaseLayout
   title="Torby Reklamowe z Nadrukiem i Logo | Producent — MER Plus"
-  description="Producent toreb papierowych reklamowych i prezentowych. Torby z nadrukiem logo, torby ozdobne, pudełka prezentowe. Ponad 30 lat doświadczenia. Realizacja od 3 dni. Bezpłatna wycena."
-  schema={{
-    '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    name: client.name,
-    telephone: client.phoneForTel,
-    email: client.email,
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: client.address.lineOne,
-      addressLocality: client.address.city,
-      addressRegion: client.address.state,
-      postalCode: client.address.zip,
-      addressCountry: client.address.country,
-    },
-    url: client.domain,
-  }}
+  description="Producent toreb papierowych reklamowych i prezentowych z nadrukiem logo. Ponad 30 lat doświadczenia, własna produkcja i realizacja od 3 dni. Bezpłatna wycena."
 >
   <Header slot="header" />
 

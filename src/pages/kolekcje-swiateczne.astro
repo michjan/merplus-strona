@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Banner from '../components/Banner.astro';
+import CTA from '../components/CTA.astro';
+import RelatedProducts from '../components/RelatedProducts.astro';
+---
+
+<BaseLayout
+  title="Kolekcje Świąteczne — Torby i Pudełka | MER Plus"
+  description="Sezonowe kolekcje świąteczne — torby i pudełka papierowe w motywach zimowych i świątecznych, idealne na prezenty firmowe i sklepowe promocje sezonowe."
+  serviceName="Produkcja świątecznych toreb i pudełek papierowych"
+>
+  <Header slot="header" />
+
+  <Banner title="Kolekcje świąteczne" parent={{ label: 'Oferta', href: '/services' }} />
+
+  <section class="py-section">
+    <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
+      <div class="overflow-hidden rounded-lg shadow-lg">
+        <img src="https://merplus.pl/wp-content/uploads/2024/09/jj.jpg" alt="Świąteczna kolekcja toreb i pudełek papierowych" width="800" height="600" loading="eager" class="size-full object-cover" />
+      </div>
+      <div class="space-y-5">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Sezon świąteczny</span>
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">Opakowania na czas świąt</h2>
+        <p class="text-text-muted leading-relaxed">
+          Co roku przygotowujemy sezonową kolekcję toreb i pudełek papierowych w motywach zimowych i świątecznych — dla sklepów szukających gotowego opakowania na czas przedświątecznych zakupów oraz firm przygotowujących upominki dla klientów i pracowników.
+        </p>
+        <p class="text-text-muted leading-relaxed">
+          Kolekcja obejmuje zarówno torby, jak i pudełka prezentowe — możliwe jest też dołożenie nadruku logo firmy do wzoru świątecznego.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8">
+    <div class="mx-auto max-w-site px-4 text-center sm:px-6">
+      <p class="text-sm text-text-muted">
+        Poczytaj więcej na blogu:
+        <a href="/blog/ladne-opakowanie-to-w-marketingu-podstawa" class="font-semibold text-primary underline-offset-2 hover:underline">Ładne opakowanie to w marketingu podstawa</a>
+      </p>
+    </div>
+  </section>
+
+  <CTA
+    title="Zapytaj o kolekcję świąteczną"
+    description="Napisz, na kiedy potrzebujesz opakowań — sezon świąteczny warto zaplanować z wyprzedzeniem. Przygotujemy bezpłatną wycenę."
+  />
+
+  <RelatedProducts current="/kolekcje-swiateczne" />
+
+  <Footer slot="footer" />
+</BaseLayout>
