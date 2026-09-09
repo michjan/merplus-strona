@@ -1,6 +1,6 @@
 ---
 title: "Torby papierowe jednokolorowe. Gdzie i kiedy się sprawdzają?"
-description: "Zastosowanie jednokolorowych toreb papierowych w działalności firmowej Jeśli chodzi o użycie tego typu przedmiotów, to zakres ten jest naprawdę szeroki...."
+description: "Jednokolorowe torby papierowe świetnie sprawdzają się w branży reklamowej, ekologicznych sklepach, księgarniach i gastronomii — poznaj ich zastosowania."
 author: "Zespół MER Plus"
 date: 2020-06-06
 tags: []

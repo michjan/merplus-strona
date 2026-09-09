@@ -1,6 +1,6 @@
 ---
 title: "Jakie są rozmiary toreb na prezent?"
-description: "Najmniejsze rozmiary torebek na prezenty – idealne na drobne upominki Drobne prezenty, takie jak biżuteria, kosmetyki czy płyty CD, wymagają odpowiednich..."
+description: "Od miniaturowych T Mikro po duże T Max — sprawdź, jakie rozmiary papierowych torebek na prezent najlepiej pasują do drobnych i większych upominków."
 author: "Zespół MER Plus"
 date: 2024-09-12
 tags: []

@@ -1,6 +1,6 @@
 ---
 title: "Produkcja toreb ekologicznych krok po kroku"
-description: "Torby eko – dlaczego popularne? Torby ekologiczne, czyli torby eko zdobywają coraz większą popularność przede wszystkim dlatego, że stanowią doskonałą..."
+description: "Produkcja toreb ekologicznych obejmuje przygotowanie zasobów, dobór maszyn i papieru oraz projektowanie — sprawdź, jak wygląda proces krok po kroku."
 author: "Zespół MER Plus"
 date: 2020-08-20
 tags: []

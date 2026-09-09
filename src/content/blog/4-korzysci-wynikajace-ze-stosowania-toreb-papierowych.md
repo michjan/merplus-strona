@@ -1,6 +1,6 @@
 ---
 title: "4 korzyści wynikające ze stosowania toreb papierowych"
-description: "Korzyści ekologiczne i wizerunkowe Stosowanie toreb papierowych przynosi korzyści zarówno z punktu widzenia ekologii, jak i marketingu. Cztery korzyści..."
+description: "Torby papierowe to biodegradowalność, wielokrotne użytkowanie, możliwość personalizacji z logo oraz elegancki wygląd — sprawdzamy 4 kluczowe korzyści."
 author: "Zespół MER Plus"
 date: 2024-08-22
 tags: []

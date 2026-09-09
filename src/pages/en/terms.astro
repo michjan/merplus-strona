@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Banner from '../../components/Banner.astro';
+import { client } from '../../data/client';
+---
+
+<BaseLayout title="Terms of Service" description="Terms of service for the MER Plus website.">
+  <Header slot="header" lang="en" />
+
+  <Banner title="Terms of Service" lang="en" />
+
+  <section class="py-section">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6">
+      <article class="prose prose-lg max-w-none prose-headings:font-heading prose-headings:uppercase prose-a:text-primary-light hover:prose-a:text-primary">
+        <h2>General Provisions</h2>
+        <p>
+          These terms of service govern the use of the website {client.domain},
+          operated by {client.name}, {client.address.lineOne},
+          {client.address.zip} {client.address.city}{client.license ? ` (${client.license})` : ''}.
+        </p>
+
+        <h2>Scope of Services</h2>
+        <p>
+          This website is informational in nature and presents the product offering of
+          {client.name} — a manufacturer of paper bags and promotional packaging. Quote
+          requests can be submitted via the contact form, by phone, or by email.
+        </p>
+
+        <h2>Intellectual Property</h2>
+        <p>
+          All content published on this website, including text, graphics, photographs,
+          and logos, is the property of {client.name} or is used with the permission of
+          the rights holders, and is protected under copyright law. Copying and
+          distributing this content without the owner's consent is prohibited.
+        </p>
+
+        <h2>Liability</h2>
+        <p>
+          {client.name} makes every effort to ensure the information presented on this
+          website is accurate and up to date, but is not liable for any errors or
+          inaccuracies, or for interruptions in the website's availability due to
+          technical reasons.
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+          For questions related to these terms of service, please contact us:
+          {client.phoneFormatted}, <a href={`mailto:${client.email}`}>{client.email}</a>.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <Footer slot="footer" lang="en" />
+</BaseLayout>

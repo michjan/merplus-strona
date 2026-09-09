@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Banner from '../../components/Banner.astro';
+import { client } from '../../data/client';
+---
+
+<BaseLayout title="Privacy Policy" description="Privacy policy and personal data protection at MER Plus.">
+  <Header slot="header" lang="en" />
+
+  <Banner title="Privacy Policy" lang="en" />
+
+  <section class="py-section">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6">
+      <article class="prose prose-lg max-w-none prose-headings:font-heading prose-headings:uppercase prose-a:text-primary-light hover:prose-a:text-primary">
+        <h2>Data Controller</h2>
+        <p>
+          The controller of personal data collected through the website
+          {client.domain} is {client.name}, {client.address.lineOne},
+          {client.address.zip} {client.address.city}. For questions about data protection,
+          contact: <a href={`mailto:${client.email}`}>{client.email}</a>.
+        </p>
+
+        <h2>What Data We Collect</h2>
+        <p>
+          Through the contact form we collect data voluntarily provided by the user,
+          such as name, email address, phone number, and message content. This data is
+          used solely to respond to the inquiry and is not shared with third parties
+          without the user's consent.
+        </p>
+
+        <h2>Cookies</h2>
+        <p>
+          The website may use cookies to ensure proper functioning and to analyze traffic.
+          Users can change their cookie settings in their web browser at any time.
+        </p>
+
+        <h2>User Rights</h2>
+        <p>
+          Every data subject has the right to access their data, to have it corrected,
+          erased, or its processing restricted, as well as the right to object to
+          processing and the right to data portability. To exercise these rights, please
+          contact us at <a href={`mailto:${client.email}`}>{client.email}</a>.
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+          If you have any questions about this privacy policy, please contact us:
+          {client.phoneFormatted}, <a href={`mailto:${client.email}`}>{client.email}</a>.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <Footer slot="footer" lang="en" />
+</BaseLayout>

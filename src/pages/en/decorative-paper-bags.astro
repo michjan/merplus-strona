@@ -1,0 +1,144 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Banner from '../../components/Banner.astro';
+import CTA from '../../components/CTA.astro';
+import RelatedProducts from '../../components/RelatedProducts.astro';
+import { Image } from 'astro:assets';
+import { plToEn } from '../../i18n/page-map';
+import img1 from '../../assets/images/gallery/torba-ozdobna-prouve.jpg';
+import img2 from '../../assets/images/gallery/torby-prezentowe-krowki.jpg';
+
+const faqs = [
+  {
+    question: 'What occasions are decorative bags best suited for?',
+    answer: 'Decorative bags are ideal for holiday, birthday, and wedding gifts, as well as an elegant touch for purchases in boutiques, confectioneries, and flower shops. They also work well as corporate gifts for employees and business partners.',
+  },
+  {
+    question: 'Can decorative bags be ordered in small quantities?',
+    answer: 'Yes, we handle both small batches for individual needs (e.g. one set for a specific occasion) and larger runs for businesses and shops.',
+  },
+  {
+    question: 'What is the difference between decorative and promotional bags?',
+    answer: 'Promotional bags are designed mainly for logo printing and marketing purposes. Decorative bags focus on aesthetics and hand-finishing — ribbons, cords, string ties — and are mainly used as gift packaging.',
+  },
+  {
+    question: 'Can a decorative bag include custom printing or a logo?',
+    answer: 'Yes, decorative bags can be enhanced with a logo print or a seasonal motif — such as a holiday design — which works especially well for corporate gifts.',
+  },
+  {
+    question: 'What finishes are available for decorative bags?',
+    answer: 'We offer hand finishes such as tied handles, ribbons, cords, decorative reinforcements, and combinations of different paper textures and colors — matched to the character of the occasion.',
+  },
+];
+---
+
+<BaseLayout
+  title="Decorative Paper Gift Bags | MER Plus"
+  description="Decorative paper and gift bags with hand finishing — ideal for gifts, holidays, and exclusive packaging. Free quote."
+  serviceName="Manufacturing of decorative paper bags"
+>
+  <Header slot="header" lang="en" />
+
+  <Banner title="Decorative Paper Gift Bags" parent={{ label: 'Products', href: plToEn['/services'] }} lang="en" />
+
+  <section class="py-section">
+    <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
+      <div class="space-y-5 lg:order-1">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Decorative bags</span>
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">Packaging that's part of the gift</h2>
+        <p class="text-text-muted leading-relaxed">
+          A decorative bag is more than packaging — it's the first impression a gift makes even before it's opened. Our range includes paper gift bags in various sizes, colors, and patterns, hand-finished with great attention to detail: ribbons, cords, string ties, or decorative reinforcements.
+        </p>
+        <p class="text-text-muted leading-relaxed">
+          We manufacture MER Plus decorative bags for individual customers, shops, confectioneries, florists, and companies preparing holiday or occasional gifts for employees and business partners. Every bag can be color-matched to the occasion — from birthdays and weddings to holidays and elegant corporate editions.
+        </p>
+      </div>
+      <div class="grid grid-cols-2 gap-4 lg:order-2">
+        <div class="overflow-hidden rounded-lg shadow-lg">
+          <Image src={img1} alt="Decorative paper gift bag" width={500} height={500} loading="eager" class="size-full object-cover" />
+        </div>
+        <div class="overflow-hidden rounded-lg shadow-lg">
+          <Image src={img2} alt="Hand-finished gift bags" width={500} height={500} loading="lazy" class="size-full object-cover" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-surface py-section">
+    <div class="mx-auto max-w-site px-4 sm:px-6">
+      <div class="mx-auto mb-10 max-w-2xl text-center">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Occasions</span>
+        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">What occasions decorative bags work for</h2>
+      </div>
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-3">
+        <div class="rounded-lg bg-background p-6 shadow-sm">
+          <h3 class="font-heading text-lg font-semibold text-text">Holidays and family occasions</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">Holiday, birthday, and wedding bags in an elegant, decorative form.</p>
+        </div>
+        <div class="rounded-lg bg-background p-6 shadow-sm">
+          <h3 class="font-heading text-lg font-semibold text-text">Shops and boutiques</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">Aesthetic purchase packaging that raises the perceived value of the product.</p>
+        </div>
+        <div class="rounded-lg bg-background p-6 shadow-sm">
+          <h3 class="font-heading text-lg font-semibold text-text">Corporate gifts</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">Elegant gift packaging for employees, clients, and business partners.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section">
+    <div class="mx-auto max-w-site px-4 sm:px-6">
+      <div class="mx-auto mb-10 max-w-2xl text-center">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Hand finishing</span>
+        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">Details that make the difference</h2>
+        <p class="mt-3 text-text-muted leading-relaxed">
+          We hand-finish many decorative bags — including tying handles, attaching ribbons, adding extra decorative elements, or combining different paper textures. This approach lets us create packaging that's hard to find in mass production, while still keeping fulfillment accessible for B2C and B2B customers — for both one-off orders and larger runs.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6">
+      <div class="mx-auto mb-10 max-w-2xl text-center">
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">Frequently Asked Questions</h2>
+      </div>
+      <div class="space-y-3">
+        {faqs.map(({ question, answer }) => (
+          <details class="group rounded-lg border border-border bg-background p-5 [&_summary::-webkit-details-marker]:hidden">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-heading text-h3 font-semibold text-text">
+              {question}
+              <svg class="size-5 shrink-0 text-primary transition-transform group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+              </svg>
+            </summary>
+            <p class="mt-3 text-text-muted leading-relaxed">{answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqs.map(({ question, answer }) => ({
+        '@type': 'Question',
+        name: question,
+        acceptedAnswer: { '@type': 'Answer', text: answer },
+      })),
+    })} />
+  </section>
+
+  <CTA
+    lang="en"
+    title="Order decorative gift bags"
+    description="Tell us what occasion you need bags for, and we'll prepare a free quote and a finishing proposal."
+  />
+
+  <RelatedProducts current={plToEn['/torby-ozdobne']} lang="en" />
+
+  <Footer slot="footer" lang="en" />
+</BaseLayout>

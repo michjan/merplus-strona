@@ -1,6 +1,6 @@
 ---
 title: "W jaki sposób można zdobić torby papierowe?"
-description: "Techniki zdobienia toreb papierowych Jednym z najpopularniejszych materiałów do produkcji toreb papierowych jest papier kraft. Torby papierowe kraft..."
+description: "Torby papierowe kraft można zdobić nadrukiem, tłoczeniem lub ręcznie, a dodatki takie jak sznurki i wstążki podkreślą ich charakter — sprawdź techniki."
 author: "Zespół MER Plus"
 date: 2024-07-17
 tags: []

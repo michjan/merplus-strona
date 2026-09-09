@@ -8,6 +8,29 @@ import RelatedProducts from '../components/RelatedProducts.astro';
 import { Image } from 'astro:assets';
 import img1 from '../assets/images/gallery/torba-reklamowa-knauf.jpg';
 import img2 from '../assets/images/gallery/torba-reklamowa-muuv.jpg';
+
+const faqs = [
+  {
+    question: 'Torebki reklamowe czy torby reklamowe — czym się różnią?',
+    answer: 'Oba terminy są używane zamiennie i opisują to samo opakowanie papierowe z nadrukiem. "Torebki reklamowe" to często stosowana zdrobniała forma, szczególnie w przypadku mniejszych formatów — w naszej ofercie znajdziesz oba rozmiary, od niewielkich torebek po duże torby reklamowe.',
+  },
+  {
+    question: 'Jakie rozmiary toreb reklamowych są dostępne?',
+    answer: 'Standardowo oferujemy 19 rozmiarów toreb papierowych w 24 kolorach. Dokładne wymiary i wykrojniki możesz sprawdzić w naszej wyszukiwarce rozmiarów na stronie /wykrojniki — to szczególnie przydatne dla zamówień B2B.',
+  },
+  {
+    question: 'Czy mogę zamówić małą partię toreb reklamowych?',
+    answer: 'Tak. Dzięki własnej produkcji realizujemy zarówno niewielkie, jednostkowe zamówienia, jak i duże nakłady dla firm — bez sztywnego minimum zamówienia.',
+  },
+  {
+    question: 'Jaki papier jest najlepszy na torby reklamowe?',
+    answer: 'Najczęściej wybierany jest papier kraft ze względu na wytrzymałość i ekologiczny charakter, ale dostępne są też torby z papieru białego i kolorowego o różnej gramaturze — dopasowanej do wagi pakowanego produktu.',
+  },
+  {
+    question: 'Jak długo trwa realizacja zamówienia toreb reklamowych?',
+    answer: 'Standardowy czas realizacji to od 3 dni roboczych, w zależności od nakładu, techniki nadruku i bieżącego obciążenia produkcji.',
+  },
+];
 ---
 
 <BaseLayout
@@ -120,28 +143,7 @@ import img2 from '../assets/images/gallery/torba-reklamowa-muuv.jpg';
         <h2 class="font-heading text-h2 font-bold uppercase text-text">Najczęściej zadawane pytania</h2>
       </div>
       <div class="space-y-3">
-        {[
-          {
-            question: 'Torebki reklamowe czy torby reklamowe — czym się różnią?',
-            answer: 'Oba terminy są używane zamiennie i opisują to samo opakowanie papierowe z nadrukiem. "Torebki reklamowe" to często stosowana zdrobniała forma, szczególnie w przypadku mniejszych formatów — w naszej ofercie znajdziesz oba rozmiary, od niewielkich torebek po duże torby reklamowe.',
-          },
-          {
-            question: 'Jakie rozmiary toreb reklamowych są dostępne?',
-            answer: 'Standardowo oferujemy 19 rozmiarów toreb papierowych w 24 kolorach. Dokładne wymiary i wykrojniki możesz sprawdzić w naszej wyszukiwarce rozmiarów na stronie /wykrojniki — to szczególnie przydatne dla zamówień B2B.',
-          },
-          {
-            question: 'Czy mogę zamówić małą partię toreb reklamowych?',
-            answer: 'Tak. Dzięki własnej produkcji realizujemy zarówno niewielkie, jednostkowe zamówienia, jak i duże nakłady dla firm — bez sztywnego minimum zamówienia.',
-          },
-          {
-            question: 'Jaki papier jest najlepszy na torby reklamowe?',
-            answer: 'Najczęściej wybierany jest papier kraft ze względu na wytrzymałość i ekologiczny charakter, ale dostępne są też torby z papieru białego i kolorowego o różnej gramaturze — dopasowanej do wagi pakowanego produktu.',
-          },
-          {
-            question: 'Jak długo trwa realizacja zamówienia toreb reklamowych?',
-            answer: 'Standardowy czas realizacji to od 3 dni roboczych, w zależności od nakładu, techniki nadruku i bieżącego obciążenia produkcji.',
-          },
-        ].map(({ question, answer }) => (
+        {faqs.map(({ question, answer }) => (
           <details class="group rounded-lg border border-border bg-background p-5 [&_summary::-webkit-details-marker]:hidden">
             <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-heading text-h3 font-semibold text-text">
               {question}
@@ -158,28 +160,7 @@ import img2 from '../assets/images/gallery/torba-reklamowa-muuv.jpg';
     <script type="application/ld+json" set:html={JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'FAQPage',
-      mainEntity: [
-        {
-          question: 'Torebki reklamowe czy torby reklamowe — czym się różnią?',
-          answer: 'Oba terminy są używane zamiennie i opisują to samo opakowanie papierowe z nadrukiem. "Torebki reklamowe" to często stosowana zdrobniała forma, szczególnie w przypadku mniejszych formatów — w naszej ofercie znajdziesz oba rozmiary, od niewielkich torebek po duże torby reklamowe.',
-        },
-        {
-          question: 'Jakie rozmiary toreb reklamowych są dostępne?',
-          answer: 'Standardowo oferujemy 19 rozmiarów toreb papierowych w 24 kolorach. Dokładne wymiary i wykrojniki możesz sprawdzić w naszej wyszukiwarce rozmiarów na stronie /wykrojniki — to szczególnie przydatne dla zamówień B2B.',
-        },
-        {
-          question: 'Czy mogę zamówić małą partię toreb reklamowych?',
-          answer: 'Tak. Dzięki własnej produkcji realizujemy zarówno niewielkie, jednostkowe zamówienia, jak i duże nakłady dla firm — bez sztywnego minimum zamówienia.',
-        },
-        {
-          question: 'Jaki papier jest najlepszy na torby reklamowe?',
-          answer: 'Najczęściej wybierany jest papier kraft ze względu na wytrzymałość i ekologiczny charakter, ale dostępne są też torby z papieru białego i kolorowego o różnej gramaturze — dopasowanej do wagi pakowanego produktu.',
-        },
-        {
-          question: 'Jak długo trwa realizacja zamówienia toreb reklamowych?',
-          answer: 'Standardowy czas realizacji to od 3 dni roboczych, w zależności od nakładu, techniki nadruku i bieżącego obciążenia produkcji.',
-        },
-      ].map(({ question, answer }) => ({
+      mainEntity: faqs.map(({ question, answer }) => ({
         '@type': 'Question',
         name: question,
         acceptedAnswer: { '@type': 'Answer', text: answer },

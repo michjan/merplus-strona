@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Banner from '../../components/Banner.astro';
+import CTA from '../../components/CTA.astro';
+import RelatedProducts from '../../components/RelatedProducts.astro';
+import { Image } from 'astro:assets';
+import { plToEn } from '../../i18n/page-map';
+import img1 from '../../assets/images/gallery/torby-prezentowe-krowki.jpg';
+import img2 from '../../assets/images/gallery/torby-krowki-witryna.jpg';
+---
+
+<BaseLayout
+  title="Paper Gift Bags with Cord Handles | MER Plus"
+  description="Paper gift bags in many sizes, colors, and textures. Cord or ribbon handles, full customization, and hand-applied decorations."
+  serviceName="Manufacturing of paper gift bags"
+>
+  <Header slot="header" lang="en" />
+
+  <Banner title="Paper Gift Bags" parent={{ label: 'Products', href: plToEn['/services'] }} lang="en" />
+
+  <section class="py-section">
+    <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
+      <div class="overflow-hidden rounded-lg shadow-lg">
+        <Image src={img1} alt="Paper gift bag with cord handle" width={800} height={600} loading="eager" class="size-full object-cover" />
+      </div>
+      <div class="space-y-5">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Gifts</span>
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">A bag that completes the gift</h2>
+        <p class="text-text-muted leading-relaxed">
+          A paper gift bag is often the first thing a customer sees — which is why every detail matters. We offer a wide choice of sizes, colors, and paper textures, with a handle in the form of a cord, ribbon, or cut-out openings, so the bag matches the character of the occasion and the brand.
+        </p>
+        <p class="text-text-muted leading-relaxed">
+          We manufacture gift bags with full customization available — from paper color, to handle type, to printing a logo or a seasonal design.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-surface py-section">
+    <div class="mx-auto max-w-site px-4 sm:px-6">
+      <div class="mx-auto mb-10 max-w-2xl text-center">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Finish</span>
+        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">Hand-decorated version</h2>
+      </div>
+      <p class="mx-auto max-w-3xl text-text-muted leading-relaxed">
+        For occasions where a one-of-a-kind detail matters, we prepare bags with hand-applied decorations and illustrations — ideal for corporate, birthday, and holiday gifts. Every bag in this version is made with attention to detail, so it becomes part of the gift, not just its packaging.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-section">
+    <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
+      <div class="space-y-5 lg:order-2">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Use cases</span>
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">For shops, confectioneries, and businesses</h2>
+        <p class="text-text-muted leading-relaxed">
+          Gift bags are most often chosen by gift shops, confectioneries, florists, and companies preparing gifts for clients and employees. We fulfill orders of various sizes — from small batches to larger seasonal orders.
+        </p>
+      </div>
+      <div class="overflow-hidden rounded-lg shadow-lg lg:order-1">
+        <Image src={img2} alt="Paper gift bags in various colors" width={800} height={600} loading="lazy" class="size-full object-cover" />
+      </div>
+    </div>
+  </section>
+
+  <CTA
+    lang="en"
+    title="Order gift bags"
+    description="Tell us how many pieces and what format you need — we'll prepare a free quote for paper gift bags, standard or hand-decorated."
+  />
+
+  <RelatedProducts current={plToEn['/torebki-na-prezenty']} lang="en" />
+
+  <Footer slot="footer" lang="en" />
+</BaseLayout>

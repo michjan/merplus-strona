@@ -1,6 +1,6 @@
 ---
 title: "Jak dobrać kolor i wzór torby do okazji?"
-description: "Kolory toreb a charakter wydarzenia Na uroczystości formalne, np. śluby czy jubileusze, najlepiej sprawdzają się stonowane barwy, biel, srebro, złoto czy..."
+description: "Stonowane barwy pasują do formalnych uroczystości, a intensywne kolory i odważne wzory świetnie sprawdzą się na imprezach — jak dobrać torbę do okazji."
 author: "Zespół MER Plus"
 date: 2024-11-18
 tags: []

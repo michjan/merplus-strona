@@ -1,6 +1,6 @@
 ---
 title: "Torby papierowe z logo jako propozycja dla firm"
-description: "Dlaczego warto zainteresować się papierowymi torbami z logo firmy? Zacznijmy od tego, dlaczego każda firma powinna zainteresować się papierowymi torbami z..."
+description: "Torby papierowe z logo to uniwersalny, wielokrotnego użytku nośnik reklamy, który wpływa na postrzeganie firmy przez klientów — sprawdź dlaczego warto."
 author: "Zespół MER Plus"
 date: 2021-11-03
 tags: []

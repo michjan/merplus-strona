@@ -3,10 +3,17 @@ import { Image } from 'astro:assets';
 import { brand } from '../config/brand';
 import { client } from '../data/client';
 import logo from '../assets/images/logo_wb merplus.png';
+import { plToEn } from '../i18n/page-map';
+
+interface Props {
+  lang?: 'pl' | 'en';
+}
+
+const { lang = 'pl' } = Astro.props;
 
 const year = new Date().getFullYear();
 
-const navCols = [
+const navColsPl = [
   {
     title: 'Firma',
     links: [
@@ -25,9 +32,33 @@ const navCols = [
     ],
   },
 ];
+
+const navColsEn = [
+  {
+    title: 'Company',
+    links: [
+      { label: 'About',     href: plToEn['/about'] },
+      { label: 'Products',  href: plToEn['/services'] },
+      { label: 'Size guide', href: plToEn['/wykrojniki'] },
+      { label: 'Blog',      href: '/en/blog' },
+    ],
+  },
+  {
+    title: 'Support',
+    links: [
+      { label: 'Contact',  href: plToEn['/contact'] },
+      { label: 'Privacy',  href: plToEn['/privacy'] },
+      { label: 'Terms',    href: plToEn['/terms'] },
+    ],
+  },
+];
+
+const navCols = lang === 'en' ? navColsEn : navColsPl;
+const contactTitle = lang === 'en' ? 'Contact' : 'Kontakt';
+const copyrightText = lang === 'en' ? 'All rights reserved.' : 'Wszelkie prawa zastrzeżone.';
 ---
 
-<footer class="bg-dark text-surface/80" transition:persist>
+<footer class="bg-dark text-surface/80" transition:persist={`footer-${lang}`}>
   <div class="mx-auto max-w-site px-4 py-12 sm:px-6 lg:py-16">
     <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
 
@@ -78,7 +109,7 @@ const navCols = [
 
       <!-- Contact info -->
       <div>
-        <h2 class="text-sm font-bold uppercase tracking-wider text-white">Kontakt</h2>
+        <h2 class="text-sm font-bold uppercase tracking-wider text-white">{contactTitle}</h2>
         <ul class="mt-3 space-y-2 text-sm">
           <li>
             <a href={`tel:${client.phoneForTel}`} class="transition-colors hover:text-white">
@@ -102,7 +133,7 @@ const navCols = [
 
     <!-- Copyright -->
     <div class="mt-10 border-t border-surface/10 pt-6 text-center text-sm">
-      &copy; {year} {brand.name}. Wszelkie prawa zastrzeżone.
+      &copy; {year} {brand.name}. {copyrightText}
     </div>
   </div>
 </footer>

@@ -1,6 +1,6 @@
 ---
 title: "Metody nadruków stosowane na torbach"
-description: "Nadruk – co warto wiedzieć? Pierwszym krokiem, by na naszej torbie pojawił się elegancki nadruk, jest stworzenie dokładnego projektu. Oczywiście to my,..."
+description: "Sitografia i fleksografia to dwie podstawowe metody nadruku na torbach papierowych — sprawdź, która lepiej sprawdzi się w Twoim projekcie."
 author: "Zespół MER Plus"
 date: 2021-01-22
 tags: []

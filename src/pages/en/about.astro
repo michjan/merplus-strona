@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Banner from '../../components/Banner.astro';
+import CTA from '../../components/CTA.astro';
+import { Image } from 'astro:assets';
+import { brand } from '../../config/brand';
+import storyImage from '../../assets/images/gallery/torba-optyczna-new-optica.jpg';
+
+const values = [
+  { title: 'Experience', description: 'Over 30 years in the paper packaging manufacturing business — knowledge and technology proven over time.' },
+  { title: 'In-house production', description: 'Every bag and package is made at our own facility, giving us full control over quality and lead times.' },
+  { title: 'Flexibility', description: 'We handle both small, custom orders and large production runs for companies.' },
+];
+---
+
+<BaseLayout title="About Us" description={`Get to know ${brand.name} — our history, experience, and approach to quality.`}>
+  <Header slot="header" lang="en" />
+
+  <Banner title="About Us" lang="en" />
+
+  <!-- Story -->
+  <section class="py-section">
+    <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
+      <div class="overflow-hidden rounded-lg shadow-lg">
+        <Image
+          src={storyImage}
+          alt="Paper bag made by MER Plus"
+          width={800}
+          height={600}
+          loading="lazy"
+          class="size-full object-cover"
+        />
+      </div>
+      <div class="space-y-5">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Our story</span>
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">Tradition, quality, and a passion for craftsmanship</h2>
+        <p class="text-text-muted leading-relaxed">
+          MER Plus has been in business for over 30 years. What started as a small workshop has grown into an efficient production facility that today supplies paper bags and promotional packaging to businesses and individual customers across Poland and beyond.
+        </p>
+        <p class="text-text-muted leading-relaxed">
+          We combine experience and modern production with hand-finishing — especially for decorative and gift bags. Thanks to our own facility, we can respond flexibly to any order, regardless of its size.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="bg-surface py-section">
+    <div class="mx-auto max-w-site px-4 sm:px-6">
+      <div class="mx-auto mb-10 max-w-2xl text-center">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Why us</span>
+        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">What sets us apart</h2>
+      </div>
+
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-3">
+        {values.map(({ title, description }) => (
+          <div class="rounded-lg bg-background p-6 shadow-sm">
+            <h3 class="font-heading text-lg font-semibold text-text">{title}</h3>
+            <p class="mt-2 text-sm text-text-muted leading-relaxed">{description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTA lang="en" />
+
+  <Footer slot="footer" lang="en" />
+</BaseLayout>

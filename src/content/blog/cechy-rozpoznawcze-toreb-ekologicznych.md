@@ -1,6 +1,6 @@
 ---
 title: "Cechy rozpoznawcze toreb ekologicznych"
-description: "Estetyka na najwyższym poziomie Jedną z podstawowych cech toreb ekologicznych jest – wbrew powszechnie panującemu przekonaniu – ich estetyka. Dzięki..."
+description: "Torby ekologiczne wyróżnia estetyczny, naturalny design, wysoka wytrzymałość dzięki papierowi kraft oraz pełna biodegradowalność i możliwość recyklingu."
 author: "Zespół MER Plus"
 date: 2020-10-23
 tags: []

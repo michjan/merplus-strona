@@ -8,9 +8,17 @@ export default defineConfig({
   site: 'https://www.merplus.pl',
   output: 'static',
 
+  i18n: {
+    locales: ['pl', 'en'],
+    defaultLocale: 'pl',
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
+
   integrations: [
     sitemap({
-      filter: (page) => new URL(page).pathname.replace(/\/$/, '') !== '/contact/success',
+      filter: (page) => !['/contact/success', '/en/contact/success'].includes(new URL(page).pathname.replace(/\/$/, '')),
     }),
     robotsTxt({
       policy: [
@@ -51,23 +59,23 @@ export default defineConfig({
     '/produkcja-toreb-reklamowych/informacje-potrzebne-do-wyceny/': '/contact',
     '/produkcja-toreb-reklamowych/torby-reklamowe-produkcja/': '/torby-reklamowe',
 
-    // --- Wersja angielska (brak EN na nowej stronie) ---
-    '/en/': '/',
-    '/en/offer/': '/services',
-    '/en/contact/': '/contact',
-    '/en/offer/premium-advertising-bags/': '/torby-reklamowe',
-    '/en/offer/promotional-bags/': '/torby-reklamowe',
-    '/en/offer/printed-advertising-bags/': '/torby-reklamowe',
-    '/en/offer/corrugated-advertising-bags/': '/torby-reklamowe',
-    '/en/offer/laminated-paper-bags/': '/torby-reklamowe',
-    '/en/offer/promotional-bags-with-a-logo/': '/torby-reklamowe-z-logo',
-    '/en/offer/company-paper-bags/': '/torby-reklamowe-z-logo',
-    '/en/offer/decorative-bags/': '/torby-ozdobne',
-    '/en/offer/ecological-advertising-bags/': '/torby-eko',
-    '/en/offer/production-of-advertising-bags/': '/torby-reklamowe',
-    '/en/offer/production-of-advertising-bags/information-needed-for-the-valuation/': '/contact',
-    '/en/offer/production-of-advertising-bags/preparing-production-files/': '/contact',
-    '/en/offer/production-of-advertising-bags/custom-die-cutting/': '/wykrojniki',
+    // --- Wersja angielska: stare adresy z WP -> odpowiedniki na nowej stronie EN ---
+    // Uwaga: '/en/' i '/en/contact/' NIE są tu przekierowywane, bo to realne
+    // strony (en/index.astro, en/contact/index.astro) od czasu wdrożenia i18n.
+    '/en/offer/': '/en/services',
+    '/en/offer/premium-advertising-bags/': '/en/promotional-paper-bags',
+    '/en/offer/promotional-bags/': '/en/promotional-paper-bags',
+    '/en/offer/printed-advertising-bags/': '/en/promotional-paper-bags',
+    '/en/offer/corrugated-advertising-bags/': '/en/promotional-paper-bags',
+    '/en/offer/laminated-paper-bags/': '/en/promotional-paper-bags',
+    '/en/offer/promotional-bags-with-a-logo/': '/en/custom-logo-paper-bags',
+    '/en/offer/company-paper-bags/': '/en/custom-logo-paper-bags',
+    '/en/offer/decorative-bags/': '/en/decorative-paper-bags',
+    '/en/offer/ecological-advertising-bags/': '/en/eco-friendly-paper-bags',
+    '/en/offer/production-of-advertising-bags/': '/en/promotional-paper-bags',
+    '/en/offer/production-of-advertising-bags/information-needed-for-the-valuation/': '/en/contact',
+    '/en/offer/production-of-advertising-bags/preparing-production-files/': '/en/contact',
+    '/en/offer/production-of-advertising-bags/custom-die-cutting/': '/en/size-guide',
 
     // --- Torby reklamowe (oferta) ---
     '/oferta/torby-reklamowe/': '/torby-reklamowe',
@@ -188,8 +196,8 @@ export default defineConfig({
     '/nasze-realizacje-torby-ozdobne/': '/nasze-realizacje',
     '/oferta/torby-papierowe-kolekcja-lux/': '/kolekcja-lux',
     '/oferta/torby-reklamowe-z-faktury-falistej/': '/produkty-z-tektury-falistej',
-    '/en/promotional-bags/': '/torby-reklamowe',
-    '/en/offer/production-of-advertising-bags/wykrojniki-toreb-mer-plus/': '/wykrojniki',
+    '/en/promotional-bags/': '/en/promotional-paper-bags',
+    '/en/offer/production-of-advertising-bags/wykrojniki-toreb-mer-plus/': '/en/size-guide',
     '/produkcja-toreb-reklamowych/custom-die-cutting/': '/wykrojniki',
 
     // --- Legacy: placeholdery motywu WP (niska wartosc, dodane dla kompletnosci) ---

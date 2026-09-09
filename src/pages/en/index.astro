@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
+import TrustBar from '../../components/TrustBar.astro';
+import Services from '../../components/Services.astro';
+import About from '../../components/About.astro';
+import Reviews from '../../components/Reviews.astro';
+import Gallery from '../../components/Gallery.astro';
+import FAQ from '../../components/FAQ.astro';
+import CTA from '../../components/CTA.astro';
+import { plToEn } from '../../i18n/page-map';
+---
+
+<BaseLayout
+  title="Promotional Paper Bags with Custom Print & Logo | Manufacturer — MER Plus"
+  description="Manufacturer of promotional and gift paper bags with custom logo printing. Over 30 years of experience, our own production facility, and delivery from 3 days. Free quote."
+>
+  <Header slot="header" lang="en" />
+
+  <Hero
+    topper="Over 30 Years of Experience"
+    heading="Manufacturer of promotional and decorative paper bags"
+    description="MER Plus manufactures promotional paper bags, gift packaging, eco-friendly bags and gift boxes with custom logo printing. Over 30 years of experience, our own production facility in Poland, and delivery from 3 days."
+    ctaLabel="Get a free quote"
+    ctaHref={plToEn['/contact']}
+    secondaryLabel="Our products"
+    secondaryHref={plToEn['/services']}
+    imageAlt="Handcrafted paper bags made by MER Plus"
+  />
+
+  <TrustBar
+    items={[
+      { label: 'years of experience', value: '30+' },
+      { label: 'Own production facility' },
+      { label: 'Hand-finished details' },
+      { label: 'Flexible order sizes' },
+    ]}
+  />
+
+  <Services
+    topper="What we do"
+    heading="Our products"
+    description="From simple paper bags to hand-finished premium packaging — we manufacture to order, in any quantity."
+    services={[
+      { title: 'Promotional paper bags', description: 'Paper bags printed with your logo — ideal for marketing, events, and retail.', href: plToEn['/torby-reklamowe'] },
+      { title: 'Decorative paper bags', description: 'Hand-finished gift bags, crafted with attention to detail — for every occasion.', href: plToEn['/torby-ozdobne'] },
+      { title: 'Wine & spirits gift bags', description: 'Elegant bags for wine and spirit bottles — perfect for retailers and corporate client gifts.', href: plToEn['/torby-na-alkohol'] },
+      { title: 'Eco-friendly paper bags', description: 'Packaging made from environmentally friendly materials — a responsible choice with no compromise on quality.', href: plToEn['/torby-eko'] },
+      { title: 'Gift boxes', description: 'Gift boxes and packaging matched to your brand, available in many sizes and finishes.', href: plToEn['/pudelka-prezentowe'] },
+      { title: 'Custom orders', description: 'Over 30 years of manufacturing experience — we can help design packaging tailored to your needs.', href: plToEn['/contact'] },
+    ]}
+  />
+
+  <About
+    topper="Who we are"
+    heading="Over 30 years of packaging manufacturing experience"
+    body={[
+      'MER Plus is a family-owned company that has been manufacturing paper bags and promotional packaging for over 30 years. At our own production facility we combine experience with flexibility — handling both large orders and small, custom projects.',
+      'We specialize in printed promotional bags, hand-finished decorative gift bags, wine and spirits bags, eco-friendly packaging, and gift boxes — always tailored to the customer\'s needs.',
+    ]}
+    benefits={[
+      'In-house production — full control over quality and lead times',
+      'Flexible order sizes — from small batches to large production runs',
+      'Hand-finished details and custom finishes',
+    ]}
+    ctaLabel="More about us"
+    ctaHref={plToEn['/about']}
+    imageAlt="Paper bag production at the MER Plus facility"
+  />
+
+  <Reviews
+    topper="Reviews"
+    heading="What our customers say"
+    reviews={[
+      { quote: 'The promotional bags with our logo look great — solid craftsmanship and on-time delivery even for a large order.', name: 'Katarzyna N.', location: 'Warsaw, Poland', rating: 5 },
+      { quote: 'The hand-finished gift bags impressed our customers. You can see the attention to detail in every piece.', name: 'Piotr W.', location: 'Sulejówek, Poland', rating: 5 },
+      { quote: 'We\'ve worked with MER Plus for years — a flexible approach to orders and consistently high packaging quality.', name: 'Magdalena S.', location: 'Mińsk Mazowiecki, Poland', rating: 5 },
+    ]}
+  />
+
+  <Gallery
+    topper="Our work"
+    heading="Gallery"
+    description="See the quality of workmanship and attention to detail in our bags and packaging."
+    ctaLabel="See our products"
+    ctaHref={plToEn['/services']}
+  />
+
+  <FAQ lang="en" />
+  <CTA lang="en" />
+
+  <Footer slot="footer" lang="en" />
+</BaseLayout>

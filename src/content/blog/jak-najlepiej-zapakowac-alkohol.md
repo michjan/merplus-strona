@@ -1,6 +1,6 @@
 ---
 title: "Jak najlepiej zapakować alkohol?"
-description: "Wybór opakowania Podstawą dobrze zapakowanego alkoholu jest wybór odpowiedniego opakowania. Torby papierowe na alkohol oraz torebki papierowe na wino są..."
+description: "Torby i pudełka papierowe na wino czy alkohol można spersonalizować dedykacją, a wstążki i wypełnienie ochronne dopełnią elegancki prezent."
 author: "Zespół MER Plus"
 date: 2024-03-21
 tags: []

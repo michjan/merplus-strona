@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Strona nie została znaleziona"
+  description="Strona, którą próbujesz otworzyć, nie istnieje lub została przeniesiona."
+  noindex={true}
+>
+  <Header slot="header" />
+
+  <section class="py-section">
+    <div class="mx-auto max-w-2xl px-4 text-center sm:px-6">
+      <p class="font-heading text-6xl font-bold text-accent">404</p>
+
+      <h1 id="notfound-title" class="mt-4 font-heading text-h2 font-bold uppercase text-text">
+        Strona nie została znaleziona
+      </h1>
+      <p id="notfound-text" class="mt-4 text-text-muted leading-relaxed">
+        Strona, którą próbujesz otworzyć, nie istnieje lub została przeniesiona. Sprawdź adres albo wróć na stronę główną.
+      </p>
+
+      <a
+        id="notfound-link"
+        href="/"
+        class="mt-8 inline-flex items-center justify-center rounded-md bg-accent px-6 py-3 font-semibold text-white transition hover:opacity-90"
+      >
+        Wróć na stronę główną
+      </a>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</BaseLayout>
+
+<script>
+  // Static hosts serve this same page for every missing URL, so the language
+  // isn't known at build time — detect it client-side from the actual path
+  // the visitor landed on and swap the copy to English when needed.
+  if (window.location.pathname.startsWith('/en/') || window.location.pathname === '/en') {
+    const title = document.getElementById('notfound-title');
+    const text = document.getElementById('notfound-text');
+    const link = document.getElementById('notfound-link') as HTMLAnchorElement | null;
+    if (title) title.textContent = 'Page not found';
+    if (text) text.textContent = "The page you're looking for doesn't exist or has been moved. Check the address or head back to the homepage.";
+    if (link) {
+      link.textContent = 'Back to homepage';
+      link.href = '/en';
+    }
+  }
+</script>

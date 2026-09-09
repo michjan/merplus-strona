@@ -1,6 +1,6 @@
 ---
 title: "Jak kreatywnie zapakować prezent?"
-description: "Oryginalne opakowanie dla zabieganych Osoby, które nie mają ochoty, czasu lub zwyczajnie nie przypadają za ręcznymi pracami, oczywiście mogą zdecydować..."
+description: "Torby z tektury falistej i papieru kraft to gotowe, ekologiczne rozwiązanie, a jednokolorowe torebki można samodzielnie udekorować metodą DIY."
 author: "Zespół MER Plus"
 date: 2023-02-23
 tags: []

@@ -1,6 +1,6 @@
 ---
 title: "Torby jako nośnik reklamy"
-description: "Torby eko – skuteczna reklama Torba „eko” to gadżet wykonany z trwałego materiału, który pozwala na wielokrotne użytkowanie. Ze względu na swoje..."
+description: "Torby ekologiczne i papierowe z nadrukiem logo to trwały, wielokrotnego użytku nośnik reklamy, który skutecznie budzi zaufanie klientów do marki."
 author: "Zespół MER Plus"
 date: 2020-02-05
 tags: []

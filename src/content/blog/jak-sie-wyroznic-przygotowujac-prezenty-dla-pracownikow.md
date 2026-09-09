@@ -1,6 +1,6 @@
 ---
 title: "Jak się wyróżnić przygotowując prezenty dla pracowników?"
-description: "Pomysły na prezenty i ich wyjątkowe pakowanie z użyciem toreb ozdobnych Wybierając prezent dla pracownika, warto zastanowić się, co może być dla niego..."
+description: "Spersonalizowany prezent zapakowany w ozdobną torbę papierową sprawi, że pracownicy poczują się docenieni, co pozytywnie wpłynie na atmosferę w zespole."
 author: "Zespół MER Plus"
 date: 2023-05-26
 tags: []

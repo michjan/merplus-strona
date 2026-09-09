@@ -1,6 +1,6 @@
 ---
 title: "Co podarować parze młodej z okazji ślubu?"
-description: "Personalizowane podarunki – dlaczego warto? Decydując się na personalizowany prezent, pokazujemy, że poświęciliśmy czas i myśl, aby wybrać coś, co będzie..."
+description: "Personalizowana torba prezentowa z inicjałami lub datą ślubu podkreśli wyjątkowy charakter prezentu dla nowożeńców. Sprawdź pomysły na prezent ślubny."
 author: "Zespół MER Plus"
 date: 2023-11-28
 tags: []

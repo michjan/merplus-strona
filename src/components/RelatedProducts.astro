@@ -1,11 +1,14 @@
 ---
+import { plToEn } from '../i18n/page-map';
+
 interface Props {
   current: string;
+  lang?: 'pl' | 'en';
 }
 
-const { current } = Astro.props;
+const { current, lang = 'pl' } = Astro.props;
 
-const products = [
+const productsPl = [
   { href: '/torby-reklamowe', label: 'Torby reklamowe' },
   { href: '/torby-reklamowe-z-logo', label: 'Torby reklamowe z logo' },
   { href: '/torby-ozdobne', label: 'Torby ozdobne' },
@@ -18,14 +21,32 @@ const products = [
   { href: '/nasze-realizacje', label: 'Nasze realizacje' },
 ];
 
+const productsEn = [
+  { href: plToEn['/torby-reklamowe'], label: 'Promotional paper bags' },
+  { href: plToEn['/torby-reklamowe-z-logo'], label: 'Custom logo paper bags' },
+  { href: plToEn['/torby-ozdobne'], label: 'Decorative paper bags' },
+  { href: plToEn['/pudelka-prezentowe'], label: 'Gift boxes' },
+  { href: plToEn['/torby-na-alkohol'], label: 'Wine gift bags' },
+  { href: plToEn['/torby-eko'], label: 'Eco-friendly paper bags' },
+  { href: plToEn['/torebki-na-prezenty'], label: 'Gift bags' },
+  { href: plToEn['/torby-reklamowe-premium'], label: 'Premium paper bags' },
+  { href: plToEn['/kolekcja-lux'], label: 'LUX collection' },
+  { href: plToEn['/nasze-realizacje'], label: 'Our work' },
+];
+
+const products = lang === 'en' ? productsEn : productsPl;
+const heading = lang === 'en'
+  ? { topper: 'Check out', title: 'You may also like' }
+  : { topper: 'Sprawdź również', title: 'Zobacz też' };
+
 const related = products.filter((p) => p.href !== current);
 ---
 
 <section class="bg-surface py-section">
   <div class="mx-auto max-w-site px-4 sm:px-6">
     <div class="mb-8 text-center">
-      <span class="text-topper font-bold uppercase tracking-widest text-accent">Sprawdź również</span>
-      <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">Zobacz też</h2>
+      <span class="text-topper font-bold uppercase tracking-widest text-accent">{heading.topper}</span>
+      <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">{heading.title}</h2>
     </div>
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
       {related.map(({ href, label }) => (

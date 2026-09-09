@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Banner from '../../components/Banner.astro';
+import CTA from '../../components/CTA.astro';
+import RelatedProducts from '../../components/RelatedProducts.astro';
+import { Image } from 'astro:assets';
+import { plToEn } from '../../i18n/page-map';
+import img1 from '../../assets/images/gallery/torba-reklamowa-muuv.jpg';
+import img2 from '../../assets/images/gallery/torba-optyczna-new-optica.jpg';
+---
+
+<BaseLayout
+  title="Solid-Color Paper Bags | MER Plus"
+  description="Economical, solid-color paper bags — 18 colors and 19 sizes, colored on the inside too. Clean elegance and simplicity in one. Check our range!"
+  serviceName="Manufacturing of solid-color paper bags"
+>
+  <Header slot="header" lang="en" />
+
+  <Banner title="Solid-Color Paper Bags" parent={{ label: 'Products', href: plToEn['/services'] }} lang="en" />
+
+  <section class="py-section">
+    <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
+      <div class="overflow-hidden rounded-lg shadow-lg">
+        <Image src={img1} alt="Solid-color paper bag" width={800} height={600} loading="eager" class="size-full object-cover" />
+      </div>
+      <div class="space-y-5">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Color and simplicity</span>
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">Elegance without unnecessary detail</h2>
+        <p class="text-text-muted leading-relaxed">
+          Solid-color paper bags are an economical and aesthetically pleasing solution wherever simplicity of form matters. We offer a wide choice of colors and sizes, with paper colored on the inside as well — so the bag keeps a uniform, consistent look from any angle.
+        </p>
+        <p class="text-text-muted leading-relaxed">
+          This option is often chosen as a base for logo printing — a solid background color showcases the artwork well and provides high contrast.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-surface py-section">
+    <div class="mx-auto max-w-site px-4 sm:px-6">
+      <div class="mx-auto mb-10 max-w-2xl text-center">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Selection</span>
+        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">Colors and sizes</h2>
+      </div>
+      <p class="mx-auto max-w-3xl text-center text-text-muted leading-relaxed">
+        Solid-color bags are available in more than a dozen colors and sizes — from small bags for minor purchases to larger formats for bulk packaging. The colored variants also work great as an element of a shop's visual identity or a seasonal collection, without needing custom printing.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-section">
+    <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
+      <div class="space-y-5 lg:order-2">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Use cases</span>
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">For shops and brands with their own color palette</h2>
+        <p class="text-text-muted leading-relaxed">
+          Solid-color bags are chosen by clothing stores, drugstores, florists, and brands that want their packaging to match their color palette without additional printing. We fulfill orders from smaller, one-off batches to regular deliveries for retail chains.
+        </p>
+      </div>
+      <div class="overflow-hidden rounded-lg shadow-lg lg:order-1">
+        <Image src={img2} alt="Colored solid-color paper bag" width={800} height={600} loading="lazy" class="size-full object-cover" />
+      </div>
+    </div>
+  </section>
+
+  <CTA
+    lang="en"
+    title="Order solid-color bags"
+    description="Tell us which color and size you're interested in — we'll prepare a free quote, with or without printing."
+  />
+
+  <RelatedProducts current={plToEn['/torby-jednokolorowe']} lang="en" />
+
+  <Footer slot="footer" lang="en" />
+</BaseLayout>

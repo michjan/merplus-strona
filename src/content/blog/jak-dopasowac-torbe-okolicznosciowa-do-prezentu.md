@@ -1,6 +1,6 @@
 ---
 title: "Jak dopasować torbę okolicznościową do prezentu?"
-description: "Dopasowanie stylu i okazji Pierwszym krokiem w wyborze odpowiedniej torby okolicznościowej jest dopasowanie jej stylu do charakteru prezentu oraz okazji,..."
+description: "Styl, materiał i rozmiar torby okolicznościowej powinny być dopasowane do charakteru prezentu i okazji — praktyczny poradnik wyboru torby na prezent."
 author: "Zespół MER Plus"
 date: 2023-07-11
 tags: []

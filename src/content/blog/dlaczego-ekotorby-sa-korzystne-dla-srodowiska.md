@@ -1,6 +1,6 @@
 ---
 title: "Dlaczego ekotorby są korzystne dla środowiska?"
-description: "Torby biodegradowalne Ekotorby to jedna z odpowiedzi na rosnącą górę odpadów i kłopoty z zagospodarowaniem opakowań z tworzyw sztucznych. Plastik, choć..."
+description: "Ekotorby są w pełni biodegradowalne, produkowane z makulatury i naturalnej celulozy bez użycia chloru — sprawdź, dlaczego są korzystne dla środowiska."
 author: "Zespół MER Plus"
 date: 2019-09-08
 tags: []

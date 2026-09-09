@@ -8,6 +8,28 @@ import RelatedProducts from '../components/RelatedProducts.astro';
 import { Image } from 'astro:assets';
 import img1 from '../assets/images/gallery/torba-reklamowa-new-optica.jpg';
 import img2 from '../assets/images/gallery/torby-detale-wykonczenia.jpg';
+const faqs = [
+  {
+    question: 'Jak nadrukować logo na papierowej torbie?',
+    answer: 'Wystarczy przesłać nam plik z logo (najlepiej w formacie wektorowym) oraz informacje o formacie i kolorze torby. Dobierzemy technikę nadruku — sitodruk, druk offsetowy lub tłoczenie — w zależności od projektu i wielkości zamówienia.',
+  },
+  {
+    question: 'Czy nadruk logo na torbie reklamowej jest trwały?',
+    answer: 'Tak, wszystkie stosowane przez nas techniki nadruku zapewniają trwałość kolorów i odporność na ścieranie, nawet przy intensywnym użytkowaniu torby.',
+  },
+  {
+    question: 'Nie mam gotowego projektu graficznego — czy MER Plus pomoże?',
+    answer: 'Tak, pomagamy dopasować przesłane logo do formatu torby oraz podpowiadamy, jaka technika nadruku i kolorystyka będą najlepiej współgrać z identyfikacją wizualną Twojej marki.',
+  },
+  {
+    question: 'Jakie jest minimalne zamówienie toreb z logo?',
+    answer: 'Nie wymagamy dużego minimum zamówienia — dzięki własnej produkcji realizujemy zarówno niewielkie partie testowe, jak i duże nakłady dla sieci sklepów.',
+  },
+  {
+    question: 'Jakie kolory toreb papierowych można wybrać pod logo firmy?',
+    answer: 'Torby dostępne są w wielu kolorach, w tym w naturalnym papierze kraft oraz kolorach dopasowanych do palety Pantone — tak, aby torba była zgodna z księgą znaku Twojej marki.',
+  },
+];
 ---
 
 <BaseLayout
@@ -84,28 +106,7 @@ import img2 from '../assets/images/gallery/torby-detale-wykonczenia.jpg';
         <h2 class="font-heading text-h2 font-bold uppercase text-text">Najczęściej zadawane pytania</h2>
       </div>
       <div class="space-y-3">
-        {[
-          {
-            question: 'Jak nadrukować logo na papierowej torbie?',
-            answer: 'Wystarczy przesłać nam plik z logo (najlepiej w formacie wektorowym) oraz informacje o formacie i kolorze torby. Dobierzemy technikę nadruku — sitodruk, druk offsetowy lub tłoczenie — w zależności od projektu i wielkości zamówienia.',
-          },
-          {
-            question: 'Czy nadruk logo na torbie reklamowej jest trwały?',
-            answer: 'Tak, wszystkie stosowane przez nas techniki nadruku zapewniają trwałość kolorów i odporność na ścieranie, nawet przy intensywnym użytkowaniu torby.',
-          },
-          {
-            question: 'Nie mam gotowego projektu graficznego — czy MER Plus pomoże?',
-            answer: 'Tak, pomagamy dopasować przesłane logo do formatu torby oraz podpowiadamy, jaka technika nadruku i kolorystyka będą najlepiej współgrać z identyfikacją wizualną Twojej marki.',
-          },
-          {
-            question: 'Jakie jest minimalne zamówienie toreb z logo?',
-            answer: 'Nie wymagamy dużego minimum zamówienia — dzięki własnej produkcji realizujemy zarówno niewielkie partie testowe, jak i duże nakłady dla sieci sklepów.',
-          },
-          {
-            question: 'Jakie kolory toreb papierowych można wybrać pod logo firmy?',
-            answer: 'Torby dostępne są w wielu kolorach, w tym w naturalnym papierze kraft oraz kolorach dopasowanych do palety Pantone — tak, aby torba była zgodna z księgą znaku Twojej marki.',
-          },
-        ].map(({ question, answer }) => (
+        {faqs.map(({ question, answer }) => (
           <details class="group rounded-lg border border-border bg-background p-5 [&_summary::-webkit-details-marker]:hidden">
             <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-heading text-h3 font-semibold text-text">
               {question}
@@ -122,28 +123,7 @@ import img2 from '../assets/images/gallery/torby-detale-wykonczenia.jpg';
     <script type="application/ld+json" set:html={JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'FAQPage',
-      mainEntity: [
-        {
-          question: 'Jak nadrukować logo na papierowej torbie?',
-          answer: 'Wystarczy przesłać nam plik z logo (najlepiej w formacie wektorowym) oraz informacje o formacie i kolorze torby. Dobierzemy technikę nadruku — sitodruk, druk offsetowy lub tłoczenie — w zależności od projektu i wielkości zamówienia.',
-        },
-        {
-          question: 'Czy nadruk logo na torbie reklamowej jest trwały?',
-          answer: 'Tak, wszystkie stosowane przez nas techniki nadruku zapewniają trwałość kolorów i odporność na ścieranie, nawet przy intensywnym użytkowaniu torby.',
-        },
-        {
-          question: 'Nie mam gotowego projektu graficznego — czy MER Plus pomoże?',
-          answer: 'Tak, pomagamy dopasować przesłane logo do formatu torby oraz podpowiadamy, jaka technika nadruku i kolorystyka będą najlepiej współgrać z identyfikacją wizualną Twojej marki.',
-        },
-        {
-          question: 'Jakie jest minimalne zamówienie toreb z logo?',
-          answer: 'Nie wymagamy dużego minimum zamówienia — dzięki własnej produkcji realizujemy zarówno niewielkie partie testowe, jak i duże nakłady dla sieci sklepów.',
-        },
-        {
-          question: 'Jakie kolory toreb papierowych można wybrać pod logo firmy?',
-          answer: 'Torby dostępne są w wielu kolorach, w tym w naturalnym papierze kraft oraz kolorach dopasowanych do palety Pantone — tak, aby torba była zgodna z księgą znaku Twojej marki.',
-        },
-      ].map(({ question, answer }) => ({
+      mainEntity: faqs.map(({ question, answer }) => ({
         '@type': 'Question',
         name: question,
         acceptedAnswer: { '@type': 'Answer', text: answer },

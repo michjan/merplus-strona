@@ -1,6 +1,6 @@
 ---
 title: "Co wpływa na estetykę toreb papierowych?"
-description: "Czy torby papierowe mogą być estetyczne? Najważniejszą zaletą toreb papierowych jest fakt, że nie szkodzą środowisku naturalnemu w odróżnieniu od..."
+description: "Estetykę toreb papierowych podnoszą jednolita kolorystyka, sztywne denko, bawełniane sznurki oraz nadruk z logo — sprawdzamy, co wyróżnia dobrą torbę."
 author: "Zespół MER Plus"
 date: 2021-08-18
 tags: []

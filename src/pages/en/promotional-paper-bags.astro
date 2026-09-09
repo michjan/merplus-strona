@@ -1,0 +1,181 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Banner from '../../components/Banner.astro';
+import CTA from '../../components/CTA.astro';
+import RelatedProducts from '../../components/RelatedProducts.astro';
+import { Image } from 'astro:assets';
+import { plToEn } from '../../i18n/page-map';
+import img1 from '../../assets/images/gallery/torba-reklamowa-knauf.jpg';
+import img2 from '../../assets/images/gallery/torba-reklamowa-muuv.jpg';
+
+const faqs = [
+  {
+    question: 'What is the difference between a promotional bag and a promotional paper bag?',
+    answer: 'Both terms describe the same printed paper packaging. "Promotional bag" is often used as a shorthand, especially for smaller formats — our range includes both small bags and large promotional carriers.',
+  },
+  {
+    question: 'What sizes of promotional paper bags are available?',
+    answer: 'We offer 19 standard paper bag sizes in 24 colors. You can check exact dimensions and die-cuts in our size guide — especially useful for B2B orders.',
+  },
+  {
+    question: 'Can I order a small batch of promotional bags?',
+    answer: 'Yes. Thanks to our own production facility, we handle both small, one-off orders and large production runs for companies — with no strict minimum order quantity.',
+  },
+  {
+    question: 'What is the best paper for promotional bags?',
+    answer: 'Kraft paper is the most popular choice for its strength and eco-friendly character, but bags in white and colored paper are also available in various weights, matched to the weight of the packaged product.',
+  },
+  {
+    question: 'How long does it take to fulfill an order for promotional bags?',
+    answer: 'Standard turnaround is usually from 3 business days, depending on quantity, printing technique, and current production load.',
+  },
+];
+---
+
+<BaseLayout
+  title="Promotional Paper Bags with Custom Printing | MER Plus"
+  description="Promotional paper bags with custom printing for businesses — in-house production, delivery from 3 days, any quantity. Check our range and request a free quote."
+  serviceName="Manufacturing of printed promotional paper bags"
+>
+  <Header slot="header" lang="en" />
+
+  <Banner title="Promotional Paper Bags with Custom Printing" parent={{ label: 'Products', href: plToEn['/services'] }} lang="en" />
+
+  <section class="py-section">
+    <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
+      <div class="space-y-5 lg:order-1">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Promotional bags</span>
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">Printed paper bags — an effective carrier for your brand</h2>
+        <p class="text-text-muted leading-relaxed">
+          A printed paper bag is one of the most effective and long-lasting advertising carriers a business can use. Unlike a flyer or business card, a promotional bag accompanies the customer on the way home, is visible in the store, on the street, and in the office, and is often reused — meaning your logo reaches a much wider audience than just the first owner.
+        </p>
+        <p class="text-text-muted leading-relaxed">
+          At MER Plus we've been manufacturing promotional paper bags for over 30 years. Thanks to our own production facility in Sulejówek, we have full control over material quality, print precision, and lead times. We offer bags in various formats, paper weights, and colors, with twisted, flat, cotton, or cord handles — matched to your brand and the intended use of the packaging.
+        </p>
+      </div>
+      <div class="grid grid-cols-2 gap-4 lg:order-2">
+        <div class="overflow-hidden rounded-lg shadow-lg">
+          <Image src={img1} alt="Printed promotional paper bag with Knauf logo" width={500} height={500} loading="eager" class="size-full object-cover" />
+        </div>
+        <div class="overflow-hidden rounded-lg shadow-lg">
+          <Image src={img2} alt="Printed promotional paper bag with Muuv logo" width={500} height={500} loading="lazy" class="size-full object-cover" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-surface py-section">
+    <div class="mx-auto max-w-site px-4 sm:px-6">
+      <div class="mx-auto mb-10 max-w-2xl text-center">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">B2B use cases</span>
+        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">Which businesses benefit from promotional bags?</h2>
+      </div>
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-3">
+        <div class="rounded-lg bg-background p-6 shadow-sm">
+          <h3 class="font-heading text-lg font-semibold text-text">Shops and showrooms</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">Logo bags as part of visual identity, handed to customers with every purchase.</p>
+        </div>
+        <div class="rounded-lg bg-background p-6 shadow-sm">
+          <h3 class="font-heading text-lg font-semibold text-text">Events and trade fairs</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">Promotional bags as conference material or a gift for attendees of industry events.</p>
+        </div>
+        <div class="rounded-lg bg-background p-6 shadow-sm">
+          <h3 class="font-heading text-lg font-semibold text-text">Manufacturing and service companies</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">Printed bulk and transport packaging that reinforces brand recognition with business partners.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section">
+    <div class="mx-auto max-w-site px-4 sm:px-6">
+      <div class="mx-auto mb-10 max-w-2xl text-center">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Order process</span>
+        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">How to order promotional paper bags</h2>
+      </div>
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="rounded-lg border border-border bg-background p-6 shadow-sm">
+          <span class="font-heading text-h3 font-bold text-accent">1</span>
+          <h3 class="mt-2 font-heading text-lg font-semibold text-text">Inquiry</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">Send us details about the format, quantity, and material — by phone, email, or contact form.</p>
+        </div>
+        <div class="rounded-lg border border-border bg-background p-6 shadow-sm">
+          <span class="font-heading text-h3 font-bold text-accent">2</span>
+          <h3 class="mt-2 font-heading text-lg font-semibold text-text">Quote and design</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">We prepare a free quote and help you match the artwork and printing technique to your logo.</p>
+        </div>
+        <div class="rounded-lg border border-border bg-background p-6 shadow-sm">
+          <span class="font-heading text-h3 font-bold text-accent">3</span>
+          <h3 class="mt-2 font-heading text-lg font-semibold text-text">Production</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">We manufacture the order at our own facility — standard turnaround is from 3 business days, depending on quantity.</p>
+        </div>
+        <div class="rounded-lg border border-border bg-background p-6 shadow-sm">
+          <span class="font-heading text-h3 font-bold text-accent">4</span>
+          <h3 class="mt-2 font-heading text-lg font-semibold text-text">Delivery</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">We ship finished promotional bags across Poland and internationally, straight to your business.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-surface py-section">
+    <div class="mx-auto max-w-site px-4 sm:px-6">
+      <div class="mx-auto mb-10 max-w-2xl text-center">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Sizes and colors</span>
+        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">19 sizes in 24 colors</h2>
+        <p class="mt-3 text-text-muted leading-relaxed">
+          Our standard range includes <strong>19 sizes</strong> of paper bags available in <strong>24 colors</strong> — from classic kraft to pastels and colors matched to your brand's Pantone palette. If you're ordering bags for a business (B2B) and need to check available dimensions and die-cuts, use our size guide.
+        </p>
+        <a href={plToEn['/wykrojniki']} class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary-light">
+          Check available sizes in the size guide
+          <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6">
+      <div class="mx-auto mb-10 max-w-2xl text-center">
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">Frequently Asked Questions</h2>
+      </div>
+      <div class="space-y-3">
+        {faqs.map(({ question, answer }) => (
+          <details class="group rounded-lg border border-border bg-background p-5 [&_summary::-webkit-details-marker]:hidden">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-heading text-h3 font-semibold text-text">
+              {question}
+              <svg class="size-5 shrink-0 text-primary transition-transform group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+              </svg>
+            </summary>
+            <p class="mt-3 text-text-muted leading-relaxed">{answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqs.map(({ question, answer }) => ({
+        '@type': 'Question',
+        name: question,
+        acceptedAnswer: { '@type': 'Answer', text: answer },
+      })),
+    })} />
+  </section>
+
+  <CTA
+    lang="en"
+    title="Order promotional paper bags with custom printing"
+    description="Send an inquiry and get a free quote for promotional bags matched to your brand — no minimum order quantity."
+  />
+
+  <RelatedProducts current={plToEn['/torby-reklamowe']} lang="en" />
+
+  <Footer slot="footer" lang="en" />
+</BaseLayout>

@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Banner from '../../components/Banner.astro';
+import CTA from '../../components/CTA.astro';
+import RelatedProducts from '../../components/RelatedProducts.astro';
+import { plToEn } from '../../i18n/page-map';
+---
+
+<BaseLayout
+  title="Holiday Collections — Bags and Boxes | MER Plus"
+  description="Seasonal holiday collections — paper bags and boxes with winter and holiday themes, ideal for corporate gifts and seasonal retail promotions."
+  serviceName="Manufacturing of holiday paper bags and boxes"
+>
+  <Header slot="header" lang="en" />
+
+  <Banner title="Holiday Collections" parent={{ label: 'Products', href: plToEn['/services'] }} lang="en" />
+
+  <section class="py-section">
+    <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
+      <div class="overflow-hidden rounded-lg shadow-lg">
+        <img src="https://merplus.pl/wp-content/uploads/2024/09/jj.jpg" alt="Holiday collection of paper bags and boxes" width="800" height="600" loading="eager" class="size-full object-cover" />
+      </div>
+      <div class="space-y-5">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Holiday season</span>
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">Packaging for the holiday season</h2>
+        <p class="text-text-muted leading-relaxed">
+          Every year we prepare a seasonal collection of paper bags and boxes with winter and holiday themes — for shops looking for ready-made packaging for the pre-holiday shopping season, and for companies preparing gifts for clients and employees.
+        </p>
+        <p class="text-text-muted leading-relaxed">
+          The collection includes both bags and gift boxes — it's also possible to add your company logo to the holiday design.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CTA
+    lang="en"
+    title="Ask about the holiday collection"
+    description="Let us know when you need the packaging by — it's worth planning the holiday season ahead of time. We'll prepare a free quote."
+  />
+
+  <RelatedProducts current={plToEn['/kolekcje-swiateczne']} lang="en" />
+
+  <Footer slot="footer" lang="en" />
+</BaseLayout>

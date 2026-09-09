@@ -1,6 +1,6 @@
 ---
 title: "Jak dobrać rozmiar torby?"
-description: "Jakie zalety mają torby papierowe? Torby dekoracyjne wykonywane z papieru są wykorzystywane do pakowania prezentów. Jednak gros firm zamawia z nadrukiem..."
+description: "Odpowiedni rozmiar torby reklamowej dobierzesz z gotowej bazy wykrojników producenta, a przy nietypowych wymiarach można zamówić dedykowany wykrojnik."
 author: "Zespół MER Plus"
 date: 2022-08-02
 tags: []

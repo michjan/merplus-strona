@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Banner from '../../components/Banner.astro';
+import CTA from '../../components/CTA.astro';
+import RelatedProducts from '../../components/RelatedProducts.astro';
+import { Image } from 'astro:assets';
+import { plToEn } from '../../i18n/page-map';
+import img1 from '../../assets/images/gallery/torba-na-wino-gautier.jpg';
+import img2 from '../../assets/images/gallery/torba-na-wino-gautier-detal.jpg';
+import img3 from '../../assets/images/gallery/torba-na-wino-gautier-zblizenie.jpg';
+---
+
+<BaseLayout
+  title="Wine & Spirits Gift Bags with Custom Printing | MER Plus"
+  description="Paper bags for wine and spirits with custom printing — elegant bottle packaging for shops, wineries, and businesses. In-house production. Free quote."
+  serviceName="Manufacturing of printed wine and spirits gift bags"
+>
+  <Header slot="header" lang="en" />
+
+  <Banner title="Wine & Spirits Gift Bags with Custom Printing" parent={{ label: 'Products', href: plToEn['/services'] }} lang="en" />
+
+  <section class="py-section">
+    <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
+      <div class="space-y-5 lg:order-1">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Wine & spirits bags</span>
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">Elegant packaging for wine and spirit bottles</h2>
+        <p class="text-text-muted leading-relaxed">
+          A bag for wine or another spirit has to meet several requirements at once: hold its shape well, stably support the weight of a glass bottle, and still look aesthetically pleasing — after all, it often accompanies corporate gifts, tastings, or purchases at specialty shops. At MER Plus we design and manufacture paper bottle bags that combine durability with attractive design.
+        </p>
+        <p class="text-text-muted leading-relaxed">
+          We can make wine and spirits bags with a reinforced base, sturdy handles, and printing of a winery's, shop's, or brand's logo — for example for tastings, corporate gifts, or seasonal promotions.
+        </p>
+      </div>
+      <div class="grid grid-cols-2 gap-4 lg:order-2">
+        <div class="overflow-hidden rounded-lg shadow-lg">
+          <Image src={img1} alt="Printed paper wine gift bag" width={500} height={500} loading="eager" class="size-full object-cover" />
+        </div>
+        <div class="overflow-hidden rounded-lg shadow-lg">
+          <Image src={img2} alt="Detail of the Gautier wine bag" width={500} height={500} loading="lazy" class="size-full object-cover" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-surface py-section">
+    <div class="mx-auto max-w-site px-4 sm:px-6">
+      <div class="mx-auto mb-10 max-w-2xl text-center">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Use cases</span>
+        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">Where to use wine and spirits bags</h2>
+      </div>
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-3">
+        <div class="rounded-lg bg-background p-6 shadow-sm">
+          <h3 class="font-heading text-lg font-semibold text-text">Shops and wineries</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">Logo bags handed to customers when they buy wine, whisky, or other spirits.</p>
+        </div>
+        <div class="rounded-lg bg-background p-6 shadow-sm">
+          <h3 class="font-heading text-lg font-semibold text-text">Tastings and events</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">Elegant bottle packaging handed out during tastings and industry events.</p>
+        </div>
+        <div class="rounded-lg bg-background p-6 shadow-sm">
+          <h3 class="font-heading text-lg font-semibold text-text">Corporate gifts</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">Wine and spirits bags as part of gift sets for clients and business partners.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section">
+    <div class="mx-auto max-w-site px-4 text-center sm:px-6">
+      <span class="text-topper font-bold uppercase tracking-widest text-accent">Craftsmanship</span>
+      <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">Sturdy construction and an elegant look</h2>
+      <p class="mx-auto mt-4 max-w-2xl text-text-muted leading-relaxed">
+        Every wine and spirits bag is designed to hold one or several bottles and transport them safely. We use an appropriately matched paper weight, a reinforced base, and sturdy handles, and match the finish — including printing and color scheme — to the client's brand. We fulfill both small test batches and larger seasonal runs.
+      </p>
+      <div class="mx-auto mt-8 max-w-xs overflow-hidden rounded-lg shadow-lg">
+        <Image src={img3} alt="Close-up of a paper wine bag" width={500} height={500} loading="lazy" class="size-full object-cover" />
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8">
+    <div class="mx-auto max-w-site px-4 text-center sm:px-6">
+      <p class="text-sm text-text-muted">
+        Read more on our blog:
+        <a href="/en/blog/how-to-wrap-wine-and-spirits" class="font-semibold text-primary underline-offset-2 hover:underline">How to Best Wrap Wine and Spirits</a>
+      </p>
+    </div>
+  </section>
+
+  <CTA
+    lang="en"
+    title="Order printed wine and spirits bags"
+    description="Tell us what bottles you want to pack, and we'll suggest the right bag format and prepare a free quote."
+  />
+
+  <RelatedProducts current={plToEn['/torby-na-alkohol']} lang="en" />
+
+  <Footer slot="footer" lang="en" />
+</BaseLayout>

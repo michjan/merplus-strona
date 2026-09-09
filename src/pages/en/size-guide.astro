@@ -1,0 +1,284 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Banner from '../../components/Banner.astro';
+import CTA from '../../components/CTA.astro';
+import { brand } from '../../config/brand';
+import { plToEn } from '../../i18n/page-map';
+
+// [Width (cm), Bag height (cm), Base width (cm), Uwagi]
+const dieCuts: [string, string, string, string?][] = [
+  ['5', '7,5', '3'],
+  ['6,5', '21', '5'],
+  ['7', '38', '6'],
+  ['9', '20', '5'],
+  ['10', '8,5 / 10 / 14 / 19', '6,5'],
+  ['11', '36', '9'],
+  ['11', '14', '5'],
+  ['11,9', '37', '11,8', 'Wycinane dno'],
+  ['12', '15', '6'],
+  ['12,5', '20', '12'],
+  ['13,2', '20', '4,8'],
+  ['13,5', '13,5 / 19', '5'],
+  ['13,5', '22 / 24 / 30 / 34 / 38,5 / 45', '9,5'],
+  ['13,5', '35 / 42', '10,5'],
+  ['14', '18 / 26', '6'],
+  ['14', '20 / 36 / 42', '9'],
+  ['14', '20', '15'],
+  ['14', '22,5 / 23', '8'],
+  ['14,2', '20', '4,8'],
+  ['14,5', '30,5 / 31', '7'],
+  ['15', '20', '8'],
+  ['15', '22', '13'],
+  ['15', '42', '12'],
+  ['16', '15', '5'],
+  ['16', '20 / 37', '12'],
+  ['16', '22 / 24 / 26', '6,5'],
+  ['16', '22 / 25 / 44', '8'],
+  ['16', '26', '10'],
+  ['17', '17', '6,5 / 7,3'],
+  ['17', '23', '10'],
+  ['17', '25', '8'],
+  ['17', '30 / 34 / 38', '16,5'],
+  ['17', '50', '15'],
+  ['17,5', '20 / 23', '5'],
+  ['18', '10', '8'],
+  ['18', '16 / 22 / 26', '7'],
+  ['18', '25', '10'],
+  ['18', '26', '13'],
+  ['19', '24', '9'],
+  ['19', '34', '10'],
+  ['21', '17', '12'],
+  ['21', '21 / 24 / 29 / 32', '8'],
+  ['21', '25 / 35', '10', 'Kłapon z odwrotnej strony'],
+  ['21,5', '19', '7'],
+  ['22', '18', '8'],
+  ['22,5', '16,5', '8', 'Kłapon z odwrotnej strony'],
+  ['22', '26,5', '8,5'],
+  ['23', '16', '8', '1/2'],
+  ['23', '18', '14,5', 'Kłapon na środku boku torby'],
+  ['23', '34 / 37', '12'],
+  ['23,5', '24', '7'],
+  ['23,5', '15,5 / 24 / 28 / 30 / 31 / 34 / 36 / 39', '9,5', 'Wycinane denko'],
+  ['24', '26', '4'],
+  ['24', '19 / 30 / 32 / 33 / 34 / 36 / 39 / 40', '9'],
+  ['24', '33', '6'],
+  ['24', '34', '10'],
+  ['24', '35', '11'],
+  ['24,8', '35', '16,8'],
+  ['25', '34 / 36 / 39 / 40', '9'],
+  ['25', '30', '10'],
+  ['25', '20', '8'],
+  ['25', '20', '22', 'Kłapon na środku boku torby'],
+  ['25', '35', '11'],
+  ['25', '39', '18'],
+  ['25,5', '40,5', '8'],
+  ['26', '37', '8'],
+  ['26', '20', '9'],
+  ['26', '26', '10'],
+  ['26', '30 / 32 / 34 / 35 / 40', '12', '1/2'],
+  ['26', '35 / 36', '11', '1/2'],
+  ['26', '48', '22', '1/2 + wycinane denko'],
+  ['27', '37 / 45', '10', '1/2'],
+  ['27', '20 / 30 / 34 / 40', '12'],
+  ['28', '22', '18', 'Kłapon na środku boku torby'],
+  ['28,5', '18 / 36', '5'],
+  ['30', '32 / 40', '6'],
+  ['30', '35', '13'],
+  ['30', '20', '14'],
+  ['30', '26 / 32,5 / 36 / 40 / 42 / 45', '10'],
+  ['33', '24 / 27', '9'],
+  ['33', '24 / 40', '10'],
+  ['33', '24 / 35 / 40', '11'],
+  ['33', '24 / 30 / 31 / 33 / 35 / 40 / 42 / 50 / 56', '14', '1/2'],
+  ['34', '22,2', '8', '1/2'],
+  ['34', '26', '12'],
+  ['35', '22', '8', '1/2'],
+  ['35', '20 / 24 / 25 / 28 / 30 / 40 / 45 / 50', '10'],
+  ['35', '25 / 26', '12', '1/2 + wycinane denko'],
+  ['35', '30', '13', '1/2'],
+  ['35', '30', '14', '1/2'],
+  ['35', '35', '31', '1/2'],
+  ['35', '30 / 40 / 45', '25', '1/2'],
+  ['36', '24', '10'],
+  ['37', '30', '15', '1/2'],
+  ['37', '32', '17'],
+  ['38', '30', '10', '1/2'],
+  ['39', '30 / 36', '12', '1/2'],
+  ['40', '30 / 45', '10', '1/2'],
+  ['40', '30', '15', '1/2'],
+  ['40', '40', '20', '1/2'],
+  ['40', '50', '10', '1/2'],
+  ['41', '34', '13', '1/2'],
+  ['41', '60', '15', '1/2'],
+  ['42', '30 / 35', '14', '1/2'],
+  ['42', '33 / 34', '10', '1/2'],
+  ['44,5', '48,5', '15', '1/2'],
+  ['45', '33 / 55', '15', '1/2'],
+  ['45', '32', '14', '1/2'],
+  ['47,5', '36', '18', '1/2'],
+  ['48', '32 / 37', '12', '1/2'],
+  ['50', '37', '14', '1/2'],
+  ['50', '34', '16', '1/2'],
+  ['52', '38', '14', '1/2'],
+  ['54', '44 / 45', '16', '1/2'],
+  ['55', '42', '33', '1/2'],
+  ['55', '45', '15', '1/2'],
+  ['56', '22 / 30', '24', '1/2'],
+  ['56', '43', '15', '1/2'],
+  ['60', '40 / 50', '12', '1/2'],
+  ['60', '50', '20', '1/2'],
+  ['64', '42 / 47 / 50', '10', '1/2'],
+  ['70,5', '52', '20', '1/2'],
+  ['72', '49', '16', '1/2'],
+  ['73', '58', '6', '1/2'],
+];
+---
+
+<BaseLayout
+  title="Die-Cut Size Guide"
+  description={`Browse the full database of available paper bag die-cut sizes at ${brand.name}. Ready-made sizes save time and production costs.`}
+>
+  <Header slot="header" lang="en" />
+
+  <Banner title="Size Guide" parent={{ label: 'Products', href: plToEn['/services'] }} lang="en" />
+
+  <section class="py-section">
+    <div class="mx-auto max-w-site px-4 sm:px-6">
+      <div class="mx-auto mb-10 max-w-3xl text-center lg:mb-14">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Size guide database</span>
+        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">Available bag sizes</h2>
+        <p class="mt-3 text-text-muted leading-relaxed">
+          We encourage you to use our database of ready-made die-cut sizes — this saves time and the cost
+          of producing a new die-cut. If you don't find the right dimensions among the sizes below,
+          we can also make any other die-cut to order, perfectly matched to
+          your product.
+        </p>
+      </div>
+
+      <!-- Search / filter -->
+      <div class="mx-auto mb-6 flex max-w-sm flex-col gap-1.5">
+        <label for="dieCutSearch" class="text-sm font-medium text-text">Search by size</label>
+        <div class="relative">
+          <svg class="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z" />
+          </svg>
+          <input
+            type="search"
+            id="dieCutSearch"
+            placeholder="e.g. 25 or 1/2"
+            class="min-h-[44px] w-full rounded-md border border-border bg-background py-2.5 pl-9 pr-4 text-text transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+          />
+        </div>
+        <p class="text-xs text-text-muted">
+          Enter, for example, the bag width to quickly find matching die-cuts. Number of visible entries: <span id="dieCutCount" class="font-semibold text-text">{dieCuts.length}</span> of {dieCuts.length}.
+        </p>
+      </div>
+
+      <!-- Mobile cards -->
+      <div class="mb-3 grid grid-cols-1 gap-2 sm:hidden">
+        {dieCuts.map(([width, height, base], i) => (
+          <div
+            data-row
+            class:list={[
+              'flex items-center justify-between gap-3 rounded-lg border border-border px-4 py-3',
+              i % 2 === 1 ? 'bg-background-alt' : 'bg-background',
+            ]}
+          >
+            <div class="flex items-baseline gap-1.5">
+              <span class="font-heading text-xl font-bold text-text">{width}</span>
+              <span class="text-sm font-medium text-text-muted">×</span>
+              <span class="font-heading text-xl font-bold text-text">{height}</span>
+              <span class="text-xs font-medium uppercase text-text-muted">cm</span>
+            </div>
+            <div class="shrink-0 rounded-md bg-primary/10 px-3 py-1.5 text-right">
+              <span class="block text-[10px] font-semibold uppercase tracking-wide text-primary-light">Base</span>
+              <span class="text-base font-bold text-primary-light">{base} cm</span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Desktop / tablet table -->
+      <div class="hidden overflow-hidden rounded-lg border border-border shadow-sm sm:block">
+        <div class="max-h-[32rem] overflow-y-auto">
+          <table class="w-full border-collapse text-base">
+            <thead class="sticky top-0 z-10 bg-primary text-primary-fg">
+              <tr>
+                <th scope="col" class="px-4 py-3 text-left font-heading font-semibold uppercase tracking-wide">Width (cm)</th>
+                <th scope="col" class="px-4 py-3 text-left font-heading font-semibold uppercase tracking-wide">Bag height (cm)</th>
+                <th scope="col" class="px-4 py-3 text-left font-heading font-semibold uppercase tracking-wide">Base width (cm)</th>
+              </tr>
+            </thead>
+            <tbody>
+              {dieCuts.map(([width, height, base], i) => (
+                <tr
+                  data-row
+                  class:list={[
+                    'border-t border-border transition-colors hover:bg-primary/5',
+                    i % 2 === 1 && 'bg-background-alt',
+                  ]}
+                >
+                  <td class="px-4 py-2 text-lg font-bold text-text">{width}</td>
+                  <td class="px-4 py-2 text-lg text-text-muted">{height}</td>
+                  <td class="px-4 py-2 text-lg text-text-muted">{base}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <p id="dieCutEmpty" class="hidden p-6 text-center text-text-muted">
+        No die-cuts match the entered search term.
+      </p>
+
+      <!-- Custom die-cut note -->
+      <div class="mx-auto mt-10 max-w-3xl rounded-lg border border-border bg-background-alt p-6 text-center sm:p-8">
+        <h3 class="font-heading text-h3 font-bold uppercase text-text">Custom die-cut</h3>
+        <p class="mt-2 text-text-muted leading-relaxed">
+          Didn't find the right size? We can produce any other die-cut at an affordable price,
+          perfectly matched to your product. Contact us to discuss the details.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="py-8">
+    <div class="mx-auto max-w-site px-4 text-center sm:px-6">
+      <p class="text-sm text-text-muted">
+        Read more on our blog:
+        <a href="/en/blog/how-to-choose-bag-size" class="font-semibold text-primary underline-offset-2 hover:underline">How to Choose the Right Bag Size?</a>
+      </p>
+    </div>
+  </section>
+
+  <CTA lang="en" />
+
+  <Footer slot="footer" lang="en" />
+</BaseLayout>
+
+<script>
+  const input = document.getElementById('dieCutSearch') as HTMLInputElement | null;
+  const cards = Array.from(document.querySelectorAll<HTMLElement>('div[data-row]'));
+  const rows = Array.from(document.querySelectorAll<HTMLElement>('tr[data-row]'));
+  const countEl = document.getElementById('dieCutCount');
+  const emptyEl = document.getElementById('dieCutEmpty');
+
+  input?.addEventListener('input', () => {
+    const query = input.value.trim().toLowerCase();
+    let visible = 0;
+
+    for (let i = 0; i < rows.length; i++) {
+      const matches = !query || rows[i].textContent!.toLowerCase().includes(query);
+      rows[i].classList.toggle('hidden', !matches);
+      cards[i]?.classList.toggle('hidden', !matches);
+      if (matches) visible++;
+    }
+
+    if (countEl) countEl.textContent = String(visible);
+    emptyEl?.classList.toggle('hidden', visible !== 0);
+  });
+</script>

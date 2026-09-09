@@ -8,6 +8,28 @@ import RelatedProducts from '../components/RelatedProducts.astro';
 import { Image } from 'astro:assets';
 import img1 from '../assets/images/gallery/torba-ozdobna-prouve.jpg';
 import img2 from '../assets/images/gallery/torby-prezentowe-krowki.jpg';
+const faqs = [
+  {
+    question: 'Na jakie okazje najlepiej sprawdzą się torby ozdobne?',
+    answer: 'Torby ozdobne są idealne na prezenty świąteczne, urodzinowe, ślubne, a także jako elegancki dodatek do zakupów w butikach, cukierniach i kwiaciarniach. Sprawdzają się również jako prezenty firmowe dla pracowników i partnerów biznesowych.',
+  },
+  {
+    question: 'Czy torby ozdobne można zamówić w małej ilości?',
+    answer: 'Tak, realizujemy zarówno małe partie na potrzeby indywidualne (np. jeden komplet na konkretną okazję), jak i większe nakłady dla firm i sklepów.',
+  },
+  {
+    question: 'Czym różnią się torby ozdobne od toreb reklamowych?',
+    answer: 'Torby reklamowe (czasem nazywane też torebkami reklamowymi) projektowane są głównie pod kątem nadruku logo i celów marketingowych. Torby ozdobne kładą nacisk na estetykę i ręczne wykończenie — wstążki, sznurki, tasiemki — i służą głównie jako opakowanie prezentowe.',
+  },
+  {
+    question: 'Czy na torbie ozdobnej można umieścić własny nadruk lub logo?',
+    answer: 'Tak, torby ozdobne mogą zostać wzbogacone o nadruk z logo lub motywem okazjonalnym — np. świątecznym — co sprawdza się szczególnie w przypadku prezentów firmowych.',
+  },
+  {
+    question: 'Jakie wykończenia toreb ozdobnych są dostępne?',
+    answer: 'Oferujemy ręczne wykończenia, takie jak wiązane uchwyty, wstążki, sznurki, ozdobne wzmocnienia oraz łączenie różnych struktur i kolorów papieru — dopasowane do charakteru okazji.',
+  },
+];
 ---
 
 <BaseLayout
@@ -83,28 +105,7 @@ import img2 from '../assets/images/gallery/torby-prezentowe-krowki.jpg';
         <h2 class="font-heading text-h2 font-bold uppercase text-text">Najczęściej zadawane pytania</h2>
       </div>
       <div class="space-y-3">
-        {[
-          {
-            question: 'Na jakie okazje najlepiej sprawdzą się torby ozdobne?',
-            answer: 'Torby ozdobne są idealne na prezenty świąteczne, urodzinowe, ślubne, a także jako elegancki dodatek do zakupów w butikach, cukierniach i kwiaciarniach. Sprawdzają się również jako prezenty firmowe dla pracowników i partnerów biznesowych.',
-          },
-          {
-            question: 'Czy torby ozdobne można zamówić w małej ilości?',
-            answer: 'Tak, realizujemy zarówno małe partie na potrzeby indywidualne (np. jeden komplet na konkretną okazję), jak i większe nakłady dla firm i sklepów.',
-          },
-          {
-            question: 'Czym różnią się torby ozdobne od toreb reklamowych?',
-            answer: 'Torby reklamowe (czasem nazywane też torebkami reklamowymi) projektowane są głównie pod kątem nadruku logo i celów marketingowych. Torby ozdobne kładą nacisk na estetykę i ręczne wykończenie — wstążki, sznurki, tasiemki — i służą głównie jako opakowanie prezentowe.',
-          },
-          {
-            question: 'Czy na torbie ozdobnej można umieścić własny nadruk lub logo?',
-            answer: 'Tak, torby ozdobne mogą zostać wzbogacone o nadruk z logo lub motywem okazjonalnym — np. świątecznym — co sprawdza się szczególnie w przypadku prezentów firmowych.',
-          },
-          {
-            question: 'Jakie wykończenia toreb ozdobnych są dostępne?',
-            answer: 'Oferujemy ręczne wykończenia, takie jak wiązane uchwyty, wstążki, sznurki, ozdobne wzmocnienia oraz łączenie różnych struktur i kolorów papieru — dopasowane do charakteru okazji.',
-          },
-        ].map(({ question, answer }) => (
+        {faqs.map(({ question, answer }) => (
           <details class="group rounded-lg border border-border bg-background p-5 [&_summary::-webkit-details-marker]:hidden">
             <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-heading text-h3 font-semibold text-text">
               {question}
@@ -121,28 +122,7 @@ import img2 from '../assets/images/gallery/torby-prezentowe-krowki.jpg';
     <script type="application/ld+json" set:html={JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'FAQPage',
-      mainEntity: [
-        {
-          question: 'Na jakie okazje najlepiej sprawdzą się torby ozdobne?',
-          answer: 'Torby ozdobne są idealne na prezenty świąteczne, urodzinowe, ślubne, a także jako elegancki dodatek do zakupów w butikach, cukierniach i kwiaciarniach. Sprawdzają się również jako prezenty firmowe dla pracowników i partnerów biznesowych.',
-        },
-        {
-          question: 'Czy torby ozdobne można zamówić w małej ilości?',
-          answer: 'Tak, realizujemy zarówno małe partie na potrzeby indywidualne (np. jeden komplet na konkretną okazję), jak i większe nakłady dla firm i sklepów.',
-        },
-        {
-          question: 'Czym różnią się torby ozdobne od toreb reklamowych?',
-          answer: 'Torby reklamowe (czasem nazywane też torebkami reklamowymi) projektowane są głównie pod kątem nadruku logo i celów marketingowych. Torby ozdobne kładą nacisk na estetykę i ręczne wykończenie — wstążki, sznurki, tasiemki — i służą głównie jako opakowanie prezentowe.',
-        },
-        {
-          question: 'Czy na torbie ozdobnej można umieścić własny nadruk lub logo?',
-          answer: 'Tak, torby ozdobne mogą zostać wzbogacone o nadruk z logo lub motywem okazjonalnym — np. świątecznym — co sprawdza się szczególnie w przypadku prezentów firmowych.',
-        },
-        {
-          question: 'Jakie wykończenia toreb ozdobnych są dostępne?',
-          answer: 'Oferujemy ręczne wykończenia, takie jak wiązane uchwyty, wstążki, sznurki, ozdobne wzmocnienia oraz łączenie różnych struktur i kolorów papieru — dopasowane do charakteru okazji.',
-        },
-      ].map(({ question, answer }) => ({
+      mainEntity: faqs.map(({ question, answer }) => ({
         '@type': 'Question',
         name: question,
         acceptedAnswer: { '@type': 'Answer', text: answer },

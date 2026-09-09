@@ -1,5 +1,11 @@
 ---
-const faqs = [
+interface Props {
+  lang?: 'pl' | 'en';
+}
+
+const { lang = 'pl' } = Astro.props;
+
+const faqsPl = [
   {
     question: 'Czy realizujecie małe zamówienia bez minimum?',
     answer:
@@ -21,14 +27,42 @@ const faqs = [
       'Torba reklamowa jest projektowana głównie pod kątem nadruku logo i grafiki firmowej — sprawdza się w marketingu, na eventach i w sklepach. Torba ozdobna kładzie nacisk na estetykę i wykończenie (np. ręczne zdobienia, wstążki, struktury papieru) i najczęściej służy jako opakowanie prezentowe.',
   },
 ];
+
+const faqsEn = [
+  {
+    question: 'Do you take small orders with no minimum quantity?',
+    answer:
+      'Yes. Thanks to our own production facility we can handle everything from small, one-off orders to large production runs for companies. Get in touch and we\'ll tailor the offer to your needs.',
+  },
+  {
+    question: 'How long does it take to produce printed paper bags?',
+    answer:
+      'Standard turnaround for printed bags is usually from 3 business days, depending on quantity, printing technique, and current production load. We confirm the exact delivery date when you request a quote.',
+  },
+  {
+    question: 'Do you ship promotional paper bags across Poland and abroad?',
+    answer:
+      'Yes, we produce and ship paper bags and promotional packaging to customers across Poland and internationally. Production takes place at our own facility in Sulejówek, near Warsaw.',
+  },
+  {
+    question: 'What is the difference between promotional and decorative bags?',
+    answer:
+      'Promotional bags are designed primarily for logo printing and brand graphics — they work well in marketing, at events, and in stores. Decorative bags focus on aesthetics and finish (hand-applied decorations, ribbons, textured papers) and are most often used as gift packaging.',
+  },
+];
+
+const faqs = lang === 'en' ? faqsEn : faqsPl;
+const heading = lang === 'en'
+  ? { title: 'Frequently Asked Questions', subtitle: 'Answers to the questions we hear most often from our customers.' }
+  : { title: 'Najczęściej zadawane pytania', subtitle: 'Odpowiedzi na pytania, które najczęściej słyszymy od naszych klientów.' };
 ---
 
 <section class="py-section">
   <div class="mx-auto max-w-3xl px-4 sm:px-6">
     <div class="mx-auto mb-10 max-w-2xl text-center lg:mb-14">
-      <h2 class="font-heading text-h2 font-bold uppercase text-text">Najczęściej zadawane pytania</h2>
+      <h2 class="font-heading text-h2 font-bold uppercase text-text">{heading.title}</h2>
       <p class="mt-3 text-text-muted leading-relaxed">
-        Odpowiedzi na pytania, które najczęściej słyszymy od naszych klientów.
+        {heading.subtitle}
       </p>
     </div>
 

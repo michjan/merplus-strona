@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Banner from '../../components/Banner.astro';
+import CTA from '../../components/CTA.astro';
+import RelatedProducts from '../../components/RelatedProducts.astro';
+import { Image } from 'astro:assets';
+import { plToEn } from '../../i18n/page-map';
+import img1 from '../../assets/images/gallery/torby-detale-wykonczenia.jpg';
+---
+
+<BaseLayout
+  title="Corrugated Cardboard Bags | MER Plus"
+  description="Economical and elegant bags made from corrugated-textured paper — stylish packaging for gifts and products that need extra protection."
+  serviceName="Manufacturing of corrugated cardboard bags"
+>
+  <Header slot="header" lang="en" />
+
+  <Banner title="Corrugated Cardboard Products" parent={{ label: 'Products', href: plToEn['/services'] }} lang="en" />
+
+  <section class="py-section">
+    <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
+      <div class="overflow-hidden rounded-lg shadow-lg">
+        <Image src={img1} alt="Finishing detail of a corrugated cardboard bag" width={800} height={600} loading="eager" class="size-full object-cover" />
+      </div>
+      <div class="space-y-5">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Corrugated cardboard</span>
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">A texture that protects and stands out</h2>
+        <p class="text-text-muted leading-relaxed">
+          Bags made from corrugated-textured paper combine aesthetics with extra protection for the contents. The material's distinctive, ribbed structure gives the packaging character and makes it stand out on a store shelf, while also cushioning more delicate products.
+        </p>
+        <p class="text-text-muted leading-relaxed">
+          This is an economical solution for businesses looking for simple but distinctive packaging — without having to invest in more elaborate finishes.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-surface py-section">
+    <div class="mx-auto max-w-site px-4 sm:px-6">
+      <div class="mx-auto mb-10 max-w-2xl text-center">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Use cases</span>
+        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">For products that need protection</h2>
+      </div>
+      <p class="mx-auto max-w-3xl text-center text-text-muted leading-relaxed">
+        Corrugated cardboard bags work well for packaging gifts, food products, and handcrafted items, where both appearance and extra protection during transport matter. Logo printing and size customization for a specific product are both available.
+      </p>
+    </div>
+  </section>
+
+  <CTA
+    lang="en"
+    title="Ask about corrugated cardboard bags"
+    description="Tell us what product you want to pack — we'll suggest the best format and prepare a free quote."
+  />
+
+  <RelatedProducts current={plToEn['/produkty-z-tektury-falistej']} lang="en" />
+
+  <Footer slot="footer" lang="en" />
+</BaseLayout>

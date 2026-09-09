@@ -1,0 +1,127 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Banner from '../../components/Banner.astro';
+import CTA from '../../components/CTA.astro';
+import RelatedProducts from '../../components/RelatedProducts.astro';
+import { Image } from 'astro:assets';
+import { plToEn } from '../../i18n/page-map';
+import img1 from '../../assets/images/gallery/torba-eko-orska.jpg';
+import img2 from '../../assets/images/gallery/torba-reklamowa-knauf.jpg';
+---
+
+<BaseLayout
+  title="Eco-Friendly Kraft Paper Bags with Custom Printing | MER Plus"
+  description="Eco-friendly kraft paper bags with logo printing, in 90–170 g weights, also hand-decorated. Biodegradable packaging for businesses. Free quote."
+  serviceName="Manufacturing of eco-friendly kraft paper bags"
+>
+  <Header slot="header" lang="en" />
+
+  <Banner title="Eco-Friendly Kraft Paper Bags" parent={{ label: 'Products', href: plToEn['/services'] }} lang="en" />
+
+  <section class="py-section">
+    <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
+      <div class="overflow-hidden rounded-lg shadow-lg">
+        <Image src={img1} alt="Eco-friendly kraft paper bag" width={800} height={600} loading="eager" class="size-full object-cover" />
+      </div>
+      <div class="space-y-5">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Eco-friendly bags</span>
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">Natural kraft paper as an alternative to plastic</h2>
+        <p class="text-text-muted leading-relaxed">
+          Kraft paper bags are an eco-friendly, fully biodegradable alternative to plastic packaging. Made from natural, unbleached paper, they have a raw, elegant look that fits well with grocery stores, organic shops, bakeries, cafes, and businesses that prioritize sustainability and a responsible image.
+        </p>
+        <p class="text-text-muted leading-relaxed">
+          At MER Plus we manufacture eco kraft bags in various formats and paper weights, with logo and artwork printing available. This lets the bag serve as both packaging and an advertising carrier — while keeping the material's natural, eco-friendly character.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-surface py-section">
+    <div class="mx-auto max-w-site px-4 sm:px-6">
+      <div class="mx-auto mb-10 max-w-2xl text-center">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Advantages</span>
+        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">Why choose kraft bags</h2>
+      </div>
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-3">
+        <div class="rounded-lg bg-background p-6 shadow-sm">
+          <h3 class="font-heading text-lg font-semibold text-text">Biodegradability</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">Kraft paper breaks down naturally and can be recycled.</p>
+        </div>
+        <div class="rounded-lg bg-background p-6 shadow-sm">
+          <h3 class="font-heading text-lg font-semibold text-text">Brand image</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">Kraft's raw aesthetic is associated with naturalness, freshness, and environmental responsibility.</p>
+        </div>
+        <div class="rounded-lg bg-background p-6 shadow-sm">
+          <h3 class="font-heading text-lg font-semibold text-text">Durability</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">Despite the natural finish, kraft bags are sturdy and work well as reusable shopping packaging.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section">
+    <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
+      <div class="space-y-5 lg:order-2">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Who it's for</span>
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">Eco bags for shops, food service, and businesses</h2>
+        <p class="text-text-muted leading-relaxed">
+          Eco-friendly paper bags are most often chosen by grocery stores, bakeries, cafes, herbal and organic shops, and businesses that want to communicate environmental care to their customers. Printed kraft bags work simultaneously as packaging and a marketing communication tool — without resorting to plastic.
+        </p>
+        <p class="text-text-muted leading-relaxed">
+          We fulfill orders of various sizes — from smaller batches for local shops to larger orders for retail chains and manufacturing companies.
+        </p>
+      </div>
+      <div class="overflow-hidden rounded-lg shadow-lg lg:order-1">
+        <Image src={img2} alt="Paper bag with logo printing" width={800} height={600} loading="lazy" class="size-full object-cover" />
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-surface py-section">
+    <div class="mx-auto max-w-site px-4 sm:px-6">
+      <div class="mx-auto mb-10 max-w-2xl text-center">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Customization</span>
+        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">Logo printing on eco bags</h2>
+      </div>
+      <p class="mx-auto max-w-3xl text-text-muted leading-relaxed">
+        A printed kraft bag is one of the few advertising carriers that customers are happy to reuse — for shopping, as gift wrap, or as an everyday bag. At MER Plus, we print on kraft paper using a technology matched to the material's raw, textured surface, so the logo and artwork stay fully legible and high-contrast without losing the paper's natural character.
+      </p>
+      <p class="mx-auto mt-4 max-w-3xl text-text-muted leading-relaxed">
+        We manufacture eco bags in several paper weights — from lighter, around 90 g (for small purchases and gifts), to sturdier 170 g, which work well as durable, reusable shopping packaging. The right weight depends on the expected load and how often the bag will be used.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-section">
+    <div class="mx-auto max-w-site px-4 sm:px-6">
+      <div class="mx-auto mb-10 max-w-2xl text-center">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Premium version</span>
+        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">Hand-decorated eco bags</h2>
+      </div>
+      <p class="mx-auto max-w-3xl text-text-muted leading-relaxed">
+        For customers looking for something beyond standard printing, we offer kraft bags with hand finishing — individually applied decorations and details that give the packaging a unique, handcrafted character. This option is especially popular for gift wrapping, seasonal collections, and limited product editions, where the aesthetics of the packaging matter just as much as its eco-friendly character.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-8">
+    <div class="mx-auto max-w-site px-4 text-center sm:px-6">
+      <p class="text-sm text-text-muted">
+        Read more on our blog:
+        <a href="/en/blog/eco-paper-bag-production-process" class="font-semibold text-primary underline-offset-2 hover:underline">Eco-Friendly Paper Bag Production, Step by Step</a>
+      </p>
+    </div>
+  </section>
+
+  <CTA
+    lang="en"
+    title="Order eco-friendly kraft bags"
+    description="Tell us how many pieces and what format you need — we'll prepare a free quote for eco bags, printed or plain."
+  />
+
+  <RelatedProducts current={plToEn['/torby-eko']} lang="en" />
+
+  <Footer slot="footer" lang="en" />
+</BaseLayout>

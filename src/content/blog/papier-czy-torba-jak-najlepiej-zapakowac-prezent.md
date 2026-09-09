@@ -1,6 +1,6 @@
 ---
 title: "Papier czy torba - jak najlepiej zapakować prezent?"
-description: "Torby papierowe czy papier ozdobny – porównanie i wybór Papier ozdobny to klasyczne rozwiązanie, które znane jest nam od lat. Wybierając właściwy wzór i..."
+description: "Torby papierowe na prezenty są wytrzymalsze i szybsze w użyciu niż papier ozdobny — porównujemy oba rozwiązania i podajemy praktyczne wskazówki."
 author: "Zespół MER Plus"
 date: 2023-06-26
 tags: []

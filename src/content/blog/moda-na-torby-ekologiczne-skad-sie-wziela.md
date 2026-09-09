@@ -1,6 +1,6 @@
 ---
 title: "Moda na torby ekologiczne – skąd się wzięła?"
-description: "Modny i praktyczny gadżet Torby ekologiczne są niezwykle popularne. Wzrost świadomości konsumentów na bycie eko jest z roku na rok coraz większy. Torby..."
+description: "Torby ekologiczne z papieru zyskują popularność dzięki brakowi sztucznych substancji i biodegradowalności — sprawdź, skąd wzięła się ta moda."
 author: "Zespół MER Plus"
 date: 2019-12-02
 tags: []

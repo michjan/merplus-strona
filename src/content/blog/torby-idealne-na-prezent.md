@@ -1,6 +1,6 @@
 ---
 title: "Torby idealne na prezent"
-description: "Dobra torba na prezent – lepsza niż najlepszy karton Można by godzinami rozprawiać na temat tego, co było pierwsze jajko, czy kura. Podobnie mogłoby być z..."
+description: "Torby na prezent wygrywają z pudełkiem dzięki uchwytom, możliwości nadruku i ekologicznym rozwiązaniom Eko Kraft — sprawdź, czym się wyróżniają."
 author: "Zespół MER Plus"
 date: 2021-07-09
 tags: []

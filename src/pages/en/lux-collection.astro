@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Banner from '../../components/Banner.astro';
+import CTA from '../../components/CTA.astro';
+import RelatedProducts from '../../components/RelatedProducts.astro';
+import { Image } from 'astro:assets';
+import { plToEn } from '../../i18n/page-map';
+import img1 from '../../assets/images/gallery/torba-ozdobna-prouve.jpg';
+import img2 from '../../assets/images/gallery/torba-premium-siklienka.jpg';
+
+const variants = [
+  { name: 'Elegance Lux', description: 'A classic, elegant form made from high-quality paper — a great fit for corporate and occasion gifts.' },
+  { name: 'Retro Lux', description: 'Vintage-inspired texture and colors — for brands building a nostalgic, intimate image.' },
+  { name: 'LUX Eko', description: 'A fully eco-friendly, hand-decorated version of the collection — an individual decoration design on natural paper.' },
+];
+---
+
+<BaseLayout
+  title="LUX Collection — Premium Paper Bags | MER Plus"
+  description="Premium paper bags from the LUX collection — Elegance Lux, Retro Lux, and LUX Eko. Hand-finished details and elegant design. Free quote."
+  serviceName="Manufacturing of paper bags from the LUX collection"
+>
+  <Header slot="header" lang="en" />
+
+  <Banner title="LUX Collection" parent={{ label: 'Products', href: plToEn['/services'] }} lang="en" />
+
+  <section class="py-section">
+    <div class="mx-auto max-w-site px-4 sm:px-6">
+      <div class="mx-auto mb-10 max-w-2xl text-center">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Premium bags</span>
+        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">Three variants of the LUX collection</h2>
+      </div>
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-3">
+        {variants.map(({ name, description }) => (
+          <div class="rounded-lg bg-background p-6 shadow-sm">
+            <h3 class="font-heading text-lg font-semibold text-text">{name}</h3>
+            <p class="mt-2 text-sm text-text-muted leading-relaxed">{description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-surface py-section">
+    <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
+      <div class="overflow-hidden rounded-lg shadow-lg">
+        <Image src={img1} alt="LUX collection paper bag" width={800} height={600} loading="lazy" class="size-full object-cover" />
+      </div>
+      <div class="space-y-5">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Who it's for</span>
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">Premium packaging for demanding brands</h2>
+        <p class="text-text-muted leading-relaxed">
+          The LUX collection is aimed at brands and businesses that want their packaging to make an impression from the very first moment — boutiques, jewelers, cosmetics brands, and companies preparing premium corporate gifts.
+        </p>
+        <p class="text-text-muted leading-relaxed">
+          Every bag in the collection is finished by hand, with attention to the smallest details, so the final product reflects the quality of what it holds.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section">
+    <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
+      <div class="overflow-hidden rounded-lg shadow-lg lg:order-2">
+        <Image src={img2} alt="Premium paper bag from the LUX collection" width={800} height={600} loading="lazy" class="size-full object-cover" />
+      </div>
+      <div class="space-y-5 lg:order-1">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Craftsmanship</span>
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">Hand-finished details</h2>
+        <p class="text-text-muted leading-relaxed">
+          We combine high-quality paper with hand finishing to give each bag a unique, elegant character — regardless of which variant of the collection you choose.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CTA
+    lang="en"
+    title="Ask about the LUX collection"
+    description="Tell us which variant interests you and the quantity you need — we'll prepare a free quote for the LUX collection."
+  />
+
+  <RelatedProducts current={plToEn['/kolekcja-lux']} lang="en" />
+
+  <Footer slot="footer" lang="en" />
+</BaseLayout>

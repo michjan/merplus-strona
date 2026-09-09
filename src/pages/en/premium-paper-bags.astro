@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Banner from '../../components/Banner.astro';
+import CTA from '../../components/CTA.astro';
+import RelatedProducts from '../../components/RelatedProducts.astro';
+import { Image } from 'astro:assets';
+import { plToEn } from '../../i18n/page-map';
+import img1 from '../../assets/images/gallery/torba-premium-revitalash.jpg';
+import img2 from '../../assets/images/gallery/torba-premium-siklienka.jpg';
+---
+
+<BaseLayout
+  title="Premium Promotional Paper Bags Made of Coated Paper | MER Plus"
+  description="Exclusive Premium promotional bags made of coated paper — optional lamination and any custom printing. A representative advertising carrier for your business."
+  serviceName="Manufacturing of Premium promotional paper bags"
+>
+  <Header slot="header" lang="en" />
+
+  <Banner title="Premium Promotional Bags" parent={{ label: 'Products', href: plToEn['/services'] }} lang="en" />
+
+  <section class="py-section">
+    <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
+      <div class="overflow-hidden rounded-lg shadow-lg">
+        <Image src={img1} alt="Premium promotional bag made of coated paper" width={800} height={600} loading="eager" class="size-full object-cover" />
+      </div>
+      <div class="space-y-5">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Premium</span>
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">Exclusive packaging for demanding brands</h2>
+        <p class="text-text-muted leading-relaxed">
+          We make Premium promotional bags from coated paper, giving a smooth, elegant surface ideal for precise printing and vivid colors. This is the choice for brands where packaging is part of the customer experience — from boutiques and beauty salons to premium companies and upscale retail chains.
+        </p>
+        <p class="text-text-muted leading-relaxed">
+          Bags in this line can also be laminated, which increases durability and elevates the finish — while still allowing full, custom printing.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-surface py-section">
+    <div class="mx-auto max-w-site px-4 sm:px-6">
+      <div class="mx-auto mb-10 max-w-2xl text-center">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Finish</span>
+        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">What sets the Premium line apart</h2>
+      </div>
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-3">
+        <div class="rounded-lg bg-background p-6 shadow-sm">
+          <h3 class="font-heading text-lg font-semibold text-text">Coated paper</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">A smooth surface that ensures high print quality and contrast.</p>
+        </div>
+        <div class="rounded-lg bg-background p-6 shadow-sm">
+          <h3 class="font-heading text-lg font-semibold text-text">Optional lamination</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">Extra durability and visual effect — matte or glossy.</p>
+        </div>
+        <div class="rounded-lg bg-background p-6 shadow-sm">
+          <h3 class="font-heading text-lg font-semibold text-text">Full customization</h3>
+          <p class="mt-2 text-text-muted leading-relaxed">Any logo and artwork printing, matched to your brand identity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-section">
+    <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
+      <div class="space-y-5 lg:order-2">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Who it's for</span>
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">A representative carrier for your brand</h2>
+        <p class="text-text-muted leading-relaxed">
+          Premium bags work well for corporate gifts, events, product launches, and VIP client relationships — anywhere first impressions matter. We fulfill orders without a large minimum quantity, with full design support.
+        </p>
+      </div>
+      <div class="overflow-hidden rounded-lg shadow-lg lg:order-1">
+        <Image src={img2} alt="Premium promotional bag with logo printing" width={800} height={600} loading="lazy" class="size-full object-cover" />
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8">
+    <div class="mx-auto max-w-site px-4 text-center sm:px-6">
+      <p class="text-sm text-text-muted">
+        Read more on our blog:
+        <a href="/en/blog/premium-paper-bags-characteristics" class="font-semibold text-primary underline-offset-2 hover:underline">Premium Promotional Paper Bags — Key Characteristics</a>
+      </p>
+    </div>
+  </section>
+
+  <CTA
+    lang="en"
+    title="Ask about Premium bags"
+    description="Send us your logo and brand guidelines — we'll prepare a proposal and a free quote for Premium promotional bags."
+  />
+
+  <RelatedProducts current={plToEn['/torby-reklamowe-premium']} lang="en" />
+
+  <Footer slot="footer" lang="en" />
+</BaseLayout>

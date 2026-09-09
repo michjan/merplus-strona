@@ -1,6 +1,6 @@
 ---
 title: "Sposoby uszlachetniania toreb ekologicznych"
-description: "Jak powstają torby papierowe? Jednymi z bardziej popularnych toreb papierowych są torby z nadrukiem. Ich produkcja zaczyna się od przygotowania projektu,..."
+description: "Torby ekologiczne można uszlachetnić offsetem, sitodrukiem, hot stampingiem czy tłoczeniem oraz wzbogacić o uchwyty ze sznurka bawełnianego lub jutowego."
 author: "Zespół MER Plus"
 date: 2021-08-18
 tags: []

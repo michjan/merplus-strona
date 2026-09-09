@@ -12,6 +12,7 @@ import '../styles/global.css';
 import { brand } from '../config/brand';
 import { client } from '../data/client';
 import FloatingContact from '../components/FloatingContact.astro';
+import { plToEn, enToPl } from '../i18n/page-map';
 
 interface Props {
   title: string;
@@ -39,6 +40,13 @@ const socialImageURL = new URL(image, Astro.site ?? brand.url);
 const defaultBusinessImageURL = new URL('/og-image.jpg', Astro.site ?? brand.url);
 const businessId = new URL('/#business', Astro.site ?? brand.url).href;
 
+const locale = Astro.currentLocale === 'en' ? 'en' : 'pl';
+const htmlLang = locale === 'en' ? 'en' : brand.locale.split('_')[0];
+const ogLocale = locale === 'en' ? 'en_US' : brand.locale;
+const normalizedPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+const plPath = locale === 'en' ? enToPl[normalizedPath] : normalizedPath;
+const enPath = locale === 'en' ? normalizedPath : plToEn[normalizedPath];
+
 const defaultSchema = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
@@ -59,6 +67,7 @@ const defaultSchema = {
   email: client.email,
   url: client.domain,
   foundingDate: '1993',
+  sameAs: [client.socials.facebook, client.socials.instagram, client.address.mapLink].filter(Boolean),
 };
 
 const serviceSchema = serviceName ? {
@@ -82,13 +91,16 @@ const extraSchemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
 const schemas = [defaultSchema, ...(serviceSchema ? [serviceSchema] : []), ...extraSchemas];
 ---
 
-<html lang={brand.locale.split('_')[0]} class="scroll-smooth">
+<html lang={htmlLang} class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
 
     <link rel="canonical" href={canonicalURL} />
+    {plPath && <link rel="alternate" hreflang="pl" href={new URL(plPath, Astro.site ?? brand.url)} />}
+    {enPath && <link rel="alternate" hreflang="en" href={new URL(enPath, Astro.site ?? brand.url)} />}
+    {plPath && <link rel="alternate" hreflang="x-default" href={new URL(plPath, Astro.site ?? brand.url)} />}
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex,follow" />}
@@ -99,7 +111,7 @@ const schemas = [defaultSchema, ...(serviceSchema ? [serviceSchema] : []), ...ex
     <meta property="og:title"       content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:image"       content={socialImageURL} />
-    <meta property="og:locale"      content={brand.locale} />
+    <meta property="og:locale"      content={ogLocale} />
 
     <!-- Twitter Card -->
     <meta name="twitter:card"        content="summary_large_image" />
@@ -164,6 +176,6 @@ const schemas = [defaultSchema, ...(serviceSchema ? [serviceSchema] : []), ...ex
 
     <slot name="footer" />
 
-    <FloatingContact />
+    <FloatingContact lang={locale} />
   </body>
 </html>

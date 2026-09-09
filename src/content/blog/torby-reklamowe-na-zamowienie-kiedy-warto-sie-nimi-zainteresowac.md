@@ -1,6 +1,6 @@
 ---
 title: "Torby reklamowe na zamówienie. Kiedy warto się nimi zainteresować?"
-description: "Torby reklamowe na zamówienie. Kiedy warto się nimi zainteresować? Torby papierowe z nadrukiem są produktem, który bardzo dobrze sprawdza się jako forma..."
+description: "Torby reklamowe z nadrukiem to ekologiczna alternatywa dla foliówek, a laminowane wersje sprawdzają się w prezentach i produktach premium."
 author: "Zespół MER Plus"
 date: 2022-03-16
 tags: []

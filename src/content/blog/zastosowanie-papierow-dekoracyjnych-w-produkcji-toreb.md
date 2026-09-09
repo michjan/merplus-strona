@@ -1,6 +1,6 @@
 ---
 title: "Zastosowanie papierów dekoracyjnych w produkcji toreb"
-description: "Papiery ozdobne jako baza torby reklamowej Torby reklamowe mogą być wykonane z różnego rodzaju materiałów. Najbardziej popularnym jest gruby papier w..."
+description: "Papiery dekoracyjne barwione w masie, fakturowane czy perłowe pozwalają stworzyć ekskluzywne, niepowtarzalne torby reklamowe — sprawdź możliwości."
 author: "Zespół MER Plus"
 date: 2021-12-08
 tags: []

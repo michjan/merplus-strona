@@ -3,8 +3,15 @@ import { Image } from 'astro:assets';
 import { brand } from '../config/brand';
 import { client } from '../data/client';
 import logo from '../assets/images/logo_wb merplus.png';
+import { plToEn, enToPl } from '../i18n/page-map';
 
-const offerLinks = [
+interface Props {
+  lang?: 'pl' | 'en';
+}
+
+const { lang = 'pl' } = Astro.props;
+
+const offerLinksPl = [
   { label: 'Torby reklamowe',    href: '/torby-reklamowe' },
   { label: 'Torby z logo',       href: '/torby-reklamowe-z-logo' },
   { label: 'Torby ozdobne',      href: '/torby-ozdobne' },
@@ -13,21 +20,50 @@ const offerLinks = [
   { label: 'Torby eko',          href: '/torby-eko' },
 ];
 
-const nav = [
+const offerLinksEn = [
+  { label: 'Promotional bags',   href: plToEn['/torby-reklamowe'] },
+  { label: 'Custom logo bags',   href: plToEn['/torby-reklamowe-z-logo'] },
+  { label: 'Decorative bags',    href: plToEn['/torby-ozdobne'] },
+  { label: 'Gift boxes',         href: plToEn['/pudelka-prezentowe'] },
+  { label: 'Wine gift bags',     href: plToEn['/torby-na-alkohol'] },
+  { label: 'Eco-friendly bags',  href: plToEn['/torby-eko'] },
+];
+
+
+const navPl = [
   { label: 'Strona główna', href: '/' },
   { label: 'O nas',         href: '/about' },
-  { label: 'Oferta',        href: '/services', children: offerLinks },
+  { label: 'Oferta',        href: '/services', children: offerLinksPl },
   { label: 'Wykrojniki',    href: '/wykrojniki' },
   { label: 'Blog',          href: '/blog' },
   { label: 'Kontakt',       href: '/contact' },
 ];
 
+const navEn = [
+  { label: 'Home',    href: plToEn['/'] },
+  { label: 'About',   href: plToEn['/about'] },
+  { label: 'Products', href: plToEn['/services'], children: offerLinksEn },
+  { label: 'Size guide', href: plToEn['/wykrojniki'] },
+  { label: 'Blog',    href: '/en/blog' },
+  { label: 'Contact', href: plToEn['/contact'] },
+];
+
+const nav = lang === 'en' ? navEn : navPl;
+const contactHref = lang === 'en' ? plToEn['/contact'] : '/contact';
+const quoteLabel = lang === 'en' ? 'Get a free quote' : 'Bezpłatna wycena';
+const fullOfferLabel = lang === 'en' ? 'All products' : 'Cała oferta';
+
 const currentPath = Astro.url.pathname;
+const normalizedPath = currentPath.replace(/\/$/, '') || '/';
+const switchHref = lang === 'en'
+  ? (enToPl[normalizedPath] ?? '/')
+  : (plToEn[normalizedPath] ?? '/en');
+const switchLabel = lang === 'en' ? 'PL' : 'EN';
 ---
 
 <header
   class="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur-sm"
-  transition:persist
+  transition:persist={`header-${lang}`}
 >
   <div class="mx-auto flex max-w-site items-center justify-between px-4 py-3 sm:px-6">
     <!-- Logo -->
@@ -109,16 +145,23 @@ const currentPath = Astro.url.pathname;
         </span>
       )}
       <a
+        href={switchHref}
+        class="rounded-md border border-border px-2.5 py-1 text-xs font-semibold text-text-muted transition-colors hover:border-primary hover:text-primary"
+        aria-label={lang === 'en' ? 'View this page in Polish' : 'Zobacz tę stronę po angielsku'}
+      >
+        {switchLabel}
+      </a>
+      <a
         href={`tel:${client.phoneForTel}`}
         class="text-sm font-semibold text-text hover:text-primary transition-colors"
       >
         {client.phoneFormatted}
       </a>
       <a
-        href="/contact"
+        href={contactHref}
         class="inline-flex min-h-[44px] items-center rounded-md bg-accent px-5 py-2.5 text-sm font-bold text-accent-fg shadow-sm transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
       >
-        Bezpłatna wycena
+        {quoteLabel}
       </a>
     </div>
 
@@ -178,7 +221,7 @@ const currentPath = Astro.url.pathname;
                     currentPath === href ? 'bg-primary/10 text-primary' : 'text-text-muted hover:text-text hover:bg-surface',
                   ]}
                 >
-                  Cała oferta
+                  {fullOfferLabel}
                 </a>
                 {children.map((child) => (
                   <a
@@ -216,6 +259,16 @@ const currentPath = Astro.url.pathname;
 
     <div class="mt-4 flex flex-col gap-3 border-t border-border pt-4">
       <a
+        href={switchHref}
+        class="flex items-center gap-2 px-3 py-2 text-base font-semibold text-text"
+        aria-label={lang === 'en' ? 'View this page in Polish' : 'Zobacz tę stronę po angielsku'}
+      >
+        <svg class="size-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.6 9h16.8M3.6 15h16.8M11.5 3a17 17 0 000 18M12.5 3a17 17 0 010 18" />
+        </svg>
+        {lang === 'en' ? 'Polski (PL)' : 'English (EN)'}
+      </a>
+      <a
         href={`tel:${client.phoneForTel}`}
         class="flex items-center gap-2 px-3 py-2 text-base font-semibold text-text"
       >
@@ -225,10 +278,10 @@ const currentPath = Astro.url.pathname;
         {client.phoneFormatted}
       </a>
       <a
-        href="/contact"
+        href={contactHref}
         class="flex min-h-[44px] items-center justify-center rounded-md bg-accent px-5 py-3 text-base font-bold text-accent-fg shadow-sm transition-opacity hover:opacity-90"
       >
-        Bezpłatna wycena
+        {quoteLabel}
       </a>
       {client.license && (
         <p class="px-3 pt-1 text-xs text-text-muted">{client.license}</p>

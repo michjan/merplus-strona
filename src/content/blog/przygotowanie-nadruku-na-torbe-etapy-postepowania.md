@@ -1,6 +1,6 @@
 ---
 title: "Przygotowanie nadruku na torbę. Etapy postępowania"
-description: "Pierwszym etapem jest wybór torby do druku. Zanim zaczniemy jakiekolwiek działania, warto wybrać torbę, na której wykonamy projekt, czyli wielkość, rodzaj..."
+description: "Wybór torby, przygotowanie projektu i dobór metody nadruku — sitodruku, offsetu lub fleksografii — to trzy główne etapy przygotowania nadruku na torbę."
 author: "Zespół MER Plus"
 date: 2020-04-05
 tags: []

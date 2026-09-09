@@ -9,6 +9,10 @@ import { test, expect } from '@playwright/test';
  *   CLS  < 0.1
  *   TTFB < 800 ms
  *   FCP  < 1800 ms
+ *
+ * Run against three representative page types so a heavy hero image on a
+ * product page, or a hotlinked image on a blog post, can't hide behind a
+ * homepage-only measurement.
  */
 
 const THRESHOLDS = {
@@ -19,125 +23,146 @@ const THRESHOLDS = {
   domInteractive: 3000,
 };
 
-test.describe('Performance / Speed Score', () => {
-  test('TTFB and FCP are within budget', async ({ page }) => {
-    await page.goto('/');
+// Page-weight budget is set per page type: the homepage and product pages
+// ship optimized local images, blog posts currently hotlink images from the
+// old WordPress site (see audyt-seo-codex.md) which tend to be heavier and
+// are not under this repo's control.
+const PAGES: { label: string; path: string; maxWeightKb: number }[] = [
+  { label: 'Strona główna', path: '/', maxWeightKb: 500 },
+  { label: 'Strona produktowa (torby-reklamowe)', path: '/torby-reklamowe', maxWeightKb: 700 },
+  {
+    label: 'Wpis blogowy (4-korzysci...)',
+    path: '/blog/4-korzysci-wynikajace-ze-stosowania-toreb-papierowych',
+    maxWeightKb: 900,
+  },
+];
 
-    const metrics = await page.evaluate(() => {
-      const nav = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
-      const fcp = performance.getEntriesByName('first-contentful-paint')[0];
-      return {
-        ttfb: nav.responseStart - nav.requestStart,
-        fcp: fcp ? fcp.startTime : null,
-        domInteractive: nav.domInteractive,
-      };
-    });
+for (const { label, path, maxWeightKb } of PAGES) {
+  test.describe(`Performance / Speed Score — ${label}`, () => {
+    test('TTFB and FCP are within budget', async ({ page }) => {
+      await page.goto(path);
 
-    console.log('TTFB:', metrics.ttfb.toFixed(0), 'ms');
-    console.log('FCP:', metrics.fcp?.toFixed(0) ?? 'n/a', 'ms');
-    console.log('DOM Interactive:', metrics.domInteractive.toFixed(0), 'ms');
+      const metrics = await page.evaluate(() => {
+        const nav = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
+        const fcp = performance.getEntriesByName('first-contentful-paint')[0];
+        return {
+          ttfb: nav.responseStart - nav.requestStart,
+          fcp: fcp ? fcp.startTime : null,
+          domInteractive: nav.domInteractive,
+        };
+      });
 
-    expect(metrics.ttfb).toBeLessThan(THRESHOLDS.ttfb);
-    if (metrics.fcp !== null) {
-      expect(metrics.fcp).toBeLessThan(THRESHOLDS.fcp);
-    }
-    expect(metrics.domInteractive).toBeLessThan(THRESHOLDS.domInteractive);
-  });
+      console.log(`[${label}] TTFB:`, metrics.ttfb.toFixed(0), 'ms');
+      console.log(`[${label}] FCP:`, metrics.fcp?.toFixed(0) ?? 'n/a', 'ms');
+      console.log(`[${label}] DOM Interactive:`, metrics.domInteractive.toFixed(0), 'ms');
 
-  test('LCP is within budget', async ({ page }) => {
-    // Collect LCP via PerformanceObserver before navigation
-    await page.goto('/');
-
-    const lcp = await page.evaluate(
-      () =>
-        new Promise<number>((resolve) => {
-          let value = 0;
-          const observer = new PerformanceObserver((list) => {
-            for (const entry of list.getEntries()) {
-              value = entry.startTime;
-            }
-          });
-          observer.observe({ type: 'largest-contentful-paint', buffered: true });
-          // Give the browser a tick to flush buffered entries
-          setTimeout(() => {
-            observer.disconnect();
-            resolve(value);
-          }, 500);
-        }),
-    );
-
-    console.log('LCP:', lcp.toFixed(0), 'ms');
-    expect(lcp).toBeLessThan(THRESHOLDS.lcp);
-  });
-
-  test('CLS is within budget', async ({ page }) => {
-    await page.goto('/');
-    // Wait for layout to stabilise
-    await page.waitForTimeout(1500);
-
-    const cls = await page.evaluate(
-      () =>
-        new Promise<number>((resolve) => {
-          let value = 0;
-          const observer = new PerformanceObserver((list) => {
-            for (const entry of list.getEntries()) {
-              // LayoutShift entries have a `value` property
-              value += (entry as PerformanceEntry & { value: number }).value;
-            }
-          });
-          observer.observe({ type: 'layout-shift', buffered: true });
-          setTimeout(() => {
-            observer.disconnect();
-            resolve(value);
-          }, 200);
-        }),
-    );
-
-    console.log('CLS:', cls.toFixed(4));
-    expect(cls).toBeLessThan(THRESHOLDS.cls);
-  });
-
-  test('page has no unexpected render-blocking resources', async ({ page }) => {
-    await page.goto('/');
-
-    const renderBlockingCount = await page.evaluate(() => {
-      const resources = performance.getEntriesByType(
-        'resource',
-      ) as PerformanceResourceTiming[];
-      return resources.filter(
-        (r) =>
-          r.renderBlockingStatus === 'blocking' &&
-          // The single first-party stylesheet is intentionally render-blocking
-          // to avoid a flash of unstyled content.
-          !(r.initiatorType === 'link' && /\.css(?:\?|$)/.test(r.name)) &&
-          // Favicon requests are fine to ignore
-          !r.name.includes('favicon'),
-      ).length;
-    });
-
-    console.log('Render-blocking resources:', renderBlockingCount);
-    expect(renderBlockingCount).toBe(0);
-  });
-
-  test('first-party page weight is under 500 KB', async ({ page }) => {
-    let totalBytes = 0;
-
-    page.on('response', async (response) => {
-      const responseUrl = new URL(response.url());
-      if (!['127.0.0.1', 'localhost'].includes(responseUrl.hostname)) return;
-
-      const headers = response.headers();
-      const contentLength = headers['content-length'];
-      if (contentLength) {
-        totalBytes += parseInt(contentLength, 10);
+      expect(metrics.ttfb).toBeLessThan(THRESHOLDS.ttfb);
+      if (metrics.fcp !== null) {
+        expect(metrics.fcp).toBeLessThan(THRESHOLDS.fcp);
       }
+      expect(metrics.domInteractive).toBeLessThan(THRESHOLDS.domInteractive);
     });
 
-    await page.goto('/');
-    await page.waitForLoadState('networkidle');
+    test('LCP is within budget', async ({ page }) => {
+      // Collect LCP via PerformanceObserver before navigation
+      await page.goto(path);
 
-    const totalKb = totalBytes / 1024;
-    console.log('Total page weight:', totalKb.toFixed(1), 'KB');
-    expect(totalKb).toBeLessThan(500);
+      const lcp = await page.evaluate(
+        () =>
+          new Promise<number>((resolve) => {
+            let value = 0;
+            const observer = new PerformanceObserver((list) => {
+              for (const entry of list.getEntries()) {
+                value = entry.startTime;
+              }
+            });
+            observer.observe({ type: 'largest-contentful-paint', buffered: true });
+            // Give the browser a tick to flush buffered entries
+            setTimeout(() => {
+              observer.disconnect();
+              resolve(value);
+            }, 500);
+          }),
+      );
+
+      console.log(`[${label}] LCP:`, lcp.toFixed(0), 'ms');
+      expect(lcp).toBeLessThan(THRESHOLDS.lcp);
+    });
+
+    test('CLS is within budget', async ({ page }) => {
+      await page.goto(path);
+      // Wait for layout to stabilise
+      await page.waitForTimeout(1500);
+
+      const cls = await page.evaluate(
+        () =>
+          new Promise<number>((resolve) => {
+            let value = 0;
+            const observer = new PerformanceObserver((list) => {
+              for (const entry of list.getEntries()) {
+                // LayoutShift entries have a `value` property
+                value += (entry as PerformanceEntry & { value: number }).value;
+              }
+            });
+            observer.observe({ type: 'layout-shift', buffered: true });
+            setTimeout(() => {
+              observer.disconnect();
+              resolve(value);
+            }, 200);
+          }),
+      );
+
+      console.log(`[${label}] CLS:`, cls.toFixed(4));
+      expect(cls).toBeLessThan(THRESHOLDS.cls);
+    });
+
+    test('page has no unexpected render-blocking resources', async ({ page }) => {
+      await page.goto(path);
+
+      const renderBlockingCount = await page.evaluate(() => {
+        const resources = performance.getEntriesByType(
+          'resource',
+        ) as PerformanceResourceTiming[];
+        return resources.filter(
+          (r) =>
+            r.renderBlockingStatus === 'blocking' &&
+            // The single first-party stylesheet is intentionally render-blocking
+            // to avoid a flash of unstyled content.
+            !(r.initiatorType === 'link' && /\.css(?:\?|$)/.test(r.name)) &&
+            // Favicon requests are fine to ignore
+            !r.name.includes('favicon'),
+        ).length;
+      });
+
+      console.log(`[${label}] Render-blocking resources:`, renderBlockingCount);
+      expect(renderBlockingCount).toBe(0);
+    });
+
+    test(`page weight is under ${maxWeightKb} KB (first-party) / tracked (third-party)`, async ({ page }) => {
+      let firstPartyBytes = 0;
+      let thirdPartyBytes = 0;
+
+      page.on('response', async (response) => {
+        const responseUrl = new URL(response.url());
+        const headers = response.headers();
+        const contentLength = headers['content-length'];
+        if (!contentLength) return;
+        if (['127.0.0.1', 'localhost'].includes(responseUrl.hostname)) {
+          firstPartyBytes += parseInt(contentLength, 10);
+        } else {
+          thirdPartyBytes += parseInt(contentLength, 10);
+        }
+      });
+
+      await page.goto(path);
+      await page.waitForLoadState('networkidle');
+
+      const firstPartyKb = firstPartyBytes / 1024;
+      const thirdPartyKb = thirdPartyBytes / 1024;
+      console.log(`[${label}] First-party page weight:`, firstPartyKb.toFixed(1), 'KB');
+      console.log(`[${label}] Third-party (hotlinked/CDN) weight:`, thirdPartyKb.toFixed(1), 'KB');
+
+      expect(firstPartyKb).toBeLessThan(maxWeightKb);
+    });
   });
-});
+}

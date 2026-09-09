@@ -1,0 +1,49 @@
+# Konfiguracja Sveltia CMS (git-based CMS, kompatybilny z formatem Decap CMS).
+# Panel dostępny pod /admin na wdrożonej stronie (Netlify).
+# Każdy zapis w CMS tworzy commit w tym repo (branch main) — build na Netlify
+# odpala się automatycznie po każdej zmianie.
+
+backend:
+  name: github
+  repo: michjan/merplus-strona
+  branch: main
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "blog_pl"
+    label: "Blog (PL)"
+    label_singular: "Wpis bloga (PL)"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: title
+    fields:
+      - { label: "Tytuł", name: "title", widget: "string" }
+      - { label: "Opis (meta description, ~150-160 znaków)", name: "description", widget: "text" }
+      - { label: "Autor", name: "author", widget: "string", default: "Zespół MER Plus" }
+      - { label: "Data publikacji", name: "date", widget: "date", format: "YYYY-MM-DD" }
+      - { label: "Tagi", name: "tags", widget: "list", default: [], required: false }
+      - { label: "Szkic (nie publikuj jeszcze)", name: "draft", widget: "boolean", default: false }
+      - { label: "Zdjęcie — adres URL", name: "image", widget: "string", required: false, hint: "Pełny adres URL zdjęcia (na razie część wpisów linkuje do starego WordPressa — do naprawienia)." }
+      - { label: "Tekst alternatywny zdjęcia (alt)", name: "imageAlt", widget: "string", required: false }
+      - { label: "Treść wpisu", name: "body", widget: "markdown" }
+
+  - name: "blog_en"
+    label: "Blog (EN)"
+    label_singular: "Blog post (EN)"
+    folder: "src/content/blog-en"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: title
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description (meta, ~150-160 chars)", name: "description", widget: "text" }
+      - { label: "Author", name: "author", widget: "string", default: "MER Plus Team" }
+      - { label: "Publish date", name: "date", widget: "date", format: "YYYY-MM-DD" }
+      - { label: "Tags", name: "tags", widget: "list", default: [], required: false }
+      - { label: "Draft (hide from site)", name: "draft", widget: "boolean", default: false }
+      - { label: "Image — URL", name: "image", widget: "string", required: false, hint: "Full image URL (some posts still link to the old WordPress site — to be fixed)." }
+      - { label: "Image alt text", name: "imageAlt", widget: "string", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }

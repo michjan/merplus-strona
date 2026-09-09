@@ -1,6 +1,6 @@
 ---
 title: "Torby reklamowe premium. Charakterystyka"
-description: "Dlaczego warto wybrać torby reklamowe premium? Przede wszystkim dlatego, że jak sama nazwa wskazuje to jakość i klasa sama w sobie. Dostępne na naszej..."
+description: "Torby reklamowe premium z papieru GARDA, hot stampingiem i tłoczeniem to elegancki, wysokiej klasy nośnik reklamy na targi i wydarzenia firmowe."
 author: "Zespół MER Plus"
 date: 2020-04-02
 tags: []

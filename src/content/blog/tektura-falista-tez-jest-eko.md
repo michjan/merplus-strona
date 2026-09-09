@@ -1,6 +1,6 @@
 ---
 title: "Tektura falista też jest Eko"
-description: "Torebka reklamowa z tektury falistej Wymiar: 28x33x10 - Uszlachetnienie: hot-stamping - Uchwyt: Wstążka atłasowa 18mm - Dostępne w 6 kolorach (naturalny,..."
+description: "Torebka reklamowa z tektury falistej 28x33x10 z nadrukiem hot-stamping i wstążką atłasową, dostępna w 6 kolorach — poznaj szczegóły produktu."
 author: "Zespół MER Plus"
 date: 2019-10-04
 tags: []

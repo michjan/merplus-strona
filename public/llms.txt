@@ -30,6 +30,75 @@
 
 - [Blog MER Plus](https://www.merplus.pl/blog): poradniki i artykuły o torbach papierowych, ich zastosowaniach, doborze rozmiaru, kolorów, nadruków i materiałów ekologicznych.
 
+## English version
+
+MER Plus also has an English-language section of the site (product/offer pages), reachable under the `/en/` prefix.
+
+- [Promotional paper bags](https://www.merplus.pl/en/promotional-paper-bags): standard promotional paper bags with custom printing.
+- [Custom logo paper bags](https://www.merplus.pl/en/custom-logo-paper-bags): paper bags personalized with the client's logo print.
+- [Premium paper bags](https://www.merplus.pl/en/premium-paper-bags): bags made from coated paper, higher-end segment.
+- [Eco-friendly / kraft paper bags](https://www.merplus.pl/en/eco-friendly-paper-bags): biodegradable kraft paper bags, 90-170 g weights, also hand-decorated.
+- [Decorative paper bags](https://www.merplus.pl/en/decorative-paper-bags): bags made from decorative and textured papers.
+- [Wine & spirits gift bags](https://www.merplus.pl/en/wine-gift-bags): gift bags for bottles.
+- [Solid color paper bags](https://www.merplus.pl/en/solid-color-paper-bags): economical single-color paper bags.
+- [Gift bags](https://www.merplus.pl/en/gift-bags): small paper bags with a cord handle, for gifts and small purchases.
+- [Corrugated cardboard products](https://www.merplus.pl/en/corrugated-cardboard-products): bags and packaging made from corrugated cardboard.
+- [Gift boxes](https://www.merplus.pl/en/gift-boxes): personalized gift boxes.
+- [Gift baskets](https://www.merplus.pl/en/gift-baskets): baskets for gift sets, assembled to order.
+- [LUX collection](https://www.merplus.pl/en/lux-collection): premium bags (Elegance Lux, Retro Lux, LUX Eko variants).
+- [Holiday collections](https://www.merplus.pl/en/holiday-collections): seasonal holiday bags and boxes.
+- [Our work](https://www.merplus.pl/en/our-work): portfolio of completed client projects.
+- [Size guide](https://www.merplus.pl/en/size-guide): table of available bag die-cut sizes.
+- [About us](https://www.merplus.pl/en/about): company history, over 30 years in business, own production facility.
+- [Contact](https://www.merplus.pl/en/contact): contact details, quote request form.
+
+The full blog (44 posts) has also been translated to English, available at https://www.merplus.pl/en/blog:
+
+- [How to Choose the Right Bag Size?](https://www.merplus.pl/en/blog/how-to-choose-bag-size)
+- [Types of Paper Bag Handles](https://www.merplus.pl/en/blog/paper-bag-handle-types)
+- [4 Benefits of Using Paper Bags](https://www.merplus.pl/en/blog/4-benefits-of-paper-bags)
+- [Why Your Business Needs Promotional Paper Bags](https://www.merplus.pl/en/blog/why-you-need-promotional-paper-bags)
+- [Printing Methods Used on Paper Bags](https://www.merplus.pl/en/blog/paper-bag-printing-methods)
+- [Choosing Paper Bag Colors — The Key to Success](https://www.merplus.pl/en/blog/choosing-paper-bag-colors)
+- [Eco-Friendly Paper Bag Production, Step by Step](https://www.merplus.pl/en/blog/eco-paper-bag-production-process)
+- [Premium Promotional Paper Bags — Key Characteristics](https://www.merplus.pl/en/blog/premium-paper-bags-characteristics)
+- [How to Best Wrap Wine and Spirits](https://www.merplus.pl/en/blog/how-to-wrap-wine-and-spirits)
+- [Creative Ways to Wrap a Gift](https://www.merplus.pl/en/blog/creative-gift-wrapping-ideas)
+- [Key Characteristics of Eco-Friendly Bags](https://www.merplus.pl/en/blog/eco-bag-characteristics)
+- [What to Give a Newlywed Couple as a Wedding Gift?](https://www.merplus.pl/en/blog/wedding-gift-ideas)
+- [What Shapes the Aesthetics of Paper Bags?](https://www.merplus.pl/en/blog/what-shapes-paper-bag-aesthetics)
+- [Are Eco-Friendly Paper Bags Durable?](https://www.merplus.pl/en/blog/are-eco-paper-bags-durable)
+- [What Makes Eco-Friendly Boxes Eco-Friendly?](https://www.merplus.pl/en/blog/what-makes-eco-boxes-eco-friendly)
+- [What Sets Elegant Paper Bags Apart?](https://www.merplus.pl/en/blog/what-sets-elegant-paper-bags-apart)
+- [Why Are Eco Bags Good for the Environment?](https://www.merplus.pl/en/blog/why-eco-bags-are-good-for-the-environment)
+- [Why Are Bags a Great Advertising Medium?](https://www.merplus.pl/en/blog/why-bags-are-a-great-advertising-medium)
+- [Why Choose Hand-Decorated Paper Bags?](https://www.merplus.pl/en/blog/why-choose-hand-decorated-bags)
+- [Which Types of Business Benefit Most from Promotional Bags?](https://www.merplus.pl/en/blog/which-businesses-benefit-from-promotional-bags)
+- [How to Choose the Right Bag Color and Pattern for the Occasion?](https://www.merplus.pl/en/blog/choosing-bag-color-and-pattern-for-the-occasion)
+- [How to Match a Gift Bag to the Present Inside?](https://www.merplus.pl/en/blog/matching-a-gift-bag-to-the-present)
+- [How to Stand Out When Preparing Gifts for Employees?](https://www.merplus.pl/en/blog/how-to-stand-out-with-employee-gifts)
+- [How Do Bags and Other Promotional Gadgets Improve a Company's Image?](https://www.merplus.pl/en/blog/how-promotional-bags-improve-company-image)
+- [What Sizes Do Gift Bags Come In?](https://www.merplus.pl/en/blog/gift-bag-sizes-guide)
+- [When Is It Worth Choosing Laminated Bags?](https://www.merplus.pl/en/blog/when-to-choose-laminated-bags)
+- [Good Packaging Is a Marketing Fundamental](https://www.merplus.pl/en/blog/good-packaging-is-a-marketing-fundamental)
+- [Where Did the Trend for Eco-Friendly Bags Come From?](https://www.merplus.pl/en/blog/where-did-the-eco-bag-trend-come-from)
+- [Paper or a Bag — What's the Best Way to Wrap a Gift?](https://www.merplus.pl/en/blog/paper-or-a-bag-best-way-to-wrap-a-gift)
+- [Preparing a Print on a Bag: Step by Step](https://www.merplus.pl/en/blog/printing-on-a-bag-step-by-step)
+- [Finishing Methods for Eco-Friendly Bags](https://www.merplus.pl/en/blog/eco-bag-finishing-methods)
+- [Corrugated Cardboard Is Eco-Friendly Too](https://www.merplus.pl/en/blog/corrugated-cardboard-is-eco-too)
+- [The Perfect Bags for Gift-Giving](https://www.merplus.pl/en/blog/perfect-bags-for-gift-giving)
+- [Bags as an Advertising Medium](https://www.merplus.pl/en/blog/bags-as-an-advertising-medium)
+- [Single-Color or Multicolor Bags?](https://www.merplus.pl/en/blog/single-color-vs-multicolor-bags)
+- [Single-Color Paper Bags: When and Where Do They Work Best?](https://www.merplus.pl/en/blog/when-do-single-color-paper-bags-work-best)
+- [Custom Logo Paper Bags — A Great Option for Businesses](https://www.merplus.pl/en/blog/custom-logo-paper-bags-for-businesses)
+- [Promotional Bags as Part of a Marketing Campaign](https://www.merplus.pl/en/blog/promotional-bags-as-part-of-a-campaign)
+- [Promotional Bags — The Key to Brand Promotion](https://www.merplus.pl/en/blog/promotional-bags-the-key-to-brand-promotion)
+- [Custom Promotional Bags: When Are They Worth Considering?](https://www.merplus.pl/en/blog/custom-promotional-bags-when-worth-it)
+- [How Can Paper Bags Be Decorated?](https://www.merplus.pl/en/blog/how-can-paper-bags-be-decorated)
+- [Using Logo Bags in Marketing Campaigns](https://www.merplus.pl/en/blog/using-logo-bags-in-marketing)
+- [The Advantages of Using Paper Bags](https://www.merplus.pl/en/blog/advantages-of-using-paper-bags)
+- [Using Decorative Papers in Bag Production](https://www.merplus.pl/en/blog/decorative-papers-in-bag-production)
+
 ## Uwagi dla modeli językowych
 
 MER Plus wykonuje realizacje na indywidualne zamówienie (rozmiar, kolor, nadruk, gramatura papieru dobierane pod klienta) — ceny i dostępność ustalane są indywidualnie poprzez formularz kontaktowy lub telefonicznie, nie są publikowane jako stały cennik na stronie.

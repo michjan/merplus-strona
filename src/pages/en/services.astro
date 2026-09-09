@@ -1,0 +1,136 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Banner from '../../components/Banner.astro';
+import CTA from '../../components/CTA.astro';
+import { brand } from '../../config/brand';
+import { plToEn } from '../../i18n/page-map';
+
+const services = [
+  {
+    title: 'Promotional paper bags',
+    description: 'Paper bags printed with your logo and artwork — perfect for marketing, retail, events, and promotional campaigns. Printing matched to your brand identity.',
+    href: plToEn['/torby-reklamowe'],
+  },
+  {
+    title: 'Custom logo paper bags',
+    description: 'Full customization of paper bags — logo printing using various techniques, matched to your company\'s brand book. No minimum order quantity.',
+    href: plToEn['/torby-reklamowe-z-logo'],
+  },
+  {
+    title: 'Decorative paper bags',
+    description: 'Elegant gift bags, hand-finished and decorated — ideal for corporate gifts, special occasions, and holidays. Every detail is made with care for aesthetics.',
+    href: plToEn['/torby-ozdobne'],
+  },
+  {
+    title: 'Wine & spirits gift bags',
+    description: 'Reinforced, elegant bags for wine and spirit bottles — a great solution for shops, wineries, and companies looking for representative packaging.',
+    href: plToEn['/torby-na-alkohol'],
+  },
+  {
+    title: 'Eco-friendly paper bags',
+    description: 'Packaging made from environmentally friendly, fully recyclable materials — a responsible choice for brands that care about sustainability.',
+    href: plToEn['/torby-eko'],
+  },
+  {
+    title: 'Gift boxes',
+    description: 'Gift boxes and packaging in various sizes and finishes, matched to your brand\'s character and the occasion.',
+    href: plToEn['/pudelka-prezentowe'],
+  },
+  {
+    title: 'Paper gift bags',
+    description: 'Gift bags with cord or ribbon handles, in many colors and textures — also available hand-decorated.',
+    href: plToEn['/torebki-na-prezenty'],
+  },
+  {
+    title: 'Premium promotional bags',
+    description: 'Exclusive bags made from coated paper, with optional lamination — a representative advertising carrier for your brand.',
+    href: plToEn['/torby-reklamowe-premium'],
+  },
+  {
+    title: 'Solid-color paper bags',
+    description: 'Economical bags in many colors, colored on the inside as well — clean elegance and a good base for printing.',
+    href: plToEn['/torby-jednokolorowe'],
+  },
+  {
+    title: 'LUX Collection',
+    description: 'Elegance Lux, Retro Lux, and LUX Eko — our line of paper bags with an elevated finishing standard.',
+    href: plToEn['/kolekcja-lux'],
+  },
+  {
+    title: 'Our work',
+    description: 'See over 90 completed paper bag projects — from Premium to eco-friendly Kraft.',
+    href: plToEn['/nasze-realizacje'],
+  },
+  {
+    title: 'Gift baskets',
+    description: 'Ready-made sets and custom-arranged gift baskets for corporate and personal gifts.',
+    href: plToEn['/kosze-prezentowe'],
+  },
+  {
+    title: 'Holiday collections',
+    description: 'Seasonal bags and boxes in winter and holiday themes — for gifts and seasonal promotions.',
+    href: plToEn['/kolekcje-swiateczne'],
+  },
+  {
+    title: 'Corrugated cardboard products',
+    description: 'Bags with a distinctive, corrugated texture — aesthetics and extra protection for the contents in one.',
+    href: plToEn['/produkty-z-tektury-falistej'],
+  },
+  {
+    title: 'Custom orders',
+    description: 'Have your own packaging idea? With over 30 years of experience and our own production facility, we can help design and manufacture a solution tailored to your needs — regardless of order size.',
+    href: plToEn['/contact'],
+  },
+];
+
+const icons = [
+  '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />',
+  '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />',
+  '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />',
+  '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />',
+  '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />',
+  '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />',
+];
+---
+
+<BaseLayout
+  title="Products — Promotional and Decorative Paper Bags | MER Plus"
+  description={`Explore ${brand.name}'s full range — promotional bags with custom printing and logo, decorative bags, wine gift bags, eco-friendly bags, and custom gift boxes.`}
+  serviceName="Custom manufacturing of paper bags and packaging"
+>
+  <Header slot="header" lang="en" />
+
+  <Banner title="Our Products — Paper Bags and Packaging" lang="en" />
+
+  <section class="py-section">
+    <div class="mx-auto max-w-site px-4 sm:px-6">
+      <div class="mx-auto mb-10 max-w-2xl text-center lg:mb-14">
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">What we can do for you</h2>
+        <p class="mt-3 text-text-muted leading-relaxed">
+          Small and large orders, standard and custom projects — this is our range. Click a category to see the details.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+        {services.map((service, i) => (
+          <a href={service.href} class="flex gap-5 rounded-lg border border-border bg-background p-6 shadow-sm transition-colors hover:border-accent">
+            <div class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+              <svg class="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" set:html={icons[i % icons.length]} />
+            </div>
+            <div>
+              <h3 class="font-heading text-h3 font-semibold text-text">{service.title}</h3>
+              <p class="mt-2 text-text-muted leading-relaxed">{service.description}</p>
+              <span class="mt-3 inline-block text-sm font-bold text-accent">See details →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTA lang="en" />
+
+  <Footer slot="footer" lang="en" />
+</BaseLayout>

@@ -1,6 +1,6 @@
 ---
 title: "Czy ekologiczne torby papierowe są wytrzymałe?"
-description: "Materiały i technologie stosowane w produkcji Ekologiczne torby papierowe są produkowane z różnych rodzajów papieru, np. kraft, celuloza czy tektura...."
+description: "Ekologiczne torby papierowe z papieru kraft, celulozy czy tektury są odporne na rozciąganie i mogą być używane wielokrotnie — porównujemy ich wytrzymałość."
 author: "Zespół MER Plus"
 date: 2024-03-26
 tags: []

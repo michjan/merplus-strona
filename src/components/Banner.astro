@@ -5,22 +5,48 @@ import bannerBg from '../assets/images/banner-bg.jpg';
 interface Props {
   title: string;
   parent?: { label: string; href: string };
+  lang?: 'pl' | 'en';
 }
 
-const { title, parent } = Astro.props;
+const { title, parent, lang = 'pl' } = Astro.props;
 
-const labelOverrides: Record<string, string> = {
-  services: 'Oferta',
-};
+const labelOverrides: Record<string, string> = lang === 'en'
+  ? { services: 'Products' }
+  : { services: 'Oferta' };
 
-const segments = Astro.url.pathname
+const homeLabel = lang === 'en' ? 'Home' : 'Strona główna';
+
+// Strip the /en locale prefix so it doesn't show up as its own breadcrumb segment.
+const localeStrippedPath = lang === 'en'
+  ? Astro.url.pathname.replace(/^\/en\/?/, '/')
+  : Astro.url.pathname;
+const pathPrefix = lang === 'en' ? '/en' : '';
+
+const segments = localeStrippedPath
   .split('/')
   .filter(Boolean)
   .map((seg, i, arr) => ({
     label: labelOverrides[seg] ?? seg.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()),
-    href: '/' + arr.slice(0, i + 1).join('/'),
+    href: pathPrefix + '/' + arr.slice(0, i + 1).join('/'),
     isLast: i === arr.length - 1,
   }));
+
+const siteOrigin = Astro.site ?? new URL('https://www.merplus.pl');
+const breadcrumbTrail = [
+  { name: homeLabel, href: lang === 'en' ? '/en' : '/' },
+  ...(parent ? [{ name: parent.label, href: parent.href }] : []),
+  ...segments.map(({ label, href }) => ({ name: label, href })),
+];
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbTrail.map(({ name, href }, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name,
+    item: new URL(href, siteOrigin).href,
+  })),
+};
 ---
 
 <section class="relative overflow-hidden bg-primary py-14 sm:py-16 lg:py-20">
@@ -38,7 +64,7 @@ const segments = Astro.url.pathname
     <nav aria-label="Breadcrumb" class="mb-4">
       <ol class="flex flex-wrap items-center gap-1.5 text-sm text-primary-fg/60">
         <li>
-          <a href="/" class="transition-colors hover:text-primary-fg">Strona główna</a>
+          <a href={lang === 'en' ? '/en' : '/'} class="transition-colors hover:text-primary-fg">{homeLabel}</a>
         </li>
         {parent && (
           <li class="flex items-center gap-1.5">
@@ -66,5 +92,8 @@ const segments = Astro.url.pathname
     <h1 class="font-heading text-h1 font-bold uppercase text-primary-fg">
       {title}
     </h1>
+
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
   </div>
 </section>

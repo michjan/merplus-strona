@@ -1,6 +1,6 @@
 ---
 title: "Czym się charakteryzują pudełka ekologiczne?"
-description: "Co to jest opakowanie ekologiczne? Opakowanie, które można nazwać ekologicznym, wykonane jest w całości z surowców naturalnych. Nie bez znaczenia jest..."
+description: "Opakowanie ekologiczne to surowce naturalne, prosty proces produkcji i możliwość ponownego wykorzystania lub recyklingu. Sprawdź zalety eko pudełek i toreb."
 author: "Zespół MER Plus"
 date: 2023-03-24
 tags: []
